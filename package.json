@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --cache --fix --ext .ts,.tsx",
-    "pretest": "npm run lint:css && npm run lint",
-    "format": "prettier --loglevel warn --write \"**/*.{ts,tsx,css,md}\"",
+    "pretest": "npm run lint:scss && npm run lint",
+    "format": "prettier --loglevel warn --write \"**/*.{ts,tsx,scss,md}\"",
     "posttest": "npm run format",
     "lint:scss": "stylelint '**/*.scss'",
     "prepare": "husky install"
