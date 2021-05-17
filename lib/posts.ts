@@ -4,7 +4,6 @@ import matter from "gray-matter";
 import remark from "remark";
 import html from "remark-html";
 
-// eslint-disable-next-line no-undef
 const postsDirectory = path.join(process.cwd(), "posts");
 
 export function getSortedPostsData() {
