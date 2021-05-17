@@ -1,0 +1,61 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/cache@v1
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 15.x
+
+      - name: Install
+        run: |
+          npm ci
+
+      - name: Build site
+        run: |
+          npm run build
+
+      - name: Vet
+        run: |
+          npm run lint
+          npm run lint:scss
+
+      - name: Create Slack message - Success
+        run: |
+          echo -ne "SLACK_MESSAGE=🚀 Blog Build Success - \`${GITHUB_REF##*/}\`" >> $GITHUB_ENV
+
+      - name: Slack Notification
+        uses: markgaze/action-slack-notify@master
+        env:
+          SLACK_ICON: https://avatars.githubusercontent.com/in/15368?s=88&v=4
+          SLACK_USERNAME: "GitHub Actions"
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
+      - name: Create Slack message - Failure
+        if: failure()
+        run: |
+
+          echo -ne "SLACK_MESSAGE=👎🏼 Blog Build Failed - \`${GITHUB_REF##*/}\`" >> $GITHUB_ENV
+
+      - name: Failure Notification
+        if: failure()
+        uses: markgaze/action-slack-notify@master
+        env:
+          SLACK_COLOR: "#cc0000"
+          SLACK_ICON: https://avatars.githubusercontent.com/in/15368?s=88&v=4
+          SLACK_USERNAME: "GitHub Actions"
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
