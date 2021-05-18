@@ -4,8 +4,8 @@ import Image from "next/image";
 import styles from "./layout.module.scss";
 import Link from "next/link";
 
-const name = "[Your Name]";
-export const siteTitle = "Next.js Sample Website";
+const name = "[Insert amazing name here]";
+export const siteTitle = "This could be the start of something new";
 
 export default function Layout({ children, home }: { children: React.ReactNode; home?: boolean }) {
   return (
