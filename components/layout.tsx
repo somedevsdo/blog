@@ -1,6 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import Image from "next/image";
 import styles from "./layout.module.scss";
 import Link from "next/link";
 
@@ -25,7 +24,6 @@ export default function Layout({ children, home }: { children: React.ReactNode; 
       <header className={styles.header}>
         {home ? (
           <>
-            <Image priority src="/images/profile.jpg" height={144} width={144} alt={name} />
             <h1>{name}</h1>
           </>
         ) : (
