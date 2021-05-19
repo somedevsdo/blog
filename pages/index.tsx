@@ -1,8 +1,11 @@
+import { GetStaticProps } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import Layout, { siteTitle } from "../components/layout";
 import { getSortedPostsData } from "../lib/posts";
-import Link from "next/link";
-import { GetStaticProps } from "next";
+import homeStyles from "../components/layout.module.scss";
+
+const name = "[Insert amazing name here]";
 
 export default function Home({
   allPostsData,
@@ -18,19 +21,24 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section>
-        <ul>
-          {allPostsData.map(({ id, date, title }) => (
-            <li key={id}>
-              <Link href={`/post/${id}`}>
-                <a>
-                  {title} ({date})
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <header className={homeStyles.header}>
+        <h1>{name}</h1>
+      </header>
+      <main>
+        <section>
+          <ul>
+            {allPostsData.map(({ id, date, title }) => (
+              <li key={id}>
+                <Link href={`/post/${id}`}>
+                  <a>
+                    {title} ({date})
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </main>
     </Layout>
   );
 }
