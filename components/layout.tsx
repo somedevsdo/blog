@@ -1,17 +1,18 @@
 import React from "react";
 import Head from "next/head";
 import styles from "./layout.module.scss";
-import Link from "next/link";
 
-const name = "[Insert amazing name here]";
 export const siteTitle = "This could be the start of something new";
 
-export default function Layout({ children, home }: { children: React.ReactNode; home?: boolean }) {
+/**
+ * The standard layout for the web app.
+ */
+export default function Layout({ children }: { children: React.ReactNode; home?: boolean }) {
   return (
     <div className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="Learn how to build a personal website using Next.js" />
+        <meta name="description" content={siteTitle} />
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
@@ -21,23 +22,7 @@ export default function Layout({ children, home }: { children: React.ReactNode; 
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
-        {home ? (
-          <>
-            <h1>{name}</h1>
-          </>
-        ) : (
-          <>Blog post</>
-        )}
-      </header>
-      <main>{children}</main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
+      {children}
     </div>
   );
 }
