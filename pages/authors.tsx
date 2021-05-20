@@ -15,7 +15,7 @@ interface IAuthorsProps {
  * @param props The Authors props
  * @returns The Authors page
  */
-const Authors = (props: IAuthorsProps) => {
+const Authors = (props: IAuthorsProps): JSX.Element => {
   const { authors } = props;
   return (
     <Layout>

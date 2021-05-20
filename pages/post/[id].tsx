@@ -21,7 +21,7 @@ interface IPostProps {
  * @param props The props for the post
  * @returns The Post component
  */
-const Post = (props: IPostProps) => {
+const Post = (props: IPostProps): JSX.Element => {
   const { postData } = props;
   return (
     <Layout>

@@ -23,7 +23,7 @@ const name = "[Insert amazing name here]";
  * @param props The home page props
  * @returns The home page component
  */
-const Home = (props: IHomeProps) => {
+const Home = (props: IHomeProps): JSX.Element => {
   const { allPostsData } = props;
   return (
     <Layout home>
