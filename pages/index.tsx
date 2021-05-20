@@ -7,6 +7,10 @@ import homeStyles from "../components/Layout/layout.module.scss";
 
 const name = "[Insert amazing name here]";
 
+/**
+ * @param root0
+ * @param root0.allPostsData
+ */
 export default function Home({
   allPostsData,
 }: {

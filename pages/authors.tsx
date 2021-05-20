@@ -5,10 +5,18 @@ import { getAllAuthors } from "../lib/authors";
 import homeStyles from "../components/Layout/layout.module.scss";
 import Link from "next/link";
 
+interface IAuthorsProps {
+  authors: any;
+}
+
 /**
  * The author list page component.
+ *
+ * @param props The Authors props
+ * @returns The Authors page
  */
-export default function Author({ authors }) {
+export default function Authors(props: IAuthorsProps) {
+  const { authors } = props;
   return (
     <Layout>
       <Head>
