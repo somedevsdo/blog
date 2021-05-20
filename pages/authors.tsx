@@ -6,7 +6,7 @@ import homeStyles from "../components/Layout/layout.module.scss";
 import Link from "next/link";
 
 interface IAuthorsProps {
-  authors: any;
+  authors: Object;
 }
 
 /**
