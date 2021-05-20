@@ -17,6 +17,7 @@ module.exports = {
         "plugin:jsdoc/recommended",
       ],
       rules: {
+        "sort-destructure-keys/sort-destructure-keys": 2,
         "prefer-arrow-functions/prefer-arrow-functions": "error",
         "max-len": [
           "error",
