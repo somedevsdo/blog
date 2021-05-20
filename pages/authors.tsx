@@ -40,6 +40,8 @@ const Authors = (props: IAuthorsProps) => {
 
 /**
  * Get the data for the page, this renders on build.
+ *
+ * @returns The props for the static pages
  */
 export const getStaticProps: GetStaticProps = async () => {
   const authors = getAllAuthors();

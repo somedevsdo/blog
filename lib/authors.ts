@@ -5,6 +5,8 @@ const dataDirectory = path.join(process.cwd(), "data/authors");
 
 /**
  * Get all the authors data
+ *
+ * @returns all author data
  */
 export const getAllAuthors = () => {
   const authors = {};
@@ -23,6 +25,8 @@ export const getAllAuthors = () => {
 /**
  * Get all of the Author "slugs". The Slug will be the URL, and also
  * the name of the data/author/[slug].json.
+ *
+ * @returns all author "slugs"
  */
 export const getAllAuthorSlugs = () => {
   const authors = fs.readdirSync(dataDirectory);
@@ -38,7 +42,8 @@ export const getAllAuthorSlugs = () => {
 /**
  * Get the contents of the author file.
  *
- * @param id
+ * @param id the ID of the author
+ * @returns the author data
  */
 export const getAuthorData = async (id: string) => {
   const fullPath = path.join(dataDirectory, `${id}.json`);

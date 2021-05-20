@@ -8,7 +8,9 @@ import prism from "remark-prism";
 const postsDirectory = path.join(process.cwd(), "posts");
 
 /**
+ * Get sorted posts
  *
+ * @returns all posts sorted by date
  */
 export const getSortedPostsData = () => {
   // Get file names under /posts
@@ -40,7 +42,9 @@ export const getSortedPostsData = () => {
 };
 
 /**
+ * Get all of the post IDs
  *
+ * @returns a list of post IDs
  */
 export const getAllPostIds = () => {
   const fileNames = fs.readdirSync(postsDirectory);
@@ -54,7 +58,10 @@ export const getAllPostIds = () => {
 };
 
 /**
- * @param id
+ * Get post data
+ *
+ * @param id the ID of the post to get
+ * @returns the post data
  */
 export const getPostData = async (id: string) => {
   const fullPath = path.join(postsDirectory, `${id}.md`);
