@@ -6,7 +6,7 @@ const dataDirectory = path.join(process.cwd(), "data/authors");
 /**
  * Get all the authors data
  */
-export function getAllAuthors() {
+export const getAllAuthors = () => {
   const authors = {};
   const files = fs.readdirSync(dataDirectory);
 
@@ -18,13 +18,13 @@ export function getAllAuthors() {
   });
 
   return authors;
-}
+};
 
 /**
  * Get all of the Author "slugs". The Slug will be the URL, and also
  * the name of the data/author/[slug].json.
  */
-export function getAllAuthorSlugs() {
+export const getAllAuthorSlugs = () => {
   const authors = fs.readdirSync(dataDirectory);
   return authors.map((author) => {
     return {
@@ -33,14 +33,14 @@ export function getAllAuthorSlugs() {
       },
     };
   });
-}
+};
 
 /**
  * Get the contents of the author file.
  *
  * @param id
  */
-export async function getAuthorData(id: string) {
+export const getAuthorData = async (id: string) => {
   const fullPath = path.join(dataDirectory, `${id}.json`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const author = JSON.parse(fileContents);
@@ -49,4 +49,4 @@ export async function getAuthorData(id: string) {
     id,
     ...author,
   };
-}
+};

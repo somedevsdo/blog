@@ -11,7 +11,7 @@ const name = "[Insert amazing name here]";
  * @param root0
  * @param root0.allPostsData
  */
-export default function Home({
+const Home = ({
   allPostsData,
 }: {
   allPostsData: {
@@ -19,33 +19,31 @@ export default function Home({
     title: string;
     id: string;
   }[];
-}) {
-  return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <header className={homeStyles.header}>
-        <h1>{name}</h1>
-      </header>
-      <main>
-        <section>
-          <ul>
-            {allPostsData.map(({ id, date, title }) => (
-              <li key={id}>
-                <Link href={`/post/${id}`}>
-                  <a>
-                    {title} ({date})
-                  </a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      </main>
-    </Layout>
-  );
-}
+}) => (
+  <Layout home>
+    <Head>
+      <title>{siteTitle}</title>
+    </Head>
+    <header className={homeStyles.header}>
+      <h1>{name}</h1>
+    </header>
+    <main>
+      <section>
+        <ul>
+          {allPostsData.map(({ id, date, title }) => (
+            <li key={id}>
+              <Link href={`/post/${id}`}>
+                <a>
+                  {title} ({date})
+                </a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
+  </Layout>
+);
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
@@ -55,3 +53,5 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   };
 };
+
+export default Home;

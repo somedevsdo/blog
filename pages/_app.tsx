@@ -12,12 +12,10 @@ interface IAppProps {
  * @param root0.Component
  * @param root0.pageProps
  */
-function MyApp({ Component, pageProps }: IAppProps) {
-  return (
-    <ThemeProvider>
-      <Component {...pageProps} />
-    </ThemeProvider>
-  );
-}
+const MyApp = ({ Component, pageProps }: IAppProps) => (
+  <ThemeProvider>
+    <Component {...pageProps} />
+  </ThemeProvider>
+);
 
 export default MyApp;

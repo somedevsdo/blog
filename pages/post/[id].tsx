@@ -21,7 +21,7 @@ interface IPostProps {
  * @param props The props for the post
  * @returns The Post component
  */
-export default function Post(props: IPostProps) {
+const Post = (props: IPostProps) => {
   const { postData } = props;
   return (
     <Layout>
@@ -40,7 +40,7 @@ export default function Post(props: IPostProps) {
       </div>
     </Layout>
   );
-}
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds();
@@ -58,3 +58,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     },
   };
 };
+
+export default Post;
