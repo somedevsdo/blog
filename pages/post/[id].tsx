@@ -1,9 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import Layout from "../../components/layout";
+import Layout from "../../components/Layout/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
-import homeStyles from "../../components/layout.module.scss";
+import homeStyles from "../../components/Layout/layout.module.scss";
 
 /**
  * The post page component. Uses the top level layout.
