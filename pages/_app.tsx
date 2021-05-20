@@ -1,21 +1,22 @@
 import "../styles/globals.scss";
 import "prismjs/themes/prism-tomorrow.css";
 import { ThemeProvider } from "next-themes";
-
-interface IAppProps {
-  Component: any;
-  pageProps: any;
-}
+import { AppProps } from "next/app";
+import React from "react";
 
 /**
- * @param root0
- * @param root0.Component
- * @param root0.pageProps
+ * Our main component
+ *
+ * @param props The app props
+ * @returns The App component
  */
-const MyApp = ({ Component, pageProps }: IAppProps) => (
-  <ThemeProvider>
-    <Component {...pageProps} />
-  </ThemeProvider>
-);
+const MyApp = (props: AppProps) => {
+  const { Component, pageProps } = props;
+  return (
+    <ThemeProvider>
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
+};
 
 export default MyApp;
