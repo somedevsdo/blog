@@ -1,13 +1,26 @@
 import Layout from "../../components/Layout/layout";
 import Head from "next/head";
 import Image from "next/image";
-import { getAllAuthorSlugs, getAuthorData } from "../../lib/authors";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { getAllAuthorSlugs, getAuthorData } from "../../lib/authors";
+
+interface IAuthor {
+  name: string;
+  profile: string;
+}
+
+interface IAuthorProps {
+  author: IAuthor;
+}
 
 /**
  * The author page component.
+ *
+ * @param props The props for the Author
+ * @returns The Author component
  */
-export default function Author({ author }) {
+export default function Author(props: IAuthorProps) {
+  const { author } = props;
   return (
     <Layout>
       <Head>
@@ -16,7 +29,7 @@ export default function Author({ author }) {
 
       <article>
         {author.profile ? (
-          <Image src={author.profile} alt={author.name} width={200} height={200} />
+          <Image alt={author.name} height={200} src={author.profile} width={200} />
         ) : (
           ""
         )}

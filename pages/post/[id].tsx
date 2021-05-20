@@ -5,18 +5,24 @@ import Layout from "../../components/Layout/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import homeStyles from "../../components/Layout/layout.module.scss";
 
+interface IPost {
+  title: string;
+  date: string;
+  contentHtml: string;
+}
+
+interface IPostProps {
+  postData: IPost;
+}
+
 /**
  * The post page component. Uses the top level layout.
+ *
+ * @param props The props for the post
+ * @returns The Post component
  */
-export default function Post({
-  postData,
-}: {
-  postData: {
-    title: string;
-    date: string;
-    contentHtml: string;
-  };
-}) {
+export default function Post(props: IPostProps) {
+  const { postData } = props;
   return (
     <Layout>
       <Head>

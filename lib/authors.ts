@@ -37,6 +37,8 @@ export function getAllAuthorSlugs() {
 
 /**
  * Get the contents of the author file.
+ *
+ * @param id
  */
 export async function getAuthorData(id: string) {
   const fullPath = path.join(dataDirectory, `${id}.json`);
