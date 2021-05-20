@@ -1,4 +1,4 @@
-import Layout from "../../components/layout";
+import Layout from "../../components/Layout/layout";
 import Head from "next/head";
 import Image from "next/image";
 import { getAllAuthorSlugs, getAuthorData } from "../../lib/authors";
