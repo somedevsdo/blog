@@ -5,7 +5,7 @@ module.exports = {
   overrides: [
     {
       files: ["*.ts", "*.tsx"],
-      plugins: ["@typescript-eslint"],
+      plugins: ["@typescript-eslint", "prefer-arrow-functions"],
       parser: "@typescript-eslint/parser",
       parserOptions: {
         project: "./tsconfig.json",
@@ -17,6 +17,7 @@ module.exports = {
         "plugin:jsdoc/recommended",
       ],
       rules: {
+        "prefer-arrow-functions/prefer-arrow-functions": "error",
         "max-len": [
           "error",
           {

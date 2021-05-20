@@ -19,7 +19,7 @@ interface IAuthorProps {
  * @param props The props for the Author
  * @returns The Author component
  */
-export default function Author(props: IAuthorProps) {
+const Author = (props: IAuthorProps) => {
   const { author } = props;
   return (
     <Layout>
@@ -38,7 +38,7 @@ export default function Author(props: IAuthorProps) {
       </article>
     </Layout>
   );
-}
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllAuthorSlugs();
@@ -56,3 +56,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     },
   };
 };
+
+export default Author;

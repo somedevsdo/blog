@@ -16,7 +16,7 @@ type Props = React.PropsWithChildren<ILayoutProps>;
  * @param props The props for the component
  * @returns The Layout component
  */
-export default function Layout(props: Props) {
+const Layout = (props: Props) => {
   const { children } = props;
   return (
     <div className={styles.container}>
@@ -36,4 +36,6 @@ export default function Layout(props: Props) {
       {children}
     </div>
   );
-}
+};
+
+export default Layout;

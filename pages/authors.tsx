@@ -15,7 +15,7 @@ interface IAuthorsProps {
  * @param props The Authors props
  * @returns The Authors page
  */
-export default function Authors(props: IAuthorsProps) {
+const Authors = (props: IAuthorsProps) => {
   const { authors } = props;
   return (
     <Layout>
@@ -36,7 +36,7 @@ export default function Authors(props: IAuthorsProps) {
       </article>
     </Layout>
   );
-}
+};
 
 /**
  * Get the data for the page, this renders on build.
@@ -49,3 +49,5 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   };
 };
+
+export default Authors;
