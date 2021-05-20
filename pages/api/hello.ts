@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-const Hello = (req, res) => {
+const Hello = (req, res): void => {
   res.status(200).json({ name: "John Doe" });
 };
 

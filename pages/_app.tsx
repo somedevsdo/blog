@@ -10,7 +10,7 @@ import React from "react";
  * @param props The app props
  * @returns The App component
  */
-const MyApp = (props: AppProps) => {
+const MyApp = (props: AppProps): JSX.Element => {
   const { Component, pageProps } = props;
   return (
     <ThemeProvider>

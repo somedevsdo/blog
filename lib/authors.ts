@@ -12,7 +12,7 @@ export const getAllAuthors = () => {
   const authors = {};
   const files = fs.readdirSync(dataDirectory);
 
-  files.map((file) => {
+  files.forEach((file) => {
     const slug = file.replace(/\.json$/, "");
     const author = JSON.parse(fs.readFileSync(`${dataDirectory}/${file}`, "utf8"));
 
