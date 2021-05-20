@@ -1,5 +1,6 @@
 import Layout from "../../components/layout";
 import Head from "next/head";
+import Image from "next/image";
 import { getAllAuthorSlugs, getAuthorData } from "../../lib/authors";
 import { GetStaticPaths, GetStaticProps } from "next";
 
@@ -14,6 +15,12 @@ export default function Author({ author }) {
       </Head>
 
       <article>
+        {author.profile ? (
+          <Image src={author.profile} alt={author.name} width={200} height={200} />
+        ) : (
+          ""
+        )}
+
         <h1>{author.name}</h1>
       </article>
     </Layout>
