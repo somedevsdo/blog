@@ -30,7 +30,7 @@ const Home = ({
     <main>
       <section>
         <ul>
-          {allPostsData.map(({ id, date, title }) => (
+          {allPostsData.map(({ date, id, title }) => (
             <li key={id}>
               <Link href={`/post/${id}`}>
                 <a>
