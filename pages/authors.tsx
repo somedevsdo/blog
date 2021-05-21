@@ -25,15 +25,19 @@ const Authors = (props: IAuthorsProps): JSX.Element => {
       <header className={homeStyles.header}>
         <h1>Authors</h1>
       </header>
-      <article>
-        {Object.keys(authors).map((key) => (
-          <li key={key}>
-            <Link href={`/author/${key}`}>
-              <a>{key}</a>
-            </Link>
-          </li>
-        ))}
-      </article>
+      <main>
+        <article>
+          <ul>
+            {Object.keys(authors).map((key) => (
+              <li key={key}>
+                <Link href={`/author/${key}`}>
+                  <a>{key}</a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </article>
+      </main>
     </Layout>
   );
 };

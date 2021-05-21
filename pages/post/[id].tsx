@@ -28,16 +28,18 @@ const Post = (props: IPostProps): JSX.Element => {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <article>
-        <h1>{postData.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      </article>
+      <main>
+        <article>
+          <h1>{postData.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        </article>
 
-      <div className={homeStyles.backToHome}>
-        <Link href="/">
-          <a>← Back to home</a>
-        </Link>
-      </div>
+        <div className={homeStyles.backToHome}>
+          <Link href="/">
+            <a>← Back to home</a>
+          </Link>
+        </div>
+      </main>
     </Layout>
   );
 };
