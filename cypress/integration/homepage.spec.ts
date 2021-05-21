@@ -1,10 +1,12 @@
 describe("Home page", () => {
   beforeEach(() => {
     cy.visit("/");
+    cy.injectAxe();
   });
 
   it("should render correctly", () => {
     cy.get("h1").should("contain", "[Insert amazing name here]");
+    cy.checkA11y();
   });
 
   it("should navigate correctly", () => {
