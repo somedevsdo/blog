@@ -26,16 +26,17 @@ const Author = (props: IAuthorProps): JSX.Element => {
       <Head>
         <title>Authors</title>
       </Head>
+      <main>
+        <article>
+          {author.profile ? (
+            <Image src={author.profile} alt={author.name} width={200} height={200} />
+          ) : (
+            ""
+          )}
 
-      <article>
-        {author.profile ? (
-          <Image alt={author.name} height={200} src={author.profile} width={200} />
-        ) : (
-          ""
-        )}
-
-        <h1>{author.name}</h1>
-      </article>
+          <h1>{author.name}</h1>
+        </article>
+      </main>
     </Layout>
   );
 };
