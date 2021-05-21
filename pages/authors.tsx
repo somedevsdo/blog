@@ -1,9 +1,9 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import Layout from "../components/Layout/layout";
 import { getAllAuthors } from "../lib/authors";
 import homeStyles from "../components/Layout/layout.module.scss";
-import Link from "next/link";
 
 interface IAuthorsProps {
   authors: Object;

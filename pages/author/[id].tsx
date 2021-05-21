@@ -1,7 +1,7 @@
-import Layout from "../../components/Layout/layout";
 import Head from "next/head";
 import Image from "next/image";
 import { GetStaticPaths, GetStaticProps } from "next";
+import Layout from "../../components/Layout/layout";
 import { getAllAuthorSlugs, getAuthorData } from "../../lib/authors";
 
 interface IAuthor {
