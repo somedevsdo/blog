@@ -33,6 +33,17 @@ jobs:
         run: |
           npm run test
 
+      - name: Cypress (UI)
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm start
+          wait-on: "http://localhost:3000"
+          wait-on-timeout: 180
+          # command-prefix: "percy exec --"
+          install: false
+        # env:
+        #   PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+
       - name: Create Slack message - Success
         run: |
           echo -ne "SLACK_MESSAGE=🚀 Blog Build Success - \`${GITHUB_REF##*/}\`" >> $GITHUB_ENV
