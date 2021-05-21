@@ -33,7 +33,7 @@ jobs:
         run: |
           npm run test
 
-      - name: Cypress (UI)
+      - name: Cypress (UI + Axe)
         uses: cypress-io/github-action@v2
         with:
           start: npm start
