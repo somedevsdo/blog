@@ -1,8 +1,21 @@
 {
-  extends: ['stylelint-config-sass-guidelines', 'stylelint-config-prettier'],
-  plugins: ['stylelint-order'],
-  rules: {
-    'max-nesting-depth': 5,
-    'order/properties-alphabetical-order': true,
+  "extends": [
+    "stylelint-config-sass-guidelines",
+    "stylelint-config-prettier"
+  ],
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "max-nesting-depth": 5,
+    "order/properties-alphabetical-order": true,
+    "selector-class-pattern": [
+      "^[a-z][a-zA-Z0-9]+$",
+      {
+        "message": "Class names should be lowerCamelCase (CSS Modules)"
+      }
+    ],
+    "no-duplicate-selectors": true,
+    "scss/selector-nest-combinators": "always"
   }
 }
