@@ -19,3 +19,24 @@ import "cypress-axe";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+/**
+ * @param violations
+ */
+export function terminalLog(violations: { description: any; id: any; impact: any; nodes: any }[]) {
+  cy.task(
+    "log",
+    `${violations.length} accessibility violation${violations.length === 1 ? "" : "s"} ${
+      violations.length === 1 ? "was" : "were"
+    } detected`
+  );
+  // pluck specific keys to keep the table readable
+  const violationData = violations.map(({ description, id, impact, nodes }) => ({
+    description,
+    id,
+    impact,
+    nodes: nodes.length,
+  }));
+
+  cy.task("table", violationData);
+}
