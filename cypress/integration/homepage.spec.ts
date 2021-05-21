@@ -1,3 +1,5 @@
+import { terminalLog } from "../support";
+
 describe("Home page", () => {
   beforeEach(() => {
     cy.visit("/");
@@ -6,7 +8,7 @@ describe("Home page", () => {
 
   it("should render correctly", () => {
     cy.get("h1").should("contain", "[Insert amazing name here]");
-    cy.checkA11y();
+    cy.checkA11y(undefined, undefined, terminalLog);
   });
 
   it("should navigate correctly", () => {
