@@ -11,8 +11,13 @@ describe("Home page", () => {
     cy.checkA11y(undefined, undefined, terminalLog);
   });
 
-  it("should navigate correctly", () => {
-    cy.get("a").eq(1).click();
+  it("should navigate to about", () => {
+    cy.get("a").eq(0).click();
+    cy.url().should("include", "/about");
+  });
+
+  it("should navigate to a post", () => {
+    cy.get("a").eq(2).click();
     cy.url().should("include", "/post/test");
   });
 });
