@@ -4,6 +4,7 @@ import Link from "next/link";
 import Layout from "../../components/Layout/Layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import homeStyles from "../../components/Layout/Layout.module.scss";
+import Avatar from "../../components/Avatar/Avatar";
 
 interface IPost {
   title: string;
@@ -31,6 +32,7 @@ const Post = (props: IPostProps): JSX.Element => {
       <main>
         <article>
           <h1>{postData.title}</h1>
+          <Avatar size="small" />
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
 
