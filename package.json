@@ -51,6 +51,7 @@
     "eslint-config-jsdoc": "^15.4.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-import": "^2.23.3",
     "eslint-plugin-jsdoc": "^34.8.2",
     "eslint-plugin-prefer-arrow-functions": "^3.0.1",
     "eslint-plugin-prettier": "^3.4.0",
