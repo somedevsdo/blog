@@ -4,7 +4,15 @@ import styles from "./Avatar.module.scss";
 type AvatarSize = "x-small" | "small" | "large";
 
 interface IAvatarProps {
+  /**
+   * The size of the Avatar
+   */
   size?: AvatarSize;
+
+  /**
+   * The image source
+   */
+  src: string;
 }
 
 /**
@@ -14,7 +22,7 @@ interface IAvatarProps {
  * @returns the Avatar component
  */
 const Avatar = (props: IAvatarProps): JSX.Element => {
-  const { size } = props;
+  const { size, src } = props;
   let avatarSize: string;
 
   switch (size) {
@@ -33,11 +41,11 @@ const Avatar = (props: IAvatarProps): JSX.Element => {
   return (
     <span className={styles.avatar}>
       <Image
-        alt="Profile picture of Gillian Kent"
+        alt="Avatar"
         height={avatarSize}
         layout="fixed"
         objectFit="contain"
-        src="/authors/benmatselby.jpg"
+        src={src}
         title="Avatar"
         width={avatarSize}
       />

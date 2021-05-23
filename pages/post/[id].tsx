@@ -32,7 +32,7 @@ const Post = (props: IPostProps): JSX.Element => {
       <main>
         <article>
           <h1>{postData.title}</h1>
-          <Avatar size="small" />
+          <Avatar size="x-small" src="/authors/benmatselby.jpg" />
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
 
