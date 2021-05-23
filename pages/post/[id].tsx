@@ -1,9 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import Layout from "../../components/Layout/layout";
+import Layout from "../../components/Layout/Layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
-import homeStyles from "../../components/Layout/layout.module.scss";
+import homeStyles from "../../components/Layout/Layout.module.scss";
 
 interface IPost {
   title: string;
@@ -16,7 +16,7 @@ interface IPostProps {
 }
 
 /**
- * The post page component. Uses the top level layout.
+ * The post page component. Uses the top level Layout.
  *
  * @param props The props for the post
  * @returns The Post component

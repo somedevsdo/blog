@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { GetStaticPaths, GetStaticProps } from "next";
-import Layout from "../../components/Layout/layout";
+import Layout from "../../components/Layout/Layout";
 import { getAllAuthorSlugs, getAuthorData } from "../../lib/authors";
 
 interface IAuthor {
@@ -29,7 +29,7 @@ const Author = (props: IAuthorProps): JSX.Element => {
       <main>
         <article>
           {author.profile ? (
-            <Image src={author.profile} alt={author.name} width={200} height={200} />
+            <Image alt={author.name} height={200} src={author.profile} width={200} />
           ) : (
             ""
           )}

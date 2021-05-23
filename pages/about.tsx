@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
-import Layout, { siteTitle } from "../components/Layout/layout";
-import homeStyles from "../components/Layout/layout.module.scss";
+import Layout, { siteTitle } from "../components/Layout/Layout";
+import homeStyles from "../components/Layout/Layout.module.scss";
 
 /**
  * The about page component.
