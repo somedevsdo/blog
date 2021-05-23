@@ -4,6 +4,7 @@ import Link from "next/link";
 import Layout, { siteTitle } from "../components/Layout/Layout";
 import { getSortedPostsData } from "../lib/posts";
 import homeStyles from "../components/Layout/Layout.module.scss";
+import Avatar from "../components/Avatar/Avatar";
 
 interface IPost {
   date: string;
@@ -32,6 +33,7 @@ const Home = (props: IHomeProps): JSX.Element => {
       </Head>
       <header className={homeStyles.header}>
         <h1>{name}</h1>
+        <Avatar />
         <Link href="/about">
           <a className={homeStyles.navLink}>About us page</a>
         </Link>
