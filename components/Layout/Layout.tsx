@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import styles from "./layout.module.scss";
+import styles from "./Layout.module.scss";
 
 export const siteTitle = "This could be the start of something new";
 
@@ -11,7 +11,7 @@ interface ILayoutProps {
 type Props = React.PropsWithChildren<ILayoutProps>;
 
 /**
- * The standard layout for the web app.
+ * The standard Layout for the web app.
  *
  * @param props The props for the component
  * @returns The Layout component

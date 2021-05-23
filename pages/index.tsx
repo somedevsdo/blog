@@ -1,9 +1,9 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import Layout, { siteTitle } from "../components/Layout/layout";
+import Layout, { siteTitle } from "../components/Layout/Layout";
 import { getSortedPostsData } from "../lib/posts";
-import homeStyles from "../components/Layout/layout.module.scss";
+import homeStyles from "../components/Layout/Layout.module.scss";
 
 interface IPost {
   date: string;
