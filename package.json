@@ -16,6 +16,7 @@
     "pretest": "npm run lint:scss && npm run lint",
     "start": "next start",
     "test": "jest --coverage",
+    "test:watch": "jest --watch",
     "test:mutate": "npx stryker run",
     "test:mutate-file": "npx stryker run --concurrency 1 --reporters clear-text,progress-append-only,html --mutate \"**/$FILE_NAME*.tsx,!**/*@(.data|.test|.spec|Spec|.stories).ts?(x)\""
   },
