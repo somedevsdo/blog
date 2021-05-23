@@ -29,13 +29,7 @@ const Author = (props: IAuthorProps): JSX.Element => {
       </Head>
       <main>
         <article>
-          <Avatar size="x-small" />
-          git
-          {author.profile ? (
-            <Image alt={author.name} height={200} src={author.profile} width={200} />
-          ) : (
-            ""
-          )}
+          {author.profile ? <Avatar src={author.profile} /> : ""}
           <h1>{author.name}</h1>
         </article>
       </main>

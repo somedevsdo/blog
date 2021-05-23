@@ -33,7 +33,7 @@ const Home = (props: IHomeProps): JSX.Element => {
       </Head>
       <header className={homeStyles.header}>
         <h1>{name}</h1>
-        <Avatar />
+        <Avatar size="small" src="/authors/benmatselby.jpg" />
         <Link href="/about">
           <a className={homeStyles.navLink}>About us page</a>
         </Link>
