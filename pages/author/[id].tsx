@@ -3,6 +3,7 @@ import Image from "next/image";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Layout from "../../components/Layout/Layout";
 import { getAllAuthorSlugs, getAuthorData } from "../../lib/authors";
+import Avatar from "../../components/Avatar/Avatar";
 
 interface IAuthor {
   name: string;
@@ -28,12 +29,13 @@ const Author = (props: IAuthorProps): JSX.Element => {
       </Head>
       <main>
         <article>
+          <Avatar size="x-small" />
+          git
           {author.profile ? (
             <Image alt={author.name} height={200} src={author.profile} width={200} />
           ) : (
             ""
           )}
-
           <h1>{author.name}</h1>
         </article>
       </main>
