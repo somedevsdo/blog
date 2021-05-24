@@ -3,7 +3,6 @@ import Head from "next/head";
 import Link from "next/link";
 import Layout, { siteTitle } from "../components/Layout/Layout";
 import { getSortedPostsData } from "../lib/posts";
-import homeStyles from "../components/Layout/Layout.module.scss";
 
 interface IPost {
   date: string;
@@ -31,17 +30,13 @@ const Home = (props: IHomeProps): JSX.Element => {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <header className={homeStyles.header}>
+      <header>
         <h1>{name}</h1>
         <Link href="/about">
-          <a className={homeStyles.navLink} data-test-id="link-about">
-            About us page
-          </a>
+          <a data-test-id="link-about">About us page</a>
         </Link>
         <Link href="/authors">
-          <a className={homeStyles.navLink} data-test-id="link-authors">
-            Authors
-          </a>
+          <a data-test-id="link-authors">Authors</a>
         </Link>
       </header>
       <main>
