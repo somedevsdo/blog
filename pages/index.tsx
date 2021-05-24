@@ -25,6 +25,7 @@ const name = "[Insert amazing name here]";
  */
 const Home = (props: IHomeProps): JSX.Element => {
   const { allPostsData } = props;
+
   return (
     <Layout home>
       <Head>
