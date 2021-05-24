@@ -33,15 +33,15 @@ const Home = (props: IHomeProps): JSX.Element => {
       <header>
         <h1>{name}</h1>
         <Link href="/about">
-          <a data-test-id="link-about">About us page</a>
+          <a data-testid="link-about">About us page</a>
         </Link>
         <Link href="/authors">
-          <a data-test-id="link-authors">Authors</a>
+          <a data-testid="link-authors">Authors</a>
         </Link>
       </header>
       <main>
         <section>
-          <ul data-test-id="posts">
+          <ul data-testid="posts">
             {allPostsData.map(({ date, id, title }) => (
               <li key={id}>
                 <Link href={`/post/${id}`}>
