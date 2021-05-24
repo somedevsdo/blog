@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import { useTheme } from "next-themes";
 import styles from "./Layout.module.scss";
 
 export const siteTitle = "This could be the start of something new";
@@ -18,6 +19,8 @@ type Props = React.PropsWithChildren<ILayoutProps>;
  */
 const Layout = (props: Props): JSX.Element => {
   const { children } = props;
+  const { setTheme, theme } = useTheme();
+
   return (
     <div className={styles.container}>
       <Head>
@@ -33,6 +36,9 @@ const Layout = (props: Props): JSX.Element => {
         <meta content={siteTitle} name="og:title" />
         <meta content="summary_large_image" name="twitter:card" />
       </Head>
+      <button onClick={(): void => setTheme(theme === "light" ? "dark" : "light")} type="button">
+        Toggle theme
+      </button>
       {children}
     </div>
   );
