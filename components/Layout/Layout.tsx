@@ -1,7 +1,6 @@
 import React from "react";
 import Head from "next/head";
 import { useTheme } from "next-themes";
-import styles from "./Layout.module.scss";
 
 export const siteTitle = "This could be the start of something new";
 
@@ -22,7 +21,7 @@ const Layout = (props: Props): JSX.Element => {
   const { setTheme, theme } = useTheme();
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <link href="/favicon.ico" rel="icon" />
         <meta content={siteTitle} name="description" />

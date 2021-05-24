@@ -3,7 +3,6 @@ import Head from "next/head";
 import Link from "next/link";
 import Layout from "../components/Layout/Layout";
 import { getAllAuthors } from "../lib/authors";
-import homeStyles from "../components/Layout/Layout.module.scss";
 
 interface IAuthorsProps {
   authors: Object;
@@ -22,7 +21,7 @@ const Authors = (props: IAuthorsProps): JSX.Element => {
       <Head>
         <title>Authors</title>
       </Head>
-      <header className={homeStyles.header}>
+      <header>
         <h1>Authors</h1>
       </header>
       <main>
