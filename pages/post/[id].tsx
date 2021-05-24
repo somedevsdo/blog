@@ -1,14 +1,16 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import Layout from "../../components/Layout/Layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
-import homeStyles from "../../components/Layout/Layout.module.scss";
+import styles from "../../styles/Post.module.scss";
 import Avatar from "../../components/Avatar/Avatar";
 
 interface IPost {
   title: string;
   date: string;
+  featuredImage: string;
   contentHtml: string;
 }
 
@@ -29,14 +31,24 @@ const Post = (props: IPostProps): JSX.Element => {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <main>
+      <header>
+        <div className={styles.featuredImage}>
+          <Image
+            alt="Featured image"
+            layout="fill"
+            objectFit="cover"
+            src={`/posts/featured/${postData.featuredImage}`}
+          />
+        </div>
+      </header>
+      <main className={styles.container}>
         <article>
           <h1>{postData.title}</h1>
           <Avatar size="x-small" src="/authors/benmatselby.jpg" />
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
 
-        <div className={homeStyles.backToHome}>
+        <div>
           <Link href="/">
             <a>← Back to home</a>
           </Link>
