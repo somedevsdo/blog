@@ -1,0 +1,37 @@
+.container {
+  color: #fff;
+  height: 5rem;
+  position: relative;
+  width: 100%;
+}
+
+.subheader {
+  align-items: center;
+  background-color: #000;
+  display: flex;
+  height: 5rem;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+
+  p {
+    margin: 0;
+  }
+}
+
+.author {
+  font-style: italic;
+  margin: 0.75rem 0 0.5rem;
+
+  strong {
+    font-style: normal;
+  }
+}
+
+.avatar {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  left: calc(50% - 38.5px);
+  position: absolute;
+  top: 0;
+}

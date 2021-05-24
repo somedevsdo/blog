@@ -5,7 +5,7 @@ import Link from "next/link";
 import Layout from "../../components/Layout/Layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import styles from "../../styles/Post.module.scss";
-import Avatar from "../../components/Avatar/Avatar";
+import Subheader from "../../components/Subheader/Subheader";
 
 interface IPost {
   title: string;
@@ -58,13 +58,13 @@ const Post = (props: IPostProps): JSX.Element => {
             src={`/posts/featured/${postData.featuredImage}`}
           />
         </div>
+        <Subheader />
       </header>
       <main className={styles.container}>
         <article>
-          <Avatar size="x-small" src="/authors/benmatselby.jpg" />
+          <h1>{postData.title}</h1>
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
-
         <div>
           <Link href="/">
             <a>← Back to home</a>
