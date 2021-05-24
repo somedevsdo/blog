@@ -1,0 +1,25 @@
+.featuredImage {
+  height: 30rem;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    background: rgba(0, 0, 0, 0.8);
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: background 0.3s linear;
+    z-index: 1;
+  }
+}
+
+.container {
+  margin: 3rem auto 6rem;
+  max-width: 36rem;
+  padding: 0 1rem;
+}

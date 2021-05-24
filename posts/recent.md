@@ -1,6 +1,7 @@
 ---
 title: "Recent test page"
 date: "2021-05-12"
+featuredImage: "test.jpg"
 ---
 
 Sit adipisicing voluptate fugiat elit eu voluptate anim id amet amet cillum. Sint est quis ad veniam incididunt mollit culpa enim aliqua consequat. Minim velit duis dolore proident.
