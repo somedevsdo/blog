@@ -32,12 +32,18 @@ const Home = (props: IHomeProps): JSX.Element => {
       </Head>
       <header>
         <h1>{name}</h1>
-        <Link href="/about">
-          <a data-testid="link-about">About us page</a>
-        </Link>
-        <Link href="/authors">
-          <a data-testid="link-authors">Authors</a>
-        </Link>
+        <ul>
+          <li>
+            <Link href="/about">
+              <a data-testid="link-about">About us page</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/authors">
+              <a data-testid="link-authors">Authors</a>
+            </Link>
+          </li>
+        </ul>
       </header>
       <main>
         <section>
