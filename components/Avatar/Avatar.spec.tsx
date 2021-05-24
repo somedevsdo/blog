@@ -13,6 +13,11 @@ describe("Layout", () => {
   });
 
   it("should be the right size for small", () => {
+    render(<Avatar size="medium" src="/test.jpg" />);
+    expect(document.getElementsByClassName("avatar")[0].childNodes[0]).toHaveStyle("width: 77px");
+  });
+
+  it("should be the right size for small", () => {
     render(<Avatar size="small" src="/test.jpg" />);
     expect(document.getElementsByClassName("avatar")[0].childNodes[0]).toHaveStyle("width: 52px");
   });
@@ -20,5 +25,10 @@ describe("Layout", () => {
   it("should be the right size for x-small", () => {
     render(<Avatar size="x-small" src="/test.jpg" />);
     expect(document.getElementsByClassName("avatar")[0].childNodes[0]).toHaveStyle("width: 40px");
+  });
+
+  it("should have a border", () => {
+    render(<Avatar border src="/test.jpg" />);
+    expect(document.getElementsByClassName("avatar")[0]).toHaveClass("avatarBorder");
   });
 });

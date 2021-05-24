@@ -1,9 +1,14 @@
 import Image from "next/image";
 import styles from "./Avatar.module.scss";
 
-type AvatarSize = "x-small" | "small" | "large";
+type AvatarSize = "x-small" | "small" | "medium" | "large";
 
 interface IAvatarProps {
+  /**
+   * Has border
+   */
+  border?: boolean;
+
   /**
    * The size of the Avatar
    */
@@ -22,7 +27,7 @@ interface IAvatarProps {
  * @returns the Avatar component
  */
 const Avatar = (props: IAvatarProps): JSX.Element => {
-  const { size, src } = props;
+  const { border, size, src } = props;
   let avatarSize: string;
 
   switch (size) {
@@ -32,6 +37,9 @@ const Avatar = (props: IAvatarProps): JSX.Element => {
     case "small":
       avatarSize = "52px";
       break;
+    case "medium":
+      avatarSize = "77px";
+      break;
     case "large":
     default:
       avatarSize = "152px";
@@ -39,7 +47,7 @@ const Avatar = (props: IAvatarProps): JSX.Element => {
   }
 
   return (
-    <span className={styles.avatar}>
+    <span className={`${styles.avatar} ${border && styles.avatarBorder}`}>
       <Image
         alt="Avatar"
         height={avatarSize}
@@ -54,6 +62,7 @@ const Avatar = (props: IAvatarProps): JSX.Element => {
 };
 
 Avatar.defaultProps = {
+  border: false,
   size: "large",
 };
 
