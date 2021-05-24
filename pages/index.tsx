@@ -4,7 +4,6 @@ import Link from "next/link";
 import Layout, { siteTitle } from "../components/Layout/Layout";
 import { getSortedPostsData } from "../lib/posts";
 import homeStyles from "../components/Layout/Layout.module.scss";
-import Avatar from "../components/Avatar/Avatar";
 
 interface IPost {
   date: string;
@@ -33,14 +32,20 @@ const Home = (props: IHomeProps): JSX.Element => {
       </Head>
       <header className={homeStyles.header}>
         <h1>{name}</h1>
-        <Avatar size="small" src="/authors/benmatselby.jpg" />
         <Link href="/about">
-          <a className={homeStyles.navLink}>About us page</a>
+          <a className={homeStyles.navLink} data-test-id="link-about">
+            About us page
+          </a>
+        </Link>
+        <Link href="/authors">
+          <a className={homeStyles.navLink} data-test-id="link-authors">
+            Authors
+          </a>
         </Link>
       </header>
       <main>
         <section>
-          <ul>
+          <ul data-test-id="posts">
             {allPostsData.map(({ date, id, title }) => (
               <li key={id}>
                 <Link href={`/post/${id}`}>
