@@ -36,9 +36,11 @@ const Layout = (props: Props): JSX.Element => {
         <meta content={siteTitle} name="og:title" />
         <meta content="summary_large_image" name="twitter:card" />
       </Head>
-      <button onClick={(): void => setTheme(theme === "light" ? "dark" : "light")} type="button">
-        Toggle theme
-      </button>
+      <nav>
+        <button onClick={(): void => setTheme(theme === "light" ? "dark" : "light")} type="button">
+          Toggle theme
+        </button>
+      </nav>
       {children}
     </div>
   );
