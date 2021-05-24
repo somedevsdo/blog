@@ -18,7 +18,7 @@ type Props = React.PropsWithChildren<ILayoutProps>;
  */
 const Layout = (props: Props): JSX.Element => {
   const { children } = props;
-  const { setTheme, theme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   return (
     <div>
@@ -36,7 +36,10 @@ const Layout = (props: Props): JSX.Element => {
         <meta content="summary_large_image" name="twitter:card" />
       </Head>
       <nav>
-        <button onClick={(): void => setTheme(theme === "light" ? "dark" : "light")} type="button">
+        <button
+          onClick={(): void => setTheme(resolvedTheme === "light" ? "dark" : "light")}
+          type="button"
+        >
           Toggle theme
         </button>
       </nav>
