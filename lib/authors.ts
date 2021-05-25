@@ -4,6 +4,32 @@ import path from "path";
 const dataDirectory = path.join(process.cwd(), "data/authors");
 
 /**
+ * Defines what an author looks like.
+ */
+export interface IAuthor {
+  /**
+   * This is the "slug"/"id" which relates to the name of the file in
+   * "/data/authors".
+   */
+  id: string;
+
+  /**
+   * The authors name.
+   */
+  name: string;
+
+  /**
+   * The profile picture location.
+   */
+  profile: string;
+
+  /**
+   * An array of social media links.
+   */
+  social: string[];
+}
+
+/**
  * Get all the authors data
  *
  * @returns all author data
@@ -45,7 +71,7 @@ export const getAllAuthorSlugs = () => {
  * @param id the ID of the author
  * @returns the author data
  */
-export const getAuthorData = async (id: string) => {
+export const getAuthorData = async (id: string): Promise<IAuthor> => {
   const fullPath = path.join(dataDirectory, `${id}.json`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const author = JSON.parse(fileContents);

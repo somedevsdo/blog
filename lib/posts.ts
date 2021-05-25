@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import remark from "remark";
 import html from "remark-html";
 import prism from "remark-prism";
+import { getAuthorData } from "./authors";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
@@ -74,10 +75,13 @@ export const getPostData = async (id: string) => {
   const processedContent = await remark().use(html).use(prism).process(matterResult.content);
   const contentHtml = processedContent.toString();
 
+  const authorProfile = await getAuthorData(matterResult.data.author);
+
   // Combine the data with the id and contentHtml
   return {
     id,
     contentHtml,
+    authorProfile,
     ...(matterResult.data as { date: string; title: string }),
   };
 };

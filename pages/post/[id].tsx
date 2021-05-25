@@ -6,13 +6,18 @@ import Layout from "../../components/Layout/Layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import styles from "../../styles/Post.module.scss";
 import Subheader from "../../components/Subheader/Subheader";
+import { IAuthor } from "../../lib/authors";
 
+/**
+ * The definition of what a post contains.
+ */
 interface IPost {
   title: string;
   date: string;
   category: string;
   featuredImage: string;
   contentHtml: string;
+  authorProfile: IAuthor;
 }
 
 interface IPostProps {
@@ -58,7 +63,7 @@ const Post = (props: IPostProps): JSX.Element => {
             src={`/posts/featured/${postData.featuredImage}`}
           />
         </div>
-        <Subheader />
+        <Subheader author={postData.authorProfile} />
       </header>
       <main className={styles.container}>
         <article>
