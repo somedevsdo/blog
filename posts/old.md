@@ -3,6 +3,7 @@ title: "Old test page"
 date: "2019-05-12"
 category: "design"
 featuredImage: "test.jpg"
+author: "mark"
 ---
 
 Sit adipisicing voluptate fugiat elit eu voluptate anim id amet amet cillum. Sint est quis ad veniam incididunt mollit culpa enim aliqua consequat. Minim velit duis dolore proident.

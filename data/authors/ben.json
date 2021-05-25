@@ -1,4 +1,10 @@
 {
   "name": "Ben Selby",
-  "profile": "/authors/benmatselby.jpg"
+  "profile": "/authors/benmatselby.jpg",
+  "social": [
+    "https://benmatselby.dev",
+    "https://github.com/benmatselby",
+    "https://twitter.com/benmatselby",
+    "https://dev.to/benmatselby"
+  ]
 }

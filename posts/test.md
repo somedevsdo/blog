@@ -3,6 +3,7 @@ title: "Test page"
 date: "2020-01-01"
 category: "process"
 featuredImage: "test.jpg"
+author: "ben"
 ---
 
 Sit adipisicing voluptate fugiat elit eu voluptate anim id amet amet cillum. Sint est quis ad veniam incididunt mollit culpa enim aliqua consequat. Minim velit duis dolore proident.
