@@ -1,6 +1,7 @@
 .container {
   color: #fff;
   height: 5rem;
+  margin-bottom: 7.5rem;
   position: relative;
   width: 100%;
 }
@@ -19,8 +20,9 @@
 }
 
 .author {
+  color: var(--foreground);
   font-style: italic;
-  margin: 0.75rem 0 0.5rem;
+  margin: 0.5rem 0;
 
   strong {
     font-style: normal;
@@ -33,5 +35,5 @@
   flex-direction: column;
   left: calc(50% - 38.5px);
   position: absolute;
-  top: 0;
+  top: 50%;
 }
