@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { IAuthor } from "../../lib/authors";
 import Avatar from "../Avatar/Avatar";
 import SocialLink from "../SocialLink/SocialLink";
@@ -39,7 +40,10 @@ const Subheader = (props: ISubheaderProps): JSX.Element => {
       <div className={styles.avatar}>
         <Avatar border size="medium" src={author.profile} />
         <p className={styles.author}>
-          by <strong>{author.name}</strong>
+          by{" "}
+          <strong>
+            <Link href={`/author/${author.id}`}>{author.name}</Link>
+          </strong>
         </p>
       </div>
     </div>
