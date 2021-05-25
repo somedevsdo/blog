@@ -1,6 +1,7 @@
 ---
 title: "Recent test page"
 date: "2021-05-12"
+category: "code"
 featuredImage: "test.jpg"
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "Old test page"
 date: "2019-05-12"
+category: "design"
 featuredImage: "test.jpg"
 ---
 
