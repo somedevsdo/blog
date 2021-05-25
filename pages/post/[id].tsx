@@ -10,6 +10,7 @@ import Avatar from "../../components/Avatar/Avatar";
 interface IPost {
   title: string;
   date: string;
+  category: string;
   featuredImage: string;
   contentHtml: string;
 }
@@ -44,7 +45,9 @@ const Post = (props: IPostProps): JSX.Element => {
         <div className={styles.featuredImage}>
           <div className={styles.headerContainer}>
             <div className={styles.meta}>
-              <div className={styles.date}>{getDateFormatted()}</div>
+              <div className={styles.catDate}>
+                {postData.category} - <span className={styles.date}>{getDateFormatted()}</span>
+              </div>
               <h1 className={styles.title}>{postData.title}</h1>
             </div>
           </div>

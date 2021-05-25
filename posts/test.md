@@ -1,6 +1,7 @@
 ---
 title: "Test page"
 date: "2020-01-01"
+category: "process"
 featuredImage: "test.jpg"
 ---
 
