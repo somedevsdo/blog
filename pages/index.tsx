@@ -14,7 +14,7 @@ interface IHomeProps {
   allPostsData: IPost[];
 }
 
-const name = "[Insert amazing name here]";
+const name = "somedevsdo";
 
 /**
  * The home page component

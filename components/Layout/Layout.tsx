@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { useTheme } from "next-themes";
+import styles from "./Layout.module.scss";
 
 export const siteTitle = "This could be the start of something new";
 
@@ -35,8 +36,10 @@ const Layout = (props: Props): JSX.Element => {
         <meta content={siteTitle} name="og:title" />
         <meta content="summary_large_image" name="twitter:card" />
       </Head>
-      <nav>
+      <nav className={styles.nav}>
+        <p>LOGO GOES HERE</p>
         <button
+          className={styles.button}
           onClick={(): void => setTheme(resolvedTheme === "light" ? "dark" : "light")}
           type="button"
         >

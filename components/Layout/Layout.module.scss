@@ -1,0 +1,14 @@
+.nav {
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  height: 3.875rem;
+  justify-content: space-between;
+  padding: 0.25rem 1rem;
+  width: 100%;
+
+  .button {
+    cursor: pointer;
+  }
+}
