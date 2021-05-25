@@ -5,14 +5,14 @@ const Subheader = (): JSX.Element => {
   return (
     <div className={styles.container}>
       <div className={styles.subheader}>
-        <p>ALL POSTS</p>
+        <p>← ALL POSTS</p>
         <p>Icons go here</p>
       </div>
       <div className={styles.avatar}>
+        <Avatar border size="medium" src="/authors/benmatselby.jpg" />
         <p className={styles.author}>
           by <strong>Ben Selby</strong>
         </p>
-        <Avatar border size="medium" src="/authors/benmatselby.jpg" />
       </div>
     </div>
   );
