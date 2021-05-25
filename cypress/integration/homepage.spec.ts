@@ -7,7 +7,7 @@ describe("Home page", () => {
   });
 
   it("should render correctly", () => {
-    cy.get("h1").should("contain", "[Insert amazing name here]");
+    cy.get("h1").should("contain", "somedevsdo");
     cy.checkA11y(undefined, undefined, terminalLog);
   });
 
