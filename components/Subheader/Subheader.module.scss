@@ -13,6 +13,8 @@
   height: 5rem;
   justify-content: space-between;
   padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
 
   p {
     margin: 0;
@@ -33,7 +35,11 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  left: calc(50% - 38.5px);
-  position: absolute;
-  top: 50%;
+  position: relative;
+  top: -2.625rem;
+
+  span {
+    position: relative;
+    z-index: 2;
+  }
 }
