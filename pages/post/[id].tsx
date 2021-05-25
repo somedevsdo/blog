@@ -26,6 +26,15 @@ interface IPostProps {
  */
 const Post = (props: IPostProps): JSX.Element => {
   const { postData } = props;
+
+  const getDateFormatted = (): string => {
+    return new Date(postData.date).toLocaleDateString(undefined, {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
+  };
+
   return (
     <Layout>
       <Head>
@@ -33,6 +42,12 @@ const Post = (props: IPostProps): JSX.Element => {
       </Head>
       <header>
         <div className={styles.featuredImage}>
+          <div className={styles.headerContainer}>
+            <div className={styles.meta}>
+              <div className={styles.date}>{getDateFormatted()}</div>
+              <h1 className={styles.title}>{postData.title}</h1>
+            </div>
+          </div>
           <Image
             alt="Featured image"
             layout="fill"
@@ -43,7 +58,6 @@ const Post = (props: IPostProps): JSX.Element => {
       </header>
       <main className={styles.container}>
         <article>
-          <h1>{postData.title}</h1>
           <Avatar size="x-small" src="/authors/benmatselby.jpg" />
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
