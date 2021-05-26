@@ -46,6 +46,13 @@ const Post = (props: IPostProps): JSX.Element => {
     <Layout>
       <Head>
         <title>{postData.title}</title>
+        <meta content="summary" name="twitter:card" />
+        <meta content="somedevsdo" name="twitter:site" />
+        <meta content={postData.authorProfile.name} name="twitter:creator" />
+        <meta content={useRouter().asPath} property="og:url" />
+        <meta content={postData.title} property="og:title" />
+        <meta content={postData.title} property="og:description" />
+        <meta content={`/posts/featured/${postData.featuredImage}`} property="og:image" />
       </Head>
       <header>
         <div className={styles.featuredImage}>
