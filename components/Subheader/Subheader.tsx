@@ -11,6 +11,16 @@ interface ISubheaderProps {
    * The author of the post.
    */
   author: IAuthor;
+
+  /**
+   * The path of the post (excluding the domain).
+   */
+  path: string;
+
+  /**
+   * The title the post.
+   */
+  title: string;
 }
 
 /**
@@ -21,12 +31,20 @@ interface ISubheaderProps {
  * @returns The subheader markup.
  */
 const Subheader = (props: ISubheaderProps): JSX.Element => {
-  const { author } = props;
+  const { author, path, title } = props;
   return (
     <div className={styles.container}>
       <div className={styles.subheader}>
         <p>← ALL POSTS</p>
-        <p>Sharing links</p>
+        <p>
+          <a
+            href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
+              `https://somedevsdo.com${path}`
+            )}&text=${encodeURIComponent(title)}&via=somedevsdo`}
+          >
+            Share on Twitter
+          </a>
+        </p>
       </div>
       <div className={styles.avatar}>
         <Avatar border size="medium" src={author.profile} />
