@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Layout from "../../components/Layout/Layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import styles from "../../styles/Post.module.scss";
@@ -63,11 +64,14 @@ const Post = (props: IPostProps): JSX.Element => {
             src={`/posts/featured/${postData.featuredImage}`}
           />
         </div>
-        <Subheader author={postData.authorProfile} />
+        <Subheader
+          author={postData.authorProfile}
+          path={useRouter().asPath}
+          title={postData.title}
+        />
       </header>
       <main className={styles.container}>
         <article>
-          <h1>{postData.title}</h1>
           {/* This is ignored as we are in full control of what will be rendered */}
           {/* eslint-disable-next-line react/no-danger */}
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
