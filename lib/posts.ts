@@ -4,16 +4,46 @@ import matter from "gray-matter";
 import remark from "remark";
 import html from "remark-html";
 import prism from "remark-prism";
-import { getAuthorData } from "./authors";
+import { getAuthorData, IAuthor } from "./authors";
 
 const postsDirectory = path.join(process.cwd(), "posts");
+
+/**
+ * Defines what a post looks like.
+ */
+export interface IPost {
+  /**
+   * The ID of the post. This is the name of the post file, minus the ".md" bit.
+   */
+  id: string;
+
+  /**
+   * The content of the post.
+   */
+  contentHtml: string;
+
+  /**
+   * The authors profile.
+   */
+  authorProfile: IAuthor;
+
+  /**
+   * The date the post was published.
+   */
+  date: string;
+
+  /**
+   * The title of the post.
+   */
+  title: string;
+}
 
 /**
  * Get sorted posts
  *
  * @returns all posts sorted by date
  */
-export const getSortedPostsData = () => {
+export const getSortedPostsData = (): { id: string; date: string; title: string }[] => {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map((fileName) => {
@@ -47,7 +77,7 @@ export const getSortedPostsData = () => {
  *
  * @returns a list of post IDs
  */
-export const getAllPostIds = () => {
+export const getAllPostIds = (): { params: { id: string } }[] => {
   const fileNames = fs.readdirSync(postsDirectory);
   return fileNames.map((fileName) => {
     return {
@@ -64,7 +94,7 @@ export const getAllPostIds = () => {
  * @param id the ID of the post to get
  * @returns the post data
  */
-export const getPostData = async (id: string) => {
+export const getPostData = async (id: string): Promise<IPost> => {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
