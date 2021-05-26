@@ -2,10 +2,10 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Layout from "../components/Layout/Layout";
-import { getAllAuthors } from "../lib/authors";
+import { getAllAuthors, IAuthor } from "../lib/authors";
 
 interface IAuthorsProps {
-  authors: Object;
+  authors: IAuthor[];
 }
 
 /**
@@ -27,13 +27,20 @@ const Authors = (props: IAuthorsProps): JSX.Element => {
       <main>
         <article>
           <ul>
-            {Object.keys(authors).map((key) => (
+            {authors.map((author) => (
+              <li key={author.id}>
+                <Link href={`/author/${author.id}`}>
+                  <a>{author.name}</a>
+                </Link>
+              </li>
+            ))}
+            {/* {Object.keys(authors).map((key) => (
               <li key={key}>
                 <Link href={`/author/${key}`}>
                   <a>{key}</a>
                 </Link>
               </li>
-            ))}
+            ))} */}
           </ul>
         </article>
       </main>

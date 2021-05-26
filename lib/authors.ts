@@ -34,15 +34,14 @@ export interface IAuthor {
  *
  * @returns all author data
  */
-export const getAllAuthors = () => {
-  const authors = {};
+export const getAllAuthors = (): IAuthor[] => {
+  const authors: IAuthor[] = [];
   const files = fs.readdirSync(dataDirectory);
 
   files.forEach((file) => {
-    const slug = file.replace(/\.json$/, "");
     const author = JSON.parse(fs.readFileSync(`${dataDirectory}/${file}`, "utf8"));
-
-    authors[slug] = author;
+    author.id = file.replace(/\.json$/, "");
+    authors.push(author);
   });
 
   return authors;
