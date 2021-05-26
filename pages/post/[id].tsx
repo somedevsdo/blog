@@ -68,6 +68,8 @@ const Post = (props: IPostProps): JSX.Element => {
       <main className={styles.container}>
         <article>
           <h1>{postData.title}</h1>
+          {/* This is ignored as we are in full control of what will be rendered */}
+          {/* eslint-disable-next-line react/no-danger */}
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
         <div>
