@@ -44,6 +44,14 @@ const Subheader = (props: ISubheaderProps): JSX.Element => {
           >
             Share on Twitter
           </a>
+          <button
+            onClick={(): Promise<void> =>
+              navigator.clipboard.writeText(`https://somedevsdo.com${path}`)
+            }
+            type="button"
+          >
+            Copy to clipboard
+          </button>
         </p>
       </div>
       <div className={styles.avatar}>
