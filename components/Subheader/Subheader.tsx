@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { IAuthor } from "../../lib/authors";
 import Avatar from "../Avatar/Avatar";
-import SocialLink from "../SocialLink/SocialLink";
 import styles from "./Subheader.module.scss";
 
 /**
@@ -27,15 +26,7 @@ const Subheader = (props: ISubheaderProps): JSX.Element => {
     <div className={styles.container}>
       <div className={styles.subheader}>
         <p>← ALL POSTS</p>
-        {author.social ? (
-          <p>
-            {author.social.map((link) => (
-              <SocialLink link={link} />
-            ))}
-          </p>
-        ) : (
-          ""
-        )}
+        <p>Sharing links</p>
       </div>
       <div className={styles.avatar}>
         <Avatar border size="medium" src={author.profile} />
