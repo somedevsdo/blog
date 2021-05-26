@@ -46,7 +46,6 @@ module.exports = {
         ],
         // No any for us!
         "@typescript-eslint/no-explicit-any": "error",
-        // We need to know what the return type is, this needs to be an error ASAP
         "@typescript-eslint/explicit-function-return-type": "error",
         // We don't want unused imports
         "@typescript-eslint/no-unused-vars": "error",
