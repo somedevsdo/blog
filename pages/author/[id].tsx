@@ -1,13 +1,9 @@
 import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Layout from "../../components/Layout/Layout";
-import { getAllAuthorSlugs, getAuthorData } from "../../lib/authors";
+import { IAuthor, getAllAuthorSlugs, getAuthorData } from "../../lib/authors";
 import Avatar from "../../components/Avatar/Avatar";
-
-interface IAuthor {
-  name: string;
-  profile: string;
-}
+import SocialLink from "../../components/SocialLink/SocialLink";
 
 interface IAuthorProps {
   author: IAuthor;
@@ -30,6 +26,17 @@ const Author = (props: IAuthorProps): JSX.Element => {
         <article>
           {author.profile ? <Avatar src={author.profile} /> : ""}
           <h1>{author.name}</h1>
+          {author.social ? (
+            <ul>
+              {author.social.map((link) => (
+                <li>
+                  <SocialLink link={link} />
+                </li>
+              ))}
+            </ul>
+          ) : (
+            ""
+          )}
         </article>
       </main>
     </Layout>
