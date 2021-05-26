@@ -14,6 +14,7 @@ const MyApp = (props: AppProps): JSX.Element => {
   const { Component, pageProps } = props;
   return (
     <ThemeProvider>
+      {/* eslint-disable react/jsx-props-no-spreading */}
       <Component {...pageProps} />
     </ThemeProvider>
   );
