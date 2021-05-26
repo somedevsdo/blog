@@ -34,7 +34,7 @@ module.exports = {
         // Don't need this anymore in React v17
         "react/react-in-jsx-scope": "off",
         // We use Prop Spreading quite a lot so just warn for now
-        "react/jsx-props-no-spreading": "warn",
+        "react/jsx-props-no-spreading": "error",
         // This removes the error for the Next.js <Link> tag
         "jsx-a11y/anchor-is-valid": [
           "error",
@@ -47,8 +47,7 @@ module.exports = {
         // No any for us!
         "@typescript-eslint/no-explicit-any": "error",
         // We need to know what the return type is, this needs to be an error ASAP
-        "@typescript-eslint/explicit-function-return-type": "warn",
-
+        "@typescript-eslint/explicit-function-return-type": "error",
         // We don't want unused imports
         "@typescript-eslint/no-unused-vars": "error",
       },
