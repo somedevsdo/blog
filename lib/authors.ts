@@ -54,7 +54,7 @@ export const getAllAuthors = () => {
  *
  * @returns all author "slugs"
  */
-export const getAllAuthorSlugs = () => {
+export const getAllAuthorSlugs = (): { params: { id: string } }[] => {
   const authors = fs.readdirSync(dataDirectory);
   return authors.map((author) => {
     return {
