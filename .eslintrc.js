@@ -33,7 +33,6 @@ module.exports = {
         "react/jsx-sort-props": "error",
         // Don't need this anymore in React v17
         "react/react-in-jsx-scope": "off",
-        // We use Prop Spreading quite a lot so just warn for now
         "react/jsx-props-no-spreading": "error",
         // This removes the error for the Next.js <Link> tag
         "jsx-a11y/anchor-is-valid": [
