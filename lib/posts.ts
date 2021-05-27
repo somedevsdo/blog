@@ -1,9 +1,6 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import remark from "remark";
-import html from "remark-html";
-import prism from "remark-prism";
 import { getAuthorData, IAuthor } from "./authors";
 
 const postsDirectory = path.join(process.cwd(), "posts");
@@ -20,7 +17,7 @@ export interface IPost {
   /**
    * The content of the post.
    */
-  contentHtml: string;
+  fileContents: string;
 
   /**
    * The authors profile.
@@ -101,16 +98,12 @@ export const getPostData = async (id: string): Promise<IPost> => {
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
-  // Use remark to convert markdown into HTML string
-  const processedContent = await remark().use(html).use(prism).process(matterResult.content);
-  const contentHtml = processedContent.toString();
-
   const authorProfile = await getAuthorData(matterResult.data.author);
 
   // Combine the data with the id and contentHtml
   return {
     id,
-    contentHtml,
+    fileContents: matterResult.content,
     authorProfile,
     ...(matterResult.data as { date: string; title: string }),
   };

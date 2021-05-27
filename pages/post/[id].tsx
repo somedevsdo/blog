@@ -2,11 +2,18 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Layout from "../../components/Layout/Layout";
-import { getAllPostIds, getPostData } from "../../lib/posts";
-import styles from "../../styles/Post.module.scss";
-import Subheader from "../../components/Subheader/Subheader";
+import unified from "unified";
+import markdown from "remark-parse";
+import remark2rehype from "remark-rehype";
+import rehype2react from "rehype-react";
+import React from "react";
+import rehypePrism from "@mapbox/rehype-prism";
 import { IAuthor } from "../../lib/authors";
+import Subheader from "../../components/Subheader/Subheader";
+import styles from "../../styles/Post.module.scss";
+import { getAllPostIds, getPostData } from "../../lib/posts";
+import Layout from "../../components/Layout/Layout";
+import Img from "../../components/Img/Img";
 import ImageWithPlaceholder from "../../components/ImageWithPlaceholder/ImageWithPlaceholder";
 
 /**
@@ -18,7 +25,7 @@ interface IPost {
   category: string;
   canonical: string;
   featuredImage: string;
-  contentHtml: string;
+  fileContents: string;
   authorProfile: IAuthor;
 }
 
@@ -42,6 +49,15 @@ const Post = (props: IPostProps): JSX.Element => {
       year: "numeric",
     });
   };
+
+  const processor = unified()
+    .use(markdown)
+    .use(remark2rehype)
+    .use(rehypePrism)
+    .use(rehype2react, {
+      createElement: React.createElement,
+      components: { img: Img },
+    });
 
   return (
     <Layout>
@@ -80,11 +96,7 @@ const Post = (props: IPostProps): JSX.Element => {
         />
       </header>
       <main className={styles.container}>
-        <article>
-          {/* This is ignored as we are in full control of what will be rendered */}
-          {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-        </article>
+        <article>{processor.processSync(postData.fileContents).result}</article>
         <div>
           {postData.canonical && (
             <p>
