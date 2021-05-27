@@ -19,9 +19,14 @@
 }
 
 .container {
+  line-height: 1.6;
   margin: 3rem auto 6rem;
   max-width: 36rem;
   padding: 0 1rem;
+
+  img {
+    max-width: 100%;
+  }
 }
 
 .headerContainer {
