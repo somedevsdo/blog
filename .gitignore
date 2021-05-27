@@ -42,3 +42,6 @@ coverage
 
 # reports
 reports
+
+# placeholders
+public/placeholders.json
