@@ -1,6 +1,6 @@
 import Image, { ImageProps } from "next/image";
 import { SyntheticEvent, useState } from "react";
-import getPlaceholder from "../../lib/placeholders";
+import { getPlaceholder } from "../../lib/placeholders";
 import styles from "./ImageWithPlaceholder.module.scss";
 
 const ImageWithPlaceholder = (props: ImageProps): JSX.Element => {
