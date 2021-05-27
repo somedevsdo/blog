@@ -3,11 +3,17 @@ import Head from "next/head";
 import Link from "next/link";
 import Layout, { siteTitle } from "../components/Layout/Layout";
 import { getSortedPostsData } from "../lib/posts";
+import ImageWithPlaceholder from "../components/ImageWithPlaceholder/ImageWithPlaceholder";
+import styles from "../styles/Home.module.scss";
+import Avatar from "../components/Avatar/Avatar";
+import getDateFormatted from "../lib/date";
 
 interface IPost {
+  category: string;
   date: string;
-  title: string;
+  featuredImage: string;
   id: string;
+  title: string;
 }
 
 interface IHomeProps {
@@ -24,6 +30,7 @@ const name = "somedevsdo";
  */
 const Home = (props: IHomeProps): JSX.Element => {
   const { allPostsData } = props;
+  const postData = allPostsData[0];
 
   return (
     <Layout home>
@@ -31,6 +38,32 @@ const Home = (props: IHomeProps): JSX.Element => {
         <title>{siteTitle}</title>
       </Head>
       <header>
+        <div className={styles.featuredImage}>
+          <div className={styles.headerContainer}>
+            <div className={styles.meta}>
+              <div className={styles.catDate}>
+                {postData.category} -{" "}
+                <span className={styles.date}>{getDateFormatted(postData.date)}</span>
+              </div>
+              <h1 className={styles.title}>{postData.title}</h1>
+            </div>
+            <div className={styles.author}>
+              <Avatar border size="medium" src="/authors/benmatselby.jpg" />
+              <div className={styles.authorDetails}>
+                <p>
+                  by <strong>Ben Selby</strong>
+                </p>
+                <p>Expert</p>
+              </div>
+            </div>
+          </div>
+          <ImageWithPlaceholder
+            alt="Featured image"
+            layout="fill"
+            objectFit="cover"
+            src={`/posts/featured/${postData.featuredImage}`}
+          />
+        </div>
         <h1>{name}</h1>
         <ul>
           <li>

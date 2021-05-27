@@ -1,0 +1,96 @@
+.featuredImage {
+  height: 17.5rem;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    background: rgba(0, 0, 0, 0.8);
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: background 0.3s linear;
+    z-index: 1;
+  }
+}
+
+.container {
+  margin: 3rem auto 6rem;
+  max-width: 36rem;
+  padding: 0 1rem;
+}
+
+.headerContainer {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding-left: 2rem;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.meta {
+  color: #fff;
+  max-width: 80%;
+}
+
+.catDate {
+  font-size: 0.75rem;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+}
+
+.date {
+  white-space: nowrap;
+}
+
+.title {
+  font-size: 1.75rem;
+  margin: 1rem 0;
+  text-transform: uppercase;
+}
+
+.author {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.authorDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  > p {
+    margin: 0 0 0.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .featuredImage {
+    height: 25rem;
+  }
+
+  .headerContainer {
+    padding-left: 10rem;
+  }
+
+  .meta {
+    max-width: 42.5rem;
+  }
+
+  .catDate {
+    font-size: 1rem;
+  }
+
+  .title {
+    font-size: 2.75rem;
+  }
+}
