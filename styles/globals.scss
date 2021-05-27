@@ -2,11 +2,13 @@
   /* Your default theme */
   --background: #fff;
   --foreground: #151515;
+  --text: #333;
 }
 
 [data-theme="dark"] {
   --background: #151515;
   --foreground: #fff;
+  --text: #ddd;
 }
 
 html,

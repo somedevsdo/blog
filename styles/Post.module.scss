@@ -19,13 +19,60 @@
 }
 
 .container {
+  color: var(--text);
+  font-size: 1rem;
   line-height: 1.6;
   margin: 3rem auto 6rem;
-  max-width: 36rem;
+  max-width: 42.5rem;
   padding: 0 1rem;
+
+  blockquote {
+    border-left: 0.4rem solid var(--foreground);
+    font-style: italic;
+    margin: 0 0 2.5rem;
+    padding: 0.75rem 1rem;
+
+    p {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
 
   img {
     max-width: 100%;
+  }
+
+  p {
+    margin: 0;
+    margin-bottom: 2.5rem;
+  }
+
+  li {
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    margin-bottom: 2.5rem;
+  }
+
+  h2,
+  h3,
+  h4 {
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  h4 {
+    font-size: 1rem;
   }
 }
 
@@ -58,11 +105,55 @@
 }
 
 .title {
-  font-size: 1.75rem;
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
   margin: 1rem 0 0;
 }
 
 @media (min-width: 992px) {
+  .container {
+    font-size: 1.2rem;
+
+    blockquote {
+      margin-left: -1.25rem;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    p {
+      margin: 0;
+      margin-bottom: 2.5rem;
+    }
+
+    li {
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      margin-bottom: 2.5rem;
+    }
+
+    h2,
+    h3,
+    h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    h4 {
+      font-size: 1.25rem;
+    }
+  }
+
   .featuredImage {
     height: 25rem;
   }
@@ -76,6 +167,6 @@
   }
 
   .title {
-    font-size: 2.75rem;
+    font-size: 3.5rem;
   }
 }
