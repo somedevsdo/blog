@@ -10,9 +10,24 @@ const postsDirectory = path.join(process.cwd(), "posts");
  */
 export interface IPost {
   /**
-   * The ID of the post. This is the name of the post file, minus the ".md" bit.
+   * The authors profile.
    */
-  id: string;
+  authorProfile: IAuthor;
+
+  /**
+   * The category of the post
+   */
+  category: string;
+
+  /**
+   * The date the post was published.
+   */
+  date: string;
+
+  /**
+   * The image on the post header
+   */
+  featuredImage: string;
 
   /**
    * The content of the post.
@@ -20,14 +35,9 @@ export interface IPost {
   fileContents: string;
 
   /**
-   * The authors profile.
+   * The ID of the post. This is the name of the post file, minus the ".md" bit.
    */
-  authorProfile: IAuthor;
-
-  /**
-   * The date the post was published.
-   */
-  date: string;
+  id: string;
 
   /**
    * The title of the post.
@@ -105,6 +115,11 @@ export const getPostData = async (id: string): Promise<IPost> => {
     id,
     fileContents: matterResult.content,
     authorProfile,
-    ...(matterResult.data as { date: string; title: string }),
+    ...(matterResult.data as {
+      category: string;
+      date: string;
+      featuredImage: string;
+      title: string;
+    }),
   };
 };
