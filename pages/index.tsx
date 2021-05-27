@@ -2,19 +2,11 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Layout, { siteTitle } from "../components/Layout/Layout";
-import { getSortedPostsData } from "../lib/posts";
+import { getSortedPostsData, IPost } from "../lib/posts";
 import ImageWithPlaceholder from "../components/ImageWithPlaceholder/ImageWithPlaceholder";
 import styles from "../styles/Home.module.scss";
 import Avatar from "../components/Avatar/Avatar";
 import getDateFormatted from "../lib/date";
-
-interface IPost {
-  category: string;
-  date: string;
-  featuredImage: string;
-  id: string;
-  title: string;
-}
 
 interface IHomeProps {
   allPostsData: IPost[];
@@ -53,7 +45,7 @@ const Home = (props: IHomeProps): JSX.Element => {
                 <p>
                   by <strong>Ben Selby</strong>
                 </p>
-                <p>Expert</p>
+                <p>Senior</p>
               </div>
             </div>
           </div>
