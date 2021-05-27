@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "npm run create-placeholders && next build",
+    "create-placeholders": "node ./scripts/create-placeholders.js",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "dev": "next dev",
+    "dev": "npm run create-placeholders && next dev",
     "format": "prettier --loglevel warn --write \"**/*.{ts,tsx,scss,md}\"",
     "lint:scss": "stylelint '**/*.scss'",
     "lint": "eslint . --cache --fix --ext .ts,.tsx",
@@ -33,6 +34,7 @@
     "sass": "^1.32.13"
   },
   "devDependencies": {
+    "@plaiceholder/base64": "^1.0.0",
     "@stryker-mutator/core": "^5.0.0",
     "@stryker-mutator/jest-runner": "^5.0.0",
     "@testing-library/dom": "^7.31.0",
@@ -67,6 +69,7 @@
     "lint-staged": "^11.0.0",
     "majestic": "^1.8.0",
     "prettier": "^2.3.0",
+    "sharp": "^0.28.3",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-sass-guidelines": "^8.0.0",

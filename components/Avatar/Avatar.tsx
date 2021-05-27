@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ImageWithPlaceholder from "../ImageWithPlaceholder/ImageWithPlaceholder";
 import styles from "./Avatar.module.scss";
 
 type AvatarSize = "x-small" | "small" | "medium" | "large";
@@ -48,7 +48,7 @@ const Avatar = (props: IAvatarProps): JSX.Element => {
 
   return (
     <span className={`${styles.avatar} ${border && styles.avatarBorder}`}>
-      <Image
+      <ImageWithPlaceholder
         alt="Avatar"
         height={avatarSize}
         layout="fixed"
