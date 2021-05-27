@@ -22,16 +22,24 @@
     "test:mutate-file": "npx stryker run --concurrency 1 --reporters clear-text,progress-append-only,html --mutate \"**/$FILE_NAME*.tsx,!**/*@(.data|.test|.spec|Spec|.stories).ts?(x)\""
   },
   "dependencies": {
+    "@mapbox/rehype-prism": "^0.6.0",
     "gray-matter": "^4.0.3",
     "next": "10.2.2",
     "next-themes": "^0.0.14",
     "prismjs": "^1.23.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "rehype-highlight": "^4.1.0",
+    "rehype-react": "^6.2.0",
     "remark": "^13.0.0",
+    "remark-github": "^10.1.0",
     "remark-html": "^13.0.1",
+    "remark-parse": "^9.0.0",
     "remark-prism": "^1.3.6",
-    "sass": "^1.32.13"
+    "remark-rehype": "^8.1.0",
+    "remark-toc": "^7.2.0",
+    "sass": "^1.32.13",
+    "unified": "^9.2.1"
   },
   "devDependencies": {
     "@plaiceholder/base64": "^1.0.0",
