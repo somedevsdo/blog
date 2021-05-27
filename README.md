@@ -28,6 +28,20 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
+## Cypress
+
+The repository uses [Cypress](https://www.cypress.io/) which is not run on commit. It is recommended you run manually to make sure it will pass in CI. To run Cypress in its own UI:
+
+```bash
+npm run cypress:open
+```
+
+Alternatively, to just run Cypress:
+
+```bash
+npm run cypress:run
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
