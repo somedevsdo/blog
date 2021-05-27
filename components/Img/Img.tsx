@@ -5,7 +5,14 @@ const Img = (props: ImgHTMLAttributes<HTMLImageElement>): JSX.Element => {
   const { alt, src } = props;
   return (
     <div style={{ position: "relative", overflow: "hidden" }}>
-      <ImageWithPlaceholder alt={alt} height={300} layout="responsive" src={src} width={1024} />
+      <ImageWithPlaceholder
+        alt={alt}
+        height={300}
+        layout="responsive"
+        objectFit="contain"
+        src={src}
+        width={1024}
+      />
     </div>
   );
 };
