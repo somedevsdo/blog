@@ -15,6 +15,7 @@ import { getAllPostIds, getPostData } from "../../lib/posts";
 import Layout from "../../components/Layout/Layout";
 import Img from "../../components/Img/Img";
 import ImageWithPlaceholder from "../../components/ImageWithPlaceholder/ImageWithPlaceholder";
+import getDateFormatted from "../../lib/date";
 
 /**
  * The definition of what a post contains.
@@ -41,14 +42,6 @@ interface IPostProps {
  */
 const Post = (props: IPostProps): JSX.Element => {
   const { postData } = props;
-
-  const getDateFormatted = (): string => {
-    return new Date(postData.date).toLocaleDateString(undefined, {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-    });
-  };
 
   const processor = unified()
     .use(markdown)
@@ -77,7 +70,8 @@ const Post = (props: IPostProps): JSX.Element => {
           <div className={styles.headerContainer}>
             <div className={styles.meta}>
               <div className={styles.catDate}>
-                {postData.category} - <span className={styles.date}>{getDateFormatted()}</span>
+                {postData.category} -{" "}
+                <span className={styles.date}>{getDateFormatted(postData.date)}</span>
               </div>
               <h1 className={styles.title}>{postData.title}</h1>
             </div>
