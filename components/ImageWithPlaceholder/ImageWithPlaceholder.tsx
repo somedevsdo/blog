@@ -14,7 +14,6 @@ const ImageWithPlaceholder = (props: ImageProps): JSX.Element => {
       <img
         alt=""
         aria-hidden="true"
-        className={`${styles.placeholder} ${loaded ? styles.placeholderLoaded : ""}`}
         src={placeholder}
         style={{
           position: "absolute",

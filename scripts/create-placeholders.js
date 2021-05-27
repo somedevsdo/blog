@@ -18,7 +18,6 @@ const run = async (directories) => {
             const base64 = await plaiceholder.getBase64(image);
             const dimensions = sizeOf(image);
             const { height, width } = dimensions;
-            console.log(dimensions);
             images.push({
               file: path.join(directory, file),
               placeholder: base64,
