@@ -16,6 +16,7 @@ interface IPost {
   title: string;
   date: string;
   category: string;
+  canonical: string;
   featuredImage: string;
   contentHtml: string;
   authorProfile: IAuthor;
@@ -46,6 +47,7 @@ const Post = (props: IPostProps): JSX.Element => {
     <Layout>
       <Head>
         <title>{postData.title}</title>
+        {postData.canonical && <link href={postData.canonical} rel="canonical" />}
         <meta content="summary" name="twitter:card" />
         <meta content="somedevsdo" name="twitter:site" />
         <meta content={postData.authorProfile.name} name="twitter:creator" />
@@ -84,6 +86,14 @@ const Post = (props: IPostProps): JSX.Element => {
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
         <div>
+          {postData.canonical && (
+            <p>
+              <em>
+                Originally published at{" "}
+                <a href={postData.canonical}>{new URL(postData.canonical).hostname}</a>
+              </em>
+            </p>
+          )}
           <Link href="/">
             <a>← Back to home</a>
           </Link>
