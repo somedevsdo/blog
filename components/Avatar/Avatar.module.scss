@@ -4,6 +4,7 @@
   display: inline-flex;
   justify-content: center;
   overflow: hidden;
+  position: relative;
 
   &Border {
     border: solid var(--background) 3px;

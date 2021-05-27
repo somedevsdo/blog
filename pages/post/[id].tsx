@@ -1,6 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Layout from "../../components/Layout/Layout";
@@ -8,6 +7,7 @@ import { getAllPostIds, getPostData } from "../../lib/posts";
 import styles from "../../styles/Post.module.scss";
 import Subheader from "../../components/Subheader/Subheader";
 import { IAuthor } from "../../lib/authors";
+import ImageWithPlaceholder from "../../components/ImageWithPlaceholder/ImageWithPlaceholder";
 
 /**
  * The definition of what a post contains.
@@ -66,7 +66,7 @@ const Post = (props: IPostProps): JSX.Element => {
               <h1 className={styles.title}>{postData.title}</h1>
             </div>
           </div>
-          <Image
+          <ImageWithPlaceholder
             alt="Featured image"
             layout="fill"
             objectFit="cover"
