@@ -2,6 +2,7 @@
 title: "Recent test page"
 date: "2021-05-12"
 category: "code"
+canonical: "https://andrew-barnes.medium.com/bem-css-tip-dealing-with-grandchild-elements-d7378b51e722"
 featuredImage: "test.jpg"
 author: "andy"
 ---

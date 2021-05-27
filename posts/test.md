@@ -2,6 +2,7 @@
 title: "Test page"
 date: "2020-01-01"
 category: "process"
+canonical: "https://benmatselby.dev/post/jenkins-language-agent/"
 featuredImage: "test.jpg"
 author: "ben"
 ---
