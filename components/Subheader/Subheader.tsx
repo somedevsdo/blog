@@ -51,7 +51,7 @@ const Subheader = (props: ISubheaderProps): JSX.Element => {
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <title id="copy-to-twitter">Share to Twitter</title>
+                <title id="share-to-twitter">Share to Twitter</title>
                 <path
                   d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609
                 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127
