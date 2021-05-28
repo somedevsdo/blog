@@ -21,10 +21,6 @@ describe("Home page", () => {
     cy.url().should("include", "/authors");
   });
 
-  it("should show 3 posts", () => {
-    cy.get('a[href*="post"]').should("have.length", 3);
-  });
-
   it("should navigate to a post", () => {
     cy.get('a[href*="post"]').eq(0).click();
     cy.url().should("include", "/post");
