@@ -1,6 +1,6 @@
 module.exports = {
   plugins: ["prettier", "sort-destructure-keys"],
-  extends: ["prettier", "plugin:jsdoc/recommended"],
+  extends: ["prettier", "plugin:jsdoc/recommended", "plugin:jsx-a11y/strict"],
   ignorePatterns: "jest.setup.ts",
   overrides: [
     {
