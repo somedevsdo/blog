@@ -38,10 +38,10 @@ const Home = (props: IHomeProps): JSX.Element => {
               <h1 className={styles.title}>{postData.title}</h1>
             </div>
             <div className={styles.author}>
-              <Avatar border size="medium" src="/authors/benmatselby.jpg" />
+              <Avatar border size="medium" src={postData.authorProfile.profile} />
               <div className={styles.authorDetails}>
                 <p>
-                  by <strong>Ben Selby</strong>
+                  by <strong>{postData.authorProfile.name}</strong>
                 </p>
                 <p>Senior</p>
               </div>

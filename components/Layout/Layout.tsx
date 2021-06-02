@@ -37,7 +37,7 @@ const Layout = (props: Props): JSX.Element => {
         <meta content="summary_large_image" name="twitter:card" />
       </Head>
       <nav className={styles.nav}>
-        <p>LOGO GOES HERE</p>
+        <p>SOME DEVS DO</p>
         <button
           className={styles.button}
           onClick={(): void => setTheme(resolvedTheme === "light" ? "dark" : "light")}
