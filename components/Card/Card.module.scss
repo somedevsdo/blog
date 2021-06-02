@@ -1,0 +1,68 @@
+.card {
+  box-shadow: 0 4px 20px 0 var(--shadow);
+  height: 25.5rem;
+  max-width: 32rem;
+  overflow: hidden;
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  &:hover {
+    transform: scale(1.01);
+  }
+}
+
+.header {
+  height: 11rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.details {
+  padding: 1rem;
+
+  .postDetails {
+    align-items: center;
+    color: #666;
+    display: flex;
+    font-size: 0.935rem;
+    gap: 0.5rem;
+  }
+
+  .category {
+    text-transform: uppercase;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin: 0;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .subtitle {
+    color: #666;
+    font-size: 0.875rem;
+  }
+}
+
+.author {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.authorDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  > p {
+    margin: 0;
+  }
+}
