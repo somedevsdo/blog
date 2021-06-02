@@ -47,6 +47,9 @@
   .subtitle {
     color: #666;
     font-size: 0.875rem;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 
