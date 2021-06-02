@@ -25,7 +25,7 @@
 
   .postDetails {
     align-items: center;
-    color: #666;
+    color: var(--secondary-text);
     display: flex;
     font-size: 0.935rem;
     gap: 0.5rem;
@@ -45,7 +45,7 @@
   }
 
   .subtitle {
-    color: #666;
+    color: var(--secondary-text);
     font-size: 0.875rem;
     overflow-x: hidden;
     text-overflow: ellipsis;
