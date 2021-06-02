@@ -11,17 +11,16 @@ interface ICardProps {
 
 const Card = (props: ICardProps): JSX.Element => {
   const { post } = props;
-  const { category, date, id, title } = post;
+  const { authorProfile, category, date, featuredImage, id, title } = post;
   return (
     <Link href={`/post/${id}`}>
       <div className={styles.card}>
         <a>
           <div className={styles.header}>
             <ImageWithPlaceholder
-              height={200}
+              layout="fill"
               objectFit="cover"
-              src="/posts/featured/test.jpg"
-              width={600}
+              src={`/posts/featured/${featuredImage}`}
             />
           </div>
           <div className={styles.details}>
@@ -34,9 +33,9 @@ const Card = (props: ICardProps): JSX.Element => {
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed, recusandae.
             </p>
             <div className={styles.author}>
-              <Avatar size="x-small" src="/authors/benmatselby.jpg" />
+              <Avatar size="x-small" src={authorProfile.profile} />
               <div className={styles.authorDetails}>
-                <strong>Ben Selby</strong>
+                <strong>{authorProfile.name}</strong>
                 <p>Senior</p>
               </div>
             </div>

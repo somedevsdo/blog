@@ -71,7 +71,8 @@ const Home = (props: IHomeProps): JSX.Element => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData();
+  const allPostsData = await getSortedPostsData();
+  console.log(allPostsData[0].authorProfile);
   return {
     props: {
       allPostsData,
