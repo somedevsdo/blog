@@ -1,18 +1,16 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import Layout, { siteTitle } from "../components/Layout/Layout";
 import { getSortedPostsData, IPost } from "../lib/posts";
 import ImageWithPlaceholder from "../components/ImageWithPlaceholder/ImageWithPlaceholder";
 import styles from "../styles/Home.module.scss";
 import Avatar from "../components/Avatar/Avatar";
 import getDateFormatted from "../lib/date";
+import Card from "../components/Card/Card";
 
 interface IHomeProps {
   allPostsData: IPost[];
 }
-
-const name = "somedevsdo";
 
 /**
  * The home page component
@@ -56,30 +54,13 @@ const Home = (props: IHomeProps): JSX.Element => {
             src={`/posts/featured/${postData.featuredImage}`}
           />
         </div>
-        <h1>{name}</h1>
-        <ul>
-          <li>
-            <Link href="/about">
-              <a data-testid="link-about">About us page</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/authors">
-              <a data-testid="link-authors">Authors</a>
-            </Link>
-          </li>
-        </ul>
       </header>
       <main>
         <section>
-          <ul data-testid="posts">
-            {allPostsData.map(({ date, id, title }) => (
-              <li key={id}>
-                <Link href={`/post/${id}`}>
-                  <a>
-                    {title} ({date})
-                  </a>
-                </Link>
+          <ul className={styles.cards} data-testid="posts">
+            {allPostsData.map((p: IPost) => (
+              <li key={p.id}>
+                <Card post={p} />
               </li>
             ))}
           </ul>
