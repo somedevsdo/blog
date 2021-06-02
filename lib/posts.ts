@@ -40,6 +40,11 @@ export interface IPost {
   id: string;
 
   /**
+   * Subtitle of post.
+   */
+  subtitle: string;
+
+  /**
    * The title of the post.
    */
   title: string;
@@ -58,26 +63,7 @@ export const getSortedPostsData = async (): Promise<IPost[]> => {
       // Remove ".md" from file name to get id
       const id = fileName.replace(/\.md$/, "");
 
-      // Read markdown file as string
-      const fullPath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
-
-      // Use gray-matter to parse the post metadata section
-      const matterResult = matter(fileContents);
-
-      const authorProfile = await getAuthorData(matterResult.data.author);
-
-      const { category, date, featuredImage, title } = matterResult.data;
-
-      // Combine the data with the id
-      return {
-        authorProfile,
-        category,
-        date,
-        featuredImage,
-        id,
-        title,
-      } as IPost;
+      return getPostData(id);
     })
   );
 
@@ -120,11 +106,14 @@ export const getPostData = async (id: string): Promise<IPost> => {
   const matterResult = matter(fileContents);
 
   const authorProfile = await getAuthorData(matterResult.data.author);
+  const { content } = matterResult;
+  const subtitle = content.split(" ").slice(0, 20).join(" ").trimEnd();
 
   // Combine the data with the id and contentHtml
   return {
     id,
-    fileContents: matterResult.content,
+    fileContents: content,
+    subtitle,
     authorProfile,
     ...(matterResult.data as {
       category: string;

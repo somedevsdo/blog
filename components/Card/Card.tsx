@@ -11,7 +11,7 @@ interface ICardProps {
 
 const Card = (props: ICardProps): JSX.Element => {
   const { post } = props;
-  const { authorProfile, category, date, featuredImage, id, title } = post;
+  const { authorProfile, category, date, featuredImage, id, subtitle, title } = post;
   return (
     <Link href={`/post/${id}`}>
       <div className={styles.card}>
@@ -29,9 +29,7 @@ const Card = (props: ICardProps): JSX.Element => {
               <p className={styles.date}>{getDateFormatted(date)}</p>
             </span>
             <p className={styles.title}>{title}</p>
-            <p className={styles.subtitle}>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed, recusandae.
-            </p>
+            <p className={styles.subtitle}>{subtitle}</p>
             <div className={styles.author}>
               <Avatar size="x-small" src={authorProfile.profile} />
               <div className={styles.authorDetails}>
