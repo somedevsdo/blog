@@ -14,8 +14,8 @@ const Card = (props: ICardProps): JSX.Element => {
   const { authorProfile, category, date, featuredImage, id, subtitle, title } = post;
   return (
     <Link href={`/post/${id}`}>
-      <div className={styles.card}>
-        <a>
+      <a className={styles.link}>
+        <div className={styles.card}>
           <div className={styles.header}>
             <ImageWithPlaceholder
               layout="fill"
@@ -38,8 +38,8 @@ const Card = (props: ICardProps): JSX.Element => {
               </div>
             </div>
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
     </Link>
   );
 };
