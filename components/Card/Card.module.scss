@@ -8,6 +8,7 @@
   height: 25.5rem;
   max-width: 32rem;
   overflow: hidden;
+  transition: transform 0.1s ease-in-out;
 
   &:hover {
     transform: scale(1.01);
