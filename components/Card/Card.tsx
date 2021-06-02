@@ -25,7 +25,7 @@ const Card = (props: ICardProps): JSX.Element => {
           </div>
           <div className={styles.details}>
             <span className={styles.postDetails}>
-              <p className={styles.category}>{category}</p> -{" "}
+              <p className={styles.category}>{category}</p> {" - "}
               <p className={styles.date}>{getDateFormatted(date)}</p>
             </span>
             <p className={styles.title}>{title}</p>
