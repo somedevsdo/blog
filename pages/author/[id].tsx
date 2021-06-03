@@ -29,7 +29,7 @@ const Author = (props: IAuthorProps): JSX.Element => {
           {author.social ? (
             <ul>
               {author.social.map((link) => (
-                <li>
+                <li key={link}>
                   <SocialLink link={link} />
                 </li>
               ))}
