@@ -47,7 +47,10 @@ const Avatar = (props: IAvatarProps): JSX.Element => {
   }
 
   return (
-    <span className={`${styles.avatar} ${border && styles.avatarBorder}`}>
+    <span
+      className={`${styles.avatar} ${border && styles.avatarBorder}`}
+      style={{ height: avatarSize, width: avatarSize }}
+    >
       <ImageWithPlaceholder
         alt="Avatar"
         height={avatarSize}
