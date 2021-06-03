@@ -12,7 +12,7 @@ describe("Authors", () => {
   });
 
   it("should navigate correctly", () => {
-    cy.get("a").eq(1).click();
+    cy.get("a").eq(2).click();
     cy.url().should("include", "/author/ben");
   });
 });

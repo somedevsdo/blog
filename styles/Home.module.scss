@@ -59,7 +59,7 @@
 
 .author {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   margin-top: 2rem;
 }
 
@@ -71,6 +71,22 @@
   > p {
     color: #fff;
     margin: 0 0 0.5rem;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem auto;
+  padding: 0;
+  width: 100%;
+
+  li {
+    list-style: none;
+    max-width: 100%;
+    padding: 1rem;
   }
 }
 
@@ -93,5 +109,11 @@
 
   .title {
     font-size: 2.75rem;
+  }
+
+  .cards {
+    li {
+      max-width: 100rem;
+    }
   }
 }
