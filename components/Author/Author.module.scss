@@ -1,0 +1,34 @@
+.author {
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.light {
+  color: var(--foreground);
+}
+
+.dark {
+  color: var(--background);
+}
+
+.name {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+
+  strong {
+    font-style: normal;
+  }
+}

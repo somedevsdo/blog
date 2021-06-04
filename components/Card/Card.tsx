@@ -1,7 +1,7 @@
 import Link from "next/link";
 import getDateFormatted from "../../lib/date";
 import { IPost } from "../../lib/posts";
-import Avatar from "../Avatar/Avatar";
+import Author from "../Author/Author";
 import ImageWithPlaceholder from "../ImageWithPlaceholder/ImageWithPlaceholder";
 import styles from "./Card.module.scss";
 
@@ -31,11 +31,13 @@ const Card = (props: ICardProps): JSX.Element => {
             <p className={styles.title}>{title}</p>
             <p className={styles.subtitle}>{subtitle}</p>
             <div className={styles.author}>
-              <Avatar size="x-small" src={authorProfile.profile} />
-              <div className={styles.authorDetails}>
-                <strong>{authorProfile.name}</strong>
-                <p>Senior</p>
-              </div>
+              <Author
+                author={authorProfile}
+                avatarBorder={false}
+                avatarSize="x-small"
+                colorScheme="light"
+                layout="horizontal"
+              />
             </div>
           </div>
         </div>

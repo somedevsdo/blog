@@ -22,16 +22,6 @@
 }
 
 .author {
-  color: var(--foreground);
-  font-style: italic;
-  margin: 0.5rem 0;
-
-  strong {
-    font-style: normal;
-  }
-}
-
-.avatar {
   align-items: center;
   display: flex;
   flex-direction: column;

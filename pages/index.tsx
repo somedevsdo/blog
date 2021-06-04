@@ -1,12 +1,12 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import Layout, { siteTitle } from "../components/Layout/Layout";
-import { getSortedPostsData, IPost } from "../lib/posts";
-import ImageWithPlaceholder from "../components/ImageWithPlaceholder/ImageWithPlaceholder";
-import styles from "../styles/Home.module.scss";
-import Avatar from "../components/Avatar/Avatar";
-import getDateFormatted from "../lib/date";
+import Author from "../components/Author/Author";
 import Card from "../components/Card/Card";
+import ImageWithPlaceholder from "../components/ImageWithPlaceholder/ImageWithPlaceholder";
+import Layout, { siteTitle } from "../components/Layout/Layout";
+import getDateFormatted from "../lib/date";
+import { getSortedPostsData, IPost } from "../lib/posts";
+import styles from "../styles/Home.module.scss";
 
 interface IHomeProps {
   allPostsData: IPost[];
@@ -37,14 +37,14 @@ const Home = (props: IHomeProps): JSX.Element => {
               </div>
               <h1 className={styles.title}>{postData.title}</h1>
             </div>
-            <div className={styles.author}>
-              <Avatar border size="medium" src={postData.authorProfile.profile} />
-              <div className={styles.authorDetails}>
-                <p>
-                  by <strong>{postData.authorProfile.name}</strong>
-                </p>
-                <p>Senior</p>
-              </div>
+            <div>
+              <Author
+                author={postData.authorProfile}
+                avatarBorder
+                avatarSize="medium"
+                colorScheme="dark"
+                layout="horizontal"
+              />
             </div>
           </div>
           <ImageWithPlaceholder
