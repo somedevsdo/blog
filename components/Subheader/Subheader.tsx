@@ -1,6 +1,5 @@
-import Link from "next/link";
 import { IAuthor } from "../../lib/authors";
-import Avatar from "../Avatar/Avatar";
+import Author from "../Author/Author";
 import styles from "./Subheader.module.scss";
 
 /**
@@ -99,14 +98,14 @@ const Subheader = (props: ISubheaderProps): JSX.Element => {
           </li>
         </ul>
       </div>
-      <div className={styles.avatar}>
-        <Avatar border size="medium" src={author.profile} />
-        <p className={styles.author}>
-          by{" "}
-          <strong>
-            <Link href={`/author/${author.id}`}>{author.name}</Link>
-          </strong>
-        </p>
+      <div className={styles.author}>
+        <Author
+          author={author}
+          avatarBorder
+          avatarSize="medium"
+          colorScheme="light"
+          layout="vertical"
+        />
       </div>
     </div>
   );

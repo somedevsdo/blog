@@ -57,23 +57,6 @@
   text-transform: uppercase;
 }
 
-.author {
-  display: flex;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.authorDetails {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  > p {
-    color: #fff;
-    margin: 0 0 0.5rem;
-  }
-}
-
 .cards {
   display: flex;
   flex-wrap: wrap;
