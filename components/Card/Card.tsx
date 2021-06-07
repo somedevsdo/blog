@@ -13,36 +13,36 @@ const Card = (props: ICardProps): JSX.Element => {
   const { post } = props;
   const { authorProfile, category, date, featuredImage, id, subtitle, title } = post;
   return (
-    <Link href={`/post/${id}`}>
-      <a className={styles.link}>
-        <div className={styles.card}>
-          <div className={styles.header}>
-            <ImageWithPlaceholder
-              layout="fill"
-              objectFit="cover"
-              src={`/posts/featured/${featuredImage}`}
-            />
-          </div>
-          <div className={styles.details}>
+    <div className={styles.card}>
+      <div className={styles.header}>
+        <ImageWithPlaceholder
+          layout="fill"
+          objectFit="cover"
+          src={`/posts/featured/${featuredImage}`}
+        />
+      </div>
+      <div className={styles.details}>
+        <Link href={`/post/${id}`}>
+          <a className={styles.link}>
             <span className={styles.postDetails}>
               <p className={styles.category}>{category}</p> {" - "}
               <p className={styles.date}>{getDateFormatted(date)}</p>
             </span>
             <p className={styles.title}>{title}</p>
             <p className={styles.subtitle}>{subtitle}</p>
-            <div className={styles.author}>
-              <Author
-                author={authorProfile}
-                avatarBorder={false}
-                avatarSize="x-small"
-                colorScheme="light"
-                layout="horizontal"
-              />
-            </div>
-          </div>
+          </a>
+        </Link>
+        <div className={styles.author}>
+          <Author
+            author={authorProfile}
+            avatarBorder={false}
+            avatarSize="x-small"
+            colorScheme="light"
+            layout="horizontal"
+          />
         </div>
-      </a>
-    </Link>
+      </div>
+    </div>
   );
 };
 
