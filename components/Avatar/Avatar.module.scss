@@ -1,6 +1,8 @@
+$background: var(--background);
+
 .avatar {
   align-items: center;
-  background-color: #fff;
+  background-color: $background;
   border-radius: 50%;
   display: inline-flex;
   justify-content: center;
@@ -14,6 +16,6 @@
   }
 
   &Border {
-    border: solid var(--background) 3px;
+    border: solid $background 3px;
   }
 }
