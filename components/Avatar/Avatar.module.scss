@@ -6,6 +6,12 @@
   overflow: hidden;
   position: relative;
 
+  // Adding here, otherwise in Safari the `ImageWithPlaceholder.img.transition`
+  // transition a square image for 0.5 seconds into a circle.
+  img {
+    border-radius: 50%;
+  }
+
   &Border {
     border: solid var(--background) 3px;
   }
