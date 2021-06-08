@@ -4,7 +4,7 @@ import { getPlaceholder } from "../../lib/placeholders";
 import styles from "./ImageWithPlaceholder.module.scss";
 
 const ImageWithPlaceholder = (props: ImageProps): JSX.Element => {
-  const { objectFit, src } = props;
+  const { alt, objectFit, src } = props;
   const [loaded, setLoaded] = useState(false);
 
   const placeholder = getPlaceholder(src);
@@ -12,7 +12,7 @@ const ImageWithPlaceholder = (props: ImageProps): JSX.Element => {
   return (
     <>
       <img
-        alt=""
+        alt={`${alt} placeholder`}
         aria-hidden="true"
         src={placeholder}
         style={{
