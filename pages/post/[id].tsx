@@ -47,7 +47,7 @@ const Post = (props: IPostProps): JSX.Element => {
   const { article, postData } = props;
 
   const processor = unified()
-    .use(parse)
+    .use(parse, { fragment: true })
     .use(rehype2react, {
       createElement: React.createElement,
       components: { img: Img },
@@ -121,7 +121,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const postData = await getPostData(params.id as string);
 
-  const processor = unified().use(markdown).use(remark2rehype).use(rehypePrism).use(html);
+  const processor = unified().use(markdown).use(remark2rehype).use(rehypePrism).use(html, {});
 
   const article = await processor.process(postData.fileContents);
 
