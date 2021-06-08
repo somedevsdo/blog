@@ -8,6 +8,8 @@ import remark2rehype from "remark-rehype";
 import rehype2react from "rehype-react";
 import React from "react";
 import rehypePrism from "@mapbox/rehype-prism";
+import html from "rehype-stringify";
+import parse from "rehype-parse";
 import { IAuthor } from "../../lib/authors";
 import Subheader from "../../components/Subheader/Subheader";
 import styles from "../../styles/Post.module.scss";
@@ -31,6 +33,7 @@ interface IPost {
 }
 
 interface IPostProps {
+  article: string;
   postData: IPost;
 }
 
@@ -41,12 +44,10 @@ interface IPostProps {
  * @returns The Post component
  */
 const Post = (props: IPostProps): JSX.Element => {
-  const { postData } = props;
+  const { article, postData } = props;
 
   const processor = unified()
-    .use(markdown)
-    .use(remark2rehype)
-    .use(rehypePrism)
+    .use(parse, { fragment: true })
     .use(rehype2react, {
       createElement: React.createElement,
       components: { img: Img },
@@ -90,7 +91,7 @@ const Post = (props: IPostProps): JSX.Element => {
         />
       </header>
       <main className={styles.container}>
-        <article>{processor.processSync(postData.fileContents).result}</article>
+        <article>{processor.processSync(article).result}</article>
         <div>
           {postData.canonical && (
             <p>
@@ -119,8 +120,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const postData = await getPostData(params.id as string);
+
+  const processor = unified().use(markdown).use(remark2rehype).use(rehypePrism).use(html, {});
+
+  const article = await processor.process(postData.fileContents);
+
   return {
     props: {
+      article: article.toString(),
       postData,
     },
   };
