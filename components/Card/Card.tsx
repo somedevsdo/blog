@@ -16,6 +16,7 @@ const Card = (props: ICardProps): JSX.Element => {
     <div className={styles.card}>
       <div className={styles.header}>
         <ImageWithPlaceholder
+          alt={title}
           layout="fill"
           objectFit="cover"
           src={`/posts/featured/${featuredImage}`}
