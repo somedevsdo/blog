@@ -11,67 +11,28 @@ describe("Author", () => {
   };
 
   it("should render correctly", () => {
-    render(
-      <Author
-        author={author}
-        avatarBorder
-        avatarSize="medium"
-        colorScheme="light"
-        layout="horizontal"
-      />
-    );
+    render(<Author author={author} avatarBorder avatarSize="medium" />);
     expect(screen.getByTitle("Author profile for Ben Selby")).toBeInTheDocument();
-  });
-
-  it("should add the horizontal modifier class if we want the horizontal layout", () => {
-    const { container } = render(
-      <Author
-        author={author}
-        avatarBorder
-        avatarSize="medium"
-        colorScheme="light"
-        layout="horizontal"
-      />
-    );
-    expect(container.firstChild).toHaveClass("horizontal");
   });
 
   it("should add the vertical modifier class if we want the vertical layout", () => {
     const { container } = render(
-      <Author
-        author={author}
-        avatarBorder
-        avatarSize="medium"
-        colorScheme="light"
-        layout="vertical"
-      />
+      <Author author={author} avatarBorder avatarSize="medium" vertical />
     );
     expect(container.firstChild).toHaveClass("vertical");
   });
 
-  it("should add the dark modifier class if we want the dark colour scheme", () => {
+  it("should use dark text if we want it", () => {
     const { container } = render(
-      <Author
-        author={author}
-        avatarBorder
-        avatarSize="medium"
-        colorScheme="dark"
-        layout="horizontal"
-      />
+      <Author author={author} avatarBorder avatarSize="medium" textTheme="dark" />
     );
-    expect(container.firstChild).toHaveClass("dark");
+    expect(container.getElementsByTagName("p")[0]).toHaveClass("dark");
   });
 
-  it("should add the light modifier class if we want the light colour scheme", () => {
+  it("should use light text if we want it", () => {
     const { container } = render(
-      <Author
-        author={author}
-        avatarBorder
-        avatarSize="medium"
-        colorScheme="light"
-        layout="horizontal"
-      />
+      <Author author={author} avatarBorder avatarSize="medium" textTheme="light" />
     );
-    expect(container.firstChild).toHaveClass("light");
+    expect(container.getElementsByTagName("p")[0]).toHaveClass("light");
   });
 });

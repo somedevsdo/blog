@@ -42,8 +42,8 @@ const Home = (props: IHomeProps): JSX.Element => {
                 author={postData.authorProfile}
                 avatarBorder
                 avatarSize="medium"
-                colorScheme="dark"
-                layout="horizontal"
+                textTheme="light"
+                vertical
               />
             </div>
           </div>
