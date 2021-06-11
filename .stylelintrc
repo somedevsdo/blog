@@ -1,6 +1,7 @@
 {
   "extends": [
     "stylelint-config-sass-guidelines",
+    "stylelint-config-css-modules",
     "stylelint-config-prettier"
   ],
   "plugins": [
