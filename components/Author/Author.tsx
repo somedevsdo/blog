@@ -9,14 +9,9 @@ import styles from "./Author.module.scss";
 type AuthorSize = "x-small" | "small" | "medium" | "large";
 
 /**
- * How to layout the component.
- */
-type Layout = "horizontal" | "vertical";
-
-/**
  * When we render the author what color scheme are we wanting to adopt.
  */
-type ColorScheme = "dark" | "light";
+type TextTheme = "default" | "dark" | "light";
 
 /**
  * The props required to render an Author component.
@@ -38,14 +33,14 @@ interface IAuthorProps {
   avatarSize: AuthorSize;
 
   /**
-   * The color scheme we should adopt when rendering the component.
+   * Optionally hard define the theme of the text
    */
-  colorScheme: ColorScheme;
+  textTheme?: TextTheme;
 
   /**
-   * How to layout the component.
+   * If the layout should be vertical
    */
-  layout: Layout;
+  vertical?: boolean;
 }
 
 /**
@@ -55,25 +50,25 @@ interface IAuthorProps {
  * @returns The Author component.
  */
 const Author = (props: IAuthorProps): JSX.Element => {
-  const { author, avatarBorder, avatarSize, colorScheme, layout } = props;
+  const { author, avatarBorder, avatarSize, textTheme, vertical } = props;
 
   let flow = styles.horizontal;
-  if (layout === "vertical") {
+  if (vertical) {
     flow = styles.vertical;
   }
 
-  let scheme = styles.light;
-  if (colorScheme === "dark") {
+  let scheme = "";
+  if (textTheme === "dark") {
     scheme = styles.dark;
+  }
+  if (textTheme === "light") {
+    scheme = styles.light;
   }
 
   return (
-    <div
-      className={`${styles.author} ${flow} ${scheme}`}
-      title={`Author profile for ${author.name}`}
-    >
+    <div className={flow} title={`Author profile for ${author.name}`}>
       <Avatar border={avatarBorder} size={avatarSize} src={author.profile} />
-      <p className={styles.name}>
+      <p className={`${styles.name} ${scheme}`}>
         by{" "}
         <strong>
           <Link href={`/author/${author.id}`}>{author.name}</Link>
@@ -81,6 +76,11 @@ const Author = (props: IAuthorProps): JSX.Element => {
       </p>
     </div>
   );
+};
+
+Author.defaultProps = {
+  textTheme: "default",
+  vertical: false,
 };
 
 export default Author;

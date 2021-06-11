@@ -34,13 +34,7 @@ const Card = (props: ICardProps): JSX.Element => {
           </a>
         </Link>
         <div className={styles.author}>
-          <Author
-            author={authorProfile}
-            avatarBorder={false}
-            avatarSize="x-small"
-            colorScheme="light"
-            layout="horizontal"
-          />
+          <Author author={authorProfile} avatarBorder={false} avatarSize="x-small" />
         </div>
       </div>
     </div>

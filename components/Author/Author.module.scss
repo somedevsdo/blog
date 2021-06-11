@@ -1,32 +1,34 @@
-.author {
+@mixin author {
   align-content: center;
   align-items: center;
+  display: flex;
   justify-content: center;
 }
 
 .vertical {
-  display: flex;
+  @include author;
   flex-direction: column;
 }
 
 .horizontal {
-  display: flex;
+  @include author;
   flex-direction: row;
   gap: 1rem;
 }
 
-.light {
-  color: var(--foreground);
-}
-
-.dark {
-  color: var(--background);
-}
-
 .name {
+  color: var(--foreground);
   font-style: italic;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
+
+  &.light {
+    color: var(--white);
+  }
+
+  &.dark {
+    color: var(--cod-gray);
+  }
 
   strong {
     font-style: normal;
