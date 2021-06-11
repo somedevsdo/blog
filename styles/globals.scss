@@ -1,18 +1,24 @@
 :root {
+  --cod-gray: #151515;
+  --mine-shaft: #151515;
+  --dove-gray: #666;
+  --alto: #ddd;
+  --white: #fff;
+
   /* Your default theme */
-  --background: #fff;
-  --foreground: #151515;
+  --background: var(--white);
+  --foreground: var(--cod-gray);
   --shadow: rgba(0, 0, 0, 0.05);
-  --secondary-text: #666;
-  --text: #333;
+  --secondary-text: var(--dove-gray);
+  --text: var(--mine-shaft);
 }
 
 [data-theme="dark"] {
-  --background: #151515;
-  --foreground: #fff;
+  --background: var(--cod-gray);
+  --foreground: var(--white);
   --shadow: rgba(255, 255, 255, 0.05);
-  --secondary-text: #ddd;
-  --text: #ddd;
+  --secondary-text: var(--alto);
+  --text: (--alto);
 }
 
 html,
