@@ -99,7 +99,7 @@ const Subheader = (props: ISubheaderProps): JSX.Element => {
         </ul>
       </div>
       <div className={styles.author}>
-        <Author author={author} avatarBorder avatarSize="medium" />
+        <Author author={author} avatarBorder avatarSize="medium" vertical />
       </div>
     </div>
   );

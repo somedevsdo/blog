@@ -43,7 +43,6 @@ const Home = (props: IHomeProps): JSX.Element => {
                 avatarBorder
                 avatarSize="medium"
                 textTheme="light"
-                vertical
               />
             </div>
           </div>
