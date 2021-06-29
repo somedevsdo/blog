@@ -1,24 +1,48 @@
 :root {
+  // old stuff, factor out when we can
   --cod-gray: #151515;
   --mine-shaft: #151515;
   --dove-gray: #666;
   --alto: #ddd;
   --white: #fff;
-
-  /* Your default theme */
   --background: var(--white);
   --foreground: var(--cod-gray);
   --shadow: rgba(0, 0, 0, 0.05);
   --secondary-text: var(--dove-gray);
   --text: var(--mine-shaft);
+
+  // color palette
+  --clr-palette-ebony: #090d18;
+  --clr-palette-ebony-clay: #1f2132;
+  --clr-palette-emporer: #555;
+  --clr-palette-silver: #c6c6c6;
+  --clr-palette-seance: #7621ab;
+  --clr-palette-perfume: #d5a4f5;
+  --clr-palette-mystic: #e8edf2;
+  --clr-palette-white: #fff;
+
+  // default theme
+  --clr-background: var(--clr-palette-mystic);
+  --clr-content-background: var(--clr-palette-white);
+  --clr-header: var(--clr-palette-ebony);
+  --clr-text: var(--clr-palette-emporer);
+  --clr-link: var(--clr-palette-seance);
 }
 
 [data-theme="dark"] {
+  // old stuff, factor out when we can
   --background: var(--cod-gray);
   --foreground: var(--white);
   --shadow: rgba(255, 255, 255, 0.05);
   --secondary-text: var(--alto);
   --text: (--alto);
+
+  // dark theme
+  --clr-background: var(--clr-palette-ebony);
+  --clr-content-background: var(--clr-palette-ebony-clay);
+  --clr-header: var(--clr-palette-mystic);
+  --clr-text: var(--clr-palette-silver);
+  --clr-link: var(--clr-palette-perfume);
 }
 
 html,
