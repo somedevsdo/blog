@@ -1,4 +1,18 @@
 :root {
+  // padding
+  --size-padding-x-small: 0.25rem;
+  --size-padding-small: 0.5rem;
+  --size-padding-medium: 0.75rem;
+  --size-padding-large: 1rem;
+  --size-padding-x-large: 1.25rem;
+
+  // margin
+  --size-margin-x-small: 0.5rem;
+  --size-margin-small: 1rem;
+  --size-margin-medium: 1.5rem;
+  --size-margin-large: 2rem;
+  --size-margin-x-large: 2.5rem;
+
   // old stuff, factor out when we can
   --cod-gray: #151515;
   --mine-shaft: #151515;
