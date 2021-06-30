@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { useTheme } from "next-themes";
 import Link from "next/link";
@@ -20,7 +20,11 @@ type Props = React.PropsWithChildren<ILayoutProps>;
  */
 const Layout = (props: Props): JSX.Element => {
   const { children } = props;
+  const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
+
+  // When mounted on client, now we can show the theme toggle
+  useEffect(() => setMounted(true), []);
 
   let themeIcon: JSX.Element;
   if (resolvedTheme === "dark") {
@@ -92,13 +96,15 @@ const Layout = (props: Props): JSX.Element => {
           <Link href="/">
             <a>SOME DEVS DO</a>
           </Link>
-          <button
-            className={styles.button}
-            onClick={(): void => setTheme(resolvedTheme === "light" ? "dark" : "light")}
-            type="button"
-          >
-            {themeIcon}
-          </button>
+          {mounted && (
+            <button
+              className={styles.button}
+              onClick={(): void => setTheme(resolvedTheme === "light" ? "dark" : "light")}
+              type="button"
+            >
+              {themeIcon}
+            </button>
+          )}
         </div>
       </nav>
       {children}
