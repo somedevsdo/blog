@@ -13,6 +13,29 @@
   --size-margin-large: 2rem;
   --size-margin-x-large: 2.5rem;
 
+  // line heights
+  --line-height-header: 1.3;
+  --line-height-text: 1.6;
+
+  // font family
+  --font-family-default: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --font-family-header: Poppins, var(--font-family-default);
+  --font-family-text: "Noto Sans", var(--font-family-default);
+
+  // heading font
+  --font-heading-x-small: 700 1.125rem / var(--line-height-header) var(--font-family-header);
+  --font-heading-small: 700 1.375rem / var(--line-height-header) var(--font-family-header);
+  --font-heading-medium: 700 1.75rem / var(--line-height-header) var(--font-family-header);
+  --font-heading-large: 700 2.25rem / var(--line-height-header) var(--font-family-header);
+  --font-heading-x-large: 700 2.75rem / var(--line-height-header) var(--font-family-header);
+
+  // text font
+  --font-text-x-small: 0.75rem / var(--line-height-text) var(--font-family-text);
+  --font-text-small: 0.875rem / var(--line-height-text) var(--font-family-text);
+  --font-text-medium: 1rem / var(--line-height-text) var(--font-family-text);
+  --font-text-large: 1.125rem / var(--line-height-text) var(--font-family-text);
+
   // old stuff, factor out when we can
   --cod-gray: #151515;
   --mine-shaft: #151515;
@@ -63,8 +86,7 @@ html,
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--font-family-text);
   margin: 0;
   padding: 0;
   transition: background 0.2s ease-out;
