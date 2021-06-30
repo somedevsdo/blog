@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import styles from "./Layout.module.scss";
+import SocialLink from "../SocialLink/SocialLink";
 
 export const siteTitle = "This could be the start of something new";
 
@@ -108,6 +109,22 @@ const Layout = (props: Props): JSX.Element => {
         </div>
       </nav>
       {children}
+      <footer className={styles.footerContainer}>
+        <div className={styles.footerContent}>
+          <span>Logo (one day)</span>
+          <nav aria-label="Social links">
+            <ul className={styles.social}>
+              <li>
+                <SocialLink className={styles.socialLink} link="https://twitter.com/somedevsdo" />
+              </li>
+              <li>
+                <SocialLink className={styles.socialLink} link="https://github.com/somedevsdo" />
+              </li>
+            </ul>
+          </nav>
+          <span className={styles.copyright}>&copy; {new Date().getFullYear()} Some Devs Do</span>
+        </div>
+      </footer>
     </div>
   );
 };
