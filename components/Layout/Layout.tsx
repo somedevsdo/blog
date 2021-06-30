@@ -87,17 +87,19 @@ const Layout = (props: Props): JSX.Element => {
         <meta content={siteTitle} name="og:title" />
         <meta content="summary_large_image" name="twitter:card" />
       </Head>
-      <nav className={styles.nav}>
-        <Link href="/">
-          <a>SOME DEVS DO</a>
-        </Link>
-        <button
-          className={styles.button}
-          onClick={(): void => setTheme(resolvedTheme === "light" ? "dark" : "light")}
-          type="button"
-        >
-          {themeIcon}
-        </button>
+      <nav className={styles.container}>
+        <div className={styles.content}>
+          <Link href="/">
+            <a>SOME DEVS DO</a>
+          </Link>
+          <button
+            className={styles.button}
+            onClick={(): void => setTheme(resolvedTheme === "light" ? "dark" : "light")}
+            type="button"
+          >
+            {themeIcon}
+          </button>
+        </div>
       </nav>
       {children}
     </div>
