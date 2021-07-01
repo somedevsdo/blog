@@ -65,6 +65,10 @@
   flex-direction: column;
 }
 
+.footerLogo {
+  align-self: center;
+}
+
 .social {
   display: flex;
   gap: var(--size-margin-small);
