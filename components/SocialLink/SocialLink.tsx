@@ -1,4 +1,5 @@
 import Link from "next/link";
+import styles from "./SocialLink.module.scss";
 
 /**
  * The props needed to render the social link.
@@ -79,7 +80,7 @@ const SocialLink = (props: ISocialLinkProps): JSX.Element => {
   }
   return (
     <Link href={link}>
-      <a className={className} title={`Visit ${title} page`}>
+      <a className={`${styles.link} ${className}`} title={`Visit ${title} page`}>
         {icon}
       </a>
     </Link>
