@@ -87,6 +87,7 @@ body {
   background-color: var(--clr-background);
   color: var(--foreground);
   font-family: var(--font-family-text);
+  -webkit-font-smoothing: antialiased;
   margin: 0;
   padding: 0;
   transition: background 0.2s ease-out;
