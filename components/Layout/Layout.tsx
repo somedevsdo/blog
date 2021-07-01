@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./Layout.module.scss";
 import SocialLink from "../SocialLink/SocialLink";
@@ -77,6 +78,7 @@ const Layout = (props: Props): JSX.Element => {
       </svg>
     );
   }
+
   return (
     <div className={styles.page}>
       <Head>
@@ -95,7 +97,9 @@ const Layout = (props: Props): JSX.Element => {
       <nav className={styles.container}>
         <div className={styles.content}>
           <Link href="/">
-            <a>SOME DEVS DO</a>
+            <a title="View home page">
+              <Image alt="SOME DEVS DO" height={45} src="/logo/logo.svg" width={89} />
+            </a>
           </Link>
           {mounted && (
             <button
@@ -111,7 +115,13 @@ const Layout = (props: Props): JSX.Element => {
       {children}
       <footer className={styles.footerContainer}>
         <div className={styles.footerContent}>
-          <span>Logo (one day)</span>
+          <Image
+            alt="SOME DEVS DO"
+            className={styles.footerLogo}
+            height={45}
+            src="/logo/logo.svg"
+            width={89}
+          />
           <nav aria-label="Social links">
             <ul className={styles.social}>
               <li>
