@@ -82,7 +82,7 @@ const Layout = (props: Props): JSX.Element => {
   return (
     <div className={styles.page}>
       <Head>
-        <link href="/favicon.ico" rel="icon" />
+        <link href="/favicon.svg" rel="icon" />
         <meta content={siteTitle} name="description" />
         <meta
           content={`https://og-image.vercel.app/${encodeURI(
