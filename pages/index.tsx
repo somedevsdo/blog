@@ -77,7 +77,7 @@ const Home = (props: IHomeProps): JSX.Element => {
       <main>
         <section>
           <ul className={styles.cards} data-testid="posts">
-            {allPostsData.map((p: IPost) => (
+            {allPostsData.slice(1).map((p: IPost) => (
               <li key={p.id}>
                 <Card post={p} />
               </li>
