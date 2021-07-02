@@ -7,6 +7,9 @@
   background-color: var(--clr-content-background);
   border-radius: 0.75rem;
   box-shadow: 0 1.25rem 1.875rem rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   overflow: hidden;
   width: 100%;
 }
@@ -40,6 +43,9 @@
 }
 
 .content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   padding: 1.5rem var(--size-padding-large) var(--size-padding-x-large);
 }
 
@@ -63,6 +69,7 @@
 .subtitle {
   border-bottom: 1px solid var(--clr-background);
   color: var(--clr-text);
+  flex: 1;
   font: var(--font-text-small);
   margin: 0;
   margin-bottom: var(--size-margin-small);
