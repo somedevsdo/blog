@@ -31,7 +31,7 @@ const Card = (props: ICardProps): JSX.Element => {
                 <span>{getDateFormatted(date)}</span>
               </span>
               <h2 className={styles.title}>{title}</h2>
-              <p className={styles.subtitle}>{subtitle}</p>
+              <p className={styles.subtitle}>{subtitle}...</p>
               <div className={styles.author}>
                 <Avatar border={false} size="x-small" src={authorProfile.profile} />
                 <div>
