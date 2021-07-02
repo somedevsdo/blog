@@ -1,6 +1,7 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import Author from "../components/Author/Author";
+import Link from "next/link";
+import Avatar from "../components/Avatar/Avatar";
 import Card from "../components/Card/Card";
 import ImageWithPlaceholder from "../components/ImageWithPlaceholder/ImageWithPlaceholder";
 import Layout, { siteTitle } from "../components/Layout/Layout";
@@ -28,30 +29,49 @@ const Home = (props: IHomeProps): JSX.Element => {
         <title>{siteTitle}</title>
       </Head>
       <header>
-        <div className={styles.featuredImage}>
-          <div className={styles.headerContainer}>
-            <div className={styles.meta}>
-              <div className={styles.catDate}>
-                {postData.category} -{" "}
-                <span className={styles.date}>{getDateFormatted(postData.date)}</span>
+        <div className={styles.container}>
+          <div className={styles.hero}>
+            <div className={styles.content}>
+              <div className={styles.headerContainer}>
+                <div className={styles.meta}>
+                  <span className={styles.category}>{postData.category}</span>
+                  <span className={styles.date}>{getDateFormatted(postData.date)}</span>
+                </div>
+                <h1 className={styles.title}>
+                  <Link href={`/post/${postData.id}`}>
+                    <a>{postData.title}</a>
+                  </Link>
+                </h1>
+                <p className={styles.subtitle}>
+                  {postData.subtitle}...{" "}
+                  <Link href={`/post/${postData.id}`}>
+                    <a title={postData.title}>read full post</a>
+                  </Link>
+                </p>
+                <div className={styles.author}>
+                  <Avatar border size="small" src={postData.authorProfile.profile} />
+                  <div>
+                    <Link href={`/author/${postData.authorProfile.id}`}>
+                      <a className={styles.name}>{postData.authorProfile.name}</a>
+                    </Link>
+                    <div>UI Developer</div>
+                  </div>
+                </div>
               </div>
-              <h1 className={styles.title}>{postData.title}</h1>
-            </div>
-            <div>
-              <Author
-                author={postData.authorProfile}
-                avatarBorder
-                avatarSize="medium"
-                textTheme="light"
-              />
+              <div className={styles.image}>
+                <Link href={`/post/${postData.id}`}>
+                  <a>
+                    <ImageWithPlaceholder
+                      alt="Featured image"
+                      layout="fill"
+                      objectFit="cover"
+                      src={`/posts/featured/${postData.featuredImage}`}
+                    />
+                  </a>
+                </Link>
+              </div>
             </div>
           </div>
-          <ImageWithPlaceholder
-            alt="Featured image"
-            layout="fill"
-            objectFit="cover"
-            src={`/posts/featured/${postData.featuredImage}`}
-          />
         </div>
       </header>
       <main>
