@@ -78,7 +78,7 @@ const Layout = (props: Props): JSX.Element => {
     );
   }
   return (
-    <div>
+    <div className={styles.page}>
       <Head>
         <link href="/favicon.ico" rel="icon" />
         <meta content={siteTitle} name="description" />
