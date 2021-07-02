@@ -5,7 +5,6 @@
 
 .hero {
   background: linear-gradient(278.59deg, #c291e1 1.21%, #5b0a91 92.25%);
-  box-shadow: 0 100px 0 -3rem #000;
   clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
   padding: 2rem;
@@ -163,25 +162,31 @@
 // Card stuff
 
 .cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  margin: 2rem auto;
+  display: grid;
+  margin: var(--size-margin-x-large) var(--size-margin-large) 5rem;
   padding: 0;
-  width: 100%;
+  row-gap: var(--size-margin-x-large);
 
   li {
     list-style: none;
-    max-width: 100%;
-    padding: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .cards {
+    column-gap: var(--size-margin-large);
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 6rem;
+    margin-top: 3rem;
+    row-gap: 3rem;
   }
 }
 
 @media (min-width: 992px) {
   .cards {
-    li {
-      max-width: 100rem;
-    }
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 5rem auto 10rem;
+    max-width: 1200px;
+    padding: 0 2rem;
   }
 }
