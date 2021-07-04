@@ -33,7 +33,7 @@ const Card = (props: ICardProps): JSX.Element => {
               <h2 className={styles.title}>{title}</h2>
               <p className={styles.subtitle}>{subtitle}...</p>
               <div className={styles.author}>
-                <Avatar border={false} size="x-small" src={authorProfile.profile} />
+                <Avatar size="x-small" src={authorProfile.profile} />
                 <div>
                   <div className={styles.name}>{authorProfile.name}</div>
                   <div className={styles.role}>UI Developer</div>

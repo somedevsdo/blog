@@ -5,11 +5,6 @@ type AvatarSize = "x-small" | "small" | "medium" | "large";
 
 interface IAvatarProps {
   /**
-   * Has border
-   */
-  border?: boolean;
-
-  /**
    * The size of the Avatar
    */
   size?: AvatarSize;
@@ -27,7 +22,7 @@ interface IAvatarProps {
  * @returns the Avatar component
  */
 const Avatar = (props: IAvatarProps): JSX.Element => {
-  const { border, size, src } = props;
+  const { size, src } = props;
   let avatarSize: string;
 
   switch (size) {
@@ -47,10 +42,7 @@ const Avatar = (props: IAvatarProps): JSX.Element => {
   }
 
   return (
-    <span
-      className={`${styles.avatar} ${border && styles.avatarBorder}`}
-      style={{ height: avatarSize, width: avatarSize }}
-    >
+    <span className={styles.avatar} style={{ height: avatarSize, width: avatarSize }}>
       <ImageWithPlaceholder
         alt="Avatar"
         height={avatarSize}
@@ -65,7 +57,6 @@ const Avatar = (props: IAvatarProps): JSX.Element => {
 };
 
 Avatar.defaultProps = {
-  border: false,
   size: "large",
 };
 
