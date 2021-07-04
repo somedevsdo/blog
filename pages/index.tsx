@@ -29,47 +29,45 @@ const Home = (props: IHomeProps): JSX.Element => {
         <title>{siteTitle}</title>
       </Head>
       <header>
-        <div className={styles.container}>
-          <div className={styles.hero}>
-            <div className={styles.content}>
-              <div className={styles.headerContainer}>
-                <div className={styles.meta}>
-                  <span className={styles.category}>{postData.category}</span>
-                  <span className={styles.date}>{getDateFormatted(postData.date)}</span>
-                </div>
-                <h1 className={styles.title}>
-                  <Link href={`/post/${postData.id}`}>
-                    <a>{postData.title}</a>
-                  </Link>
-                </h1>
-                <p className={styles.subtitle}>
-                  {postData.subtitle}...{" "}
-                  <Link href={`/post/${postData.id}`}>
-                    <a title={postData.title}>read full post</a>
-                  </Link>
-                </p>
-                <div className={styles.author}>
-                  <Avatar size="small" src={postData.authorProfile.profile} />
-                  <div>
-                    <Link href={`/author/${postData.authorProfile.id}`}>
-                      <a className={styles.name}>{postData.authorProfile.name}</a>
-                    </Link>
-                    <div>UI Developer</div>
-                  </div>
-                </div>
+        <div className={styles.hero}>
+          <div className={styles.content}>
+            <div className={styles.headerContainer}>
+              <div className={styles.meta}>
+                <span className={styles.category}>{postData.category}</span>
+                <span className={styles.date}>{getDateFormatted(postData.date)}</span>
               </div>
-              <div className={styles.image}>
+              <h1 className={styles.title}>
                 <Link href={`/post/${postData.id}`}>
-                  <a>
-                    <ImageWithPlaceholder
-                      alt="Featured image"
-                      layout="fill"
-                      objectFit="cover"
-                      src={`/posts/featured/${postData.featuredImage}`}
-                    />
-                  </a>
+                  <a>{postData.title}</a>
                 </Link>
+              </h1>
+              <p className={styles.subtitle}>
+                {postData.subtitle}...{" "}
+                <Link href={`/post/${postData.id}`}>
+                  <a title={postData.title}>read full post</a>
+                </Link>
+              </p>
+              <div className={styles.author}>
+                <Avatar size="small" src={postData.authorProfile.profile} />
+                <div>
+                  <Link href={`/author/${postData.authorProfile.id}`}>
+                    <a className={styles.name}>{postData.authorProfile.name}</a>
+                  </Link>
+                  <div>UI Developer</div>
+                </div>
               </div>
+            </div>
+            <div className={styles.image}>
+              <Link href={`/post/${postData.id}`}>
+                <a>
+                  <ImageWithPlaceholder
+                    alt="Featured image"
+                    layout="fill"
+                    objectFit="cover"
+                    src={`/posts/featured/${postData.featuredImage}`}
+                  />
+                </a>
+              </Link>
             </div>
           </div>
         </div>
