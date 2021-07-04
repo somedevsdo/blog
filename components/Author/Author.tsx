@@ -23,11 +23,6 @@ interface IAuthorProps {
   author: IAuthor;
 
   /**
-   * Whether the avatar should have a border.
-   */
-  avatarBorder: boolean;
-
-  /**
    * The size of the Author.
    */
   avatarSize: AuthorSize;
@@ -50,7 +45,7 @@ interface IAuthorProps {
  * @returns The Author component.
  */
 const Author = (props: IAuthorProps): JSX.Element => {
-  const { author, avatarBorder, avatarSize, textTheme, vertical } = props;
+  const { author, avatarSize, textTheme, vertical } = props;
 
   let flow = styles.horizontal;
   if (vertical) {
@@ -67,7 +62,7 @@ const Author = (props: IAuthorProps): JSX.Element => {
 
   return (
     <div className={flow} title={`Author profile for ${author.name}`}>
-      <Avatar border={avatarBorder} size={avatarSize} src={author.profile} />
+      <Avatar size={avatarSize} src={author.profile} />
       <p className={`${styles.name} ${scheme}`}>
         by{" "}
         <strong>
