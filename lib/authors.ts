@@ -30,24 +30,6 @@ export interface IAuthor {
 }
 
 /**
- * Get all the authors data
- *
- * @returns all author data
- */
-export const getAllAuthors = (): IAuthor[] => {
-  const authors: IAuthor[] = [];
-  const files = fs.readdirSync(dataDirectory);
-
-  files.forEach((file) => {
-    const author = JSON.parse(fs.readFileSync(`${dataDirectory}/${file}`, "utf8"));
-    author.id = file.replace(/\.json$/, "");
-    authors.push(author);
-  });
-
-  return authors;
-};
-
-/**
  * Get all of the Author "slugs". The Slug will be the URL, and also
  * the name of the data/author/[slug].json.
  *

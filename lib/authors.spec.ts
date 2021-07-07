@@ -1,15 +1,4 @@
-import { getAllAuthors, getAllAuthorSlugs, getAuthorData } from "./authors";
-
-describe("getAllAuthors", () => {
-  it("should return an array of IAuthors", () => {
-    const authors = getAllAuthors();
-
-    expect(authors).toBeDefined();
-    expect(authors[0].id).toBeDefined();
-    expect(authors[0].name).toBeDefined();
-    expect(authors[0].profile).toBeDefined();
-  });
-});
+import { getAllAuthorSlugs, getAuthorData } from "./authors";
 
 describe("getAllAuthorSlugs", () => {
   it("should return an array of slugs", () => {
