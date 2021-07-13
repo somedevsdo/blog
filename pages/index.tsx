@@ -48,7 +48,7 @@ const Home = (props: IHomeProps): JSX.Element => {
                 </Link>
               </p>
               <div className={styles.author}>
-                <Avatar size="small" src={postData.authorProfile.profile} />
+                <Avatar size="small" src={postData.authorProfile.profilePicture} />
                 <div>
                   <Link href={`/author/${postData.authorProfile.id}`}>
                     <a className={styles.name}>{postData.authorProfile.name}</a>

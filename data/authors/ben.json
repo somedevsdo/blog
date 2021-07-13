@@ -1,6 +1,7 @@
 {
   "name": "Ben Selby",
-  "profile": "/authors/benmatselby.jpg",
+  "role": "Software Engineer",
+  "profilePicture": "/authors/benmatselby.jpg",
   "social": [
     "https://benmatselby.dev",
     "https://github.com/benmatselby",
