@@ -1,8 +1,8 @@
 $background: var(--background);
 
 .avatar {
-  background-color: $background;
   border-radius: 50%;
+  display: inline-block;
   overflow: hidden;
   position: relative;
 

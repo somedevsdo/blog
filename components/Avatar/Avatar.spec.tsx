@@ -9,7 +9,7 @@ describe("Avatar", () => {
 
   it("should be large by default", () => {
     render(<Avatar src="/test.jpg" />);
-    expect(document.getElementsByClassName("avatar")[0].childNodes[0]).toHaveStyle("width: 152px");
+    expect(document.getElementsByClassName("avatar")[0].childNodes[0]).toHaveStyle("width: 120px");
   });
 
   it("should be the right size for small", () => {

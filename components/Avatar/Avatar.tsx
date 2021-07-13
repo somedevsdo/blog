@@ -1,7 +1,7 @@
 import ImageWithPlaceholder from "../ImageWithPlaceholder/ImageWithPlaceholder";
 import styles from "./Avatar.module.scss";
 
-type AvatarSize = "x-small" | "small" | "medium" | "large";
+type AvatarSize = "x-small" | "small" | "medium" | "large" | "x-large";
 
 interface IAvatarProps {
   /**
@@ -35,9 +35,12 @@ const Avatar = (props: IAvatarProps): JSX.Element => {
     case "medium":
       avatarSize = "77px";
       break;
+    case "x-large":
+      avatarSize = "180px";
+      break;
     case "large":
     default:
-      avatarSize = "152px";
+      avatarSize = "120px";
       break;
   }
 
