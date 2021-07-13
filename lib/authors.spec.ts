@@ -16,7 +16,7 @@ describe("getAuthorData", () => {
     expect(author).toBeDefined();
     expect(author.id).toBe("ben");
     expect(author.name).toBe("Ben Selby");
-    expect(author.profile).toBe("/authors/benmatselby.jpg");
+    expect(author.profilePicture).toBe("/authors/benmatselby.jpg");
     expect(author.social).toStrictEqual([
       "https://benmatselby.dev",
       "https://github.com/benmatselby",

@@ -62,7 +62,7 @@ const Author = (props: IAuthorProps): JSX.Element => {
 
   return (
     <div className={flow} title={`Author profile for ${author.name}`}>
-      <Avatar size={avatarSize} src={author.profile} />
+      <Avatar size={avatarSize} src={author.profilePicture} />
       <p className={`${styles.name} ${scheme}`}>
         by{" "}
         <strong>

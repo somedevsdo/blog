@@ -5,9 +5,11 @@ import Author from "./Author";
 describe("Author", () => {
   const author: IAuthor = {
     id: "ben",
+    role: "Superman",
     name: "Ben Selby",
-    profile: "/authors/benmatselby.jpg",
+    profilePicture: "/authors/benmatselby.jpg",
     social: [],
+    summary: "Clark Kent's mate",
   };
 
   it("should render correctly", () => {

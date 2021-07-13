@@ -19,14 +19,24 @@ export interface IAuthor {
   name: string;
 
   /**
+   * The authors role
+   */
+  role: string;
+
+  /**
    * The profile picture location.
    */
-  profile: string;
+  profilePicture: string;
 
   /**
    * An array of social media links.
    */
   social: string[];
+
+  /**
+   * An summary of the person and what they do
+   */
+  summary: string;
 }
 
 /**
