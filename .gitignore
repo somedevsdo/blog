@@ -45,3 +45,6 @@ reports
 
 # placeholders
 public/placeholders.json
+
+# open graph images
+public/og

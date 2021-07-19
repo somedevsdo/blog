@@ -1,5 +1,5 @@
 ---
-title: "Old test page"
+title: "Old test page that has a stupidly long title that will definitely go on to four lines now"
 date: "2019-05-12"
 category: "design"
 featuredImage: "test.jpg"
