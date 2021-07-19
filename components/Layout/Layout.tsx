@@ -84,13 +84,6 @@ const Layout = (props: Props): JSX.Element => {
       <Head>
         <link href="/favicon.svg" rel="icon" />
         <meta content={siteTitle} name="description" />
-        <meta
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle
-            // eslint-disable-next-line max-len
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-          property="og:image"
-        />
         <meta content={siteTitle} name="og:title" />
         <meta content="summary_large_image" name="twitter:card" />
       </Head>

@@ -17,11 +17,13 @@ import Layout from "../../components/Layout/Layout";
 import Img from "../../components/Img/Img";
 import ImageWithPlaceholder from "../../components/ImageWithPlaceholder/ImageWithPlaceholder";
 import getDateFormatted from "../../lib/date";
+import { generateOgImage } from "../../lib/generateOgImage";
 
 /**
  * The definition of what a post contains.
  */
 interface IPost {
+  id: string;
   title: string;
   date: string;
   category: string;
@@ -65,7 +67,7 @@ const Post = (props: IPostProps): JSX.Element => {
         <meta content={useRouter().asPath} property="og:url" />
         <meta content={postData.title} property="og:title" />
         <meta content={postData.title} property="og:description" />
-        <meta content={`/posts/featured/${postData.featuredImage}`} property="og:image" />
+        <meta content={`https://somedevsdo.com/og/${postData.id}.png`} property="og:image" />
       </Head>
       <div className={styles.hero} />
       <div className={styles.container}>
@@ -157,6 +159,7 @@ const Post = (props: IPostProps): JSX.Element => {
             <Link href={`/author/${postData.authorProfile.id}`}>
               <a>{postData.authorProfile.name}</a>
             </Link>
+            {postData.authorProfile.profilePicture}
           </div>
           <article className={styles.article}>{processor.processSync(article).result}</article>
           <div>
@@ -189,6 +192,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const processor = unified().use(markdown).use(remark2rehype).use(rehypePrism).use(html, {});
 
   const article = await processor.process(postData.fileContents);
+
+  // this function will create the open graph image
+  await generateOgImage({
+    slug: postData.id,
+    title: postData.title,
+    avatar: postData.authorProfile.profilePicture,
+    author: postData.authorProfile.name,
+  });
 
   return {
     props: {
