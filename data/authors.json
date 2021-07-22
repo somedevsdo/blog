@@ -1,0 +1,40 @@
+[
+  {
+    "id": "andy",
+    "name": "Andy Barnes",
+    "role": "UX Engineer",
+    "profilePicture": "/authors/andy.png",
+    "social": [
+      "https://andrewbarnes.info",
+      "https://github.com/andrewbarnesweb",
+      "https://twitter.com/AndrewBarnesWeb",
+      "https://andrew-barnes.medium.com/",
+      "https://www.polywork.com/andrewbarnes"
+    ],
+    "summary": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+  },
+  {
+    "id": "ben",
+    "name": "Ben Selby",
+    "role": "Software Engineer",
+    "profilePicture": "/authors/benmatselby.jpg",
+    "social": [
+      "https://benmatselby.dev",
+      "https://github.com/benmatselby",
+      "https://twitter.com/benmatselby",
+      "https://dev.to/benmatselby"
+    ]
+  },
+  {
+    "id": "david",
+    "name": "David Norman",
+    "role": "UX Engineer",
+    "profilePicture": "/authors/david.png"
+  },
+  {
+    "id": "mark",
+    "name": "Mark Gaze",
+    "role": "Software Engineer",
+    "profilePicture": "/authors/mark.png"
+  }
+]
