@@ -61,7 +61,7 @@ const Post = (props: IPostProps): JSX.Element => {
       <Head>
         <title>{postData.title}</title>
         {postData.canonical && <link href={postData.canonical} rel="canonical" />}
-        <meta content="summary" name="twitter:card" />
+        <meta content="summary_large_image" name="twitter:card" />
         <meta content="somedevsdo" name="twitter:site" />
         <meta content={postData.authorProfile.name} name="twitter:creator" />
         <meta content={useRouter().asPath} property="og:url" />
