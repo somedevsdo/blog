@@ -67,7 +67,12 @@ const Post = (props: IPostProps): JSX.Element => {
         <meta content={useRouter().asPath} property="og:url" />
         <meta content={postData.title} property="og:title" />
         <meta content={postData.title} property="og:description" />
-        <meta content={`https://somedevsdo.com/og/${postData.id}.png`} property="og:image" />
+        <meta
+          content={`https://${process.env.NEXT_PUBLIC_VERCEL_URL || "somedevsdo.com"}/og/${
+            postData.id
+          }.png`}
+          property="og:image"
+        />
       </Head>
       <div className={styles.hero} />
       <div className={styles.container}>
