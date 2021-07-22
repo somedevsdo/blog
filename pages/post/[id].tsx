@@ -164,7 +164,6 @@ const Post = (props: IPostProps): JSX.Element => {
             <Link href={`/author/${postData.authorProfile.id}`}>
               <a>{postData.authorProfile.name}</a>
             </Link>
-            {postData.authorProfile.profilePicture}
           </div>
           <article className={styles.article}>{processor.processSync(article).result}</article>
           <div>

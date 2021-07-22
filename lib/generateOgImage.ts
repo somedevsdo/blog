@@ -4,7 +4,7 @@ import path from "path";
 
 // our function will receive, in this case, the title of the blog post
 // as a parameter
-export const createImage = async ({ title, avatar, author }) => {
+export const createImage = async ({ author, avatar, title }): Promise<Buffer> => {
   registerFont("./lib/open-graph/Poppins-Black.ttf", {
     family: "Poppins Black",
   });
@@ -17,7 +17,7 @@ export const createImage = async ({ title, avatar, author }) => {
 
   // dimension of our image
   const width = 1200;
-  const height = 630;
+  const height = 627;
 
   // create an empty canvas
   const canvas = createCanvas(width, height);
@@ -55,31 +55,32 @@ export const createImage = async ({ title, avatar, author }) => {
   // add user name at the bottom
   context.fillStyle = "#E8EDF2";
   context.font = "34px 'Poppins Bold'";
-  context.fillText(author, 170, 550);
+  context.fillText(author, 170, height - 80);
 
   // add domain name, calculating the width of the username
-  var nameWidth = context.measureText(author).width;
+  const nameWidth = context.measureText(author).width;
   context.fillStyle = "#E8EDF2";
   context.font = "34px 'Poppins Light'";
-  context.fillText(" / somedevsdo.com", nameWidth + 172, 550);
+  context.fillText(" / somedevsdo.com", nameWidth + 172, height - 80);
 
   return canvas.toBuffer("image/png");
 };
 
-const wrapText = (context, text, x, y, maxWidth, lineHeight) => {
+const wrapText = (context, text, x, y, maxWidth, lineHeight): void => {
   context.font = "63px 'Poppins Black'";
   context.fillStyle = "#E8EDF2";
 
-  var words = text.split(" ");
-  var line = "";
+  const words = text.split(" ");
+  let line = "";
   let lineCount = 1;
+  let newY = y;
 
   // need to run a loop so we know the number of lines before we assign the spacing...
-  for (var i = 0; i < words.length; i++) {
-    var fakeLine = line + words[i] + " ";
+  for (let i = 0; i < words.length; i++) {
+    const fakeLine = `${line + words[i]} `;
     if (context.measureText(fakeLine).width > maxWidth && i > 0) {
-      line = words[i] + " ";
-      lineCount++;
+      line = `${words[i]} `;
+      lineCount += 1;
     } else {
       line = fakeLine;
     }
@@ -102,15 +103,15 @@ const wrapText = (context, text, x, y, maxWidth, lineHeight) => {
   }
 
   // loop through words and determine when new lines need to be added and add them with appropriate spacing
-  for (var n = 0; n < words.length; n++) {
-    var testLine = line + words[n] + " ";
+  for (let n = 0; n < words.length; n++) {
+    const testLine = `${line + words[n]} `;
     // if the current width is greater than maxWidth, then we know we can show the line and move on
     if (context.measureText(testLine).width > maxWidth && n > 0) {
       // need to add extra space here for the line stuff I think
-      context.fillText(line, x, y + startingTopSpace);
+      context.fillText(line, x, newY + startingTopSpace);
       // reset the words
-      line = words[n] + " ";
-      y += lineHeight + startingTopSpace;
+      line = `${words[n]} `;
+      newY += lineHeight + startingTopSpace;
       startingTopSpace = 0;
     } else {
       // else we just add the word to the current line
@@ -120,13 +121,13 @@ const wrapText = (context, text, x, y, maxWidth, lineHeight) => {
 
   // if it's one line, we never hit the above functionality, so add the extra space here
   if (lineCount === 1) {
-    y += startingTopSpace;
+    newY += startingTopSpace;
   }
 
-  context.fillText(line, x, y);
+  context.fillText(line, x, newY);
 };
 
-export const generateOgImage = async ({ slug, title, avatar, author }) => {
+export const generateOgImage = async ({ author, avatar, slug, title }): Promise<void> => {
   // the path where our image is going to be saved.
   const dir = path.resolve("public", "og");
   const filepath = path.resolve(dir, `${slug}.png`);
@@ -137,7 +138,7 @@ export const generateOgImage = async ({ slug, title, avatar, author }) => {
   }
 
   // check if the image already exists, if it does we don't need to generate it again
-  if (!existsSync(filepath)) {
+  if (!existsSync(filepath) || process.env.NODE_ENV === "development") {
     const imgBuffer = await createImage({ title, avatar, author });
 
     writeFileSync(filepath, imgBuffer);

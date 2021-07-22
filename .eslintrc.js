@@ -48,6 +48,13 @@ module.exports = {
         "@typescript-eslint/explicit-function-return-type": "error",
         // We don't want unused imports
         "@typescript-eslint/no-unused-vars": "error",
+        // Allow in for loops
+        "no-plusplus": [
+          "error",
+          {
+            allowForLoopAfterthoughts: true,
+          },
+        ],
       },
     },
   ],
