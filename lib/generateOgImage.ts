@@ -38,16 +38,16 @@ export const createImage = async ({ author, avatar, title }): Promise<Buffer> =>
   // load and draw our background image
   const image = await loadImage(`./public${avatar}`);
   context.beginPath();
-  context.arc(40 + 50, height - 50 - 43, 50, 0, 2 * Math.PI);
+  context.arc(50 + 50, height - 50 - 43, 50, 0, 2 * Math.PI);
   context.clip();
-  context.drawImage(image, 40, height - 100 - 43, 100, 100);
+  context.drawImage(image, 50, height - 100 - 43, 100, 100);
 
   // restore state of the canvas after we clip
   context.restore();
 
   // add the logo
   const logo = await loadImage(`./lib/open-graph/logo.png`);
-  context.drawImage(logo, width - 158 - 40, height - 84 - 49, 158, 84);
+  context.drawImage(logo, width - 158 - 50, height - 84 - 49, 158, 84);
 
   // add the title
   wrapText(context, title, 80, 0, 825, 90);
@@ -55,13 +55,13 @@ export const createImage = async ({ author, avatar, title }): Promise<Buffer> =>
   // add user name at the bottom
   context.fillStyle = "#E8EDF2";
   context.font = "34px 'Poppins Bold'";
-  context.fillText(author, 170, height - 80);
+  context.fillText(author, 180, height - 80);
 
   // add domain name, calculating the width of the username
   const nameWidth = context.measureText(author).width;
   context.fillStyle = "#E8EDF2";
   context.font = "34px 'Poppins Light'";
-  context.fillText(" / somedevsdo.com", nameWidth + 172, height - 80);
+  context.fillText(" / somedevsdo.com", nameWidth + 182, height - 80);
 
   return canvas.toBuffer("image/png");
 };
