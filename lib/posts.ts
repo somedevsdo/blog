@@ -105,7 +105,7 @@ export const getPostData = async (id: string): Promise<IPost> => {
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
-  const authorProfile = await getAuthorData(matterResult.data.author);
+  const authorProfile = getAuthorData(matterResult.data.author);
   const { content } = matterResult;
   const subtitle = content.split(" ").slice(0, 20).join(" ").trimEnd();
 

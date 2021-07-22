@@ -1,7 +1,4 @@
-import fs from "fs";
-import path from "path";
-
-const dataDirectory = path.join(process.cwd(), "data/authors");
+import authors from "../data/authors.json";
 
 /**
  * Defines what an author looks like.
@@ -46,11 +43,10 @@ export interface IAuthor {
  * @returns all author "slugs"
  */
 export const getAllAuthorSlugs = (): { params: { id: string } }[] => {
-  const authors = fs.readdirSync(dataDirectory);
-  return authors.map((author) => {
+  return authors.map((author: IAuthor) => {
     return {
       params: {
-        id: author.replace(/\.json$/, ""),
+        id: author.id,
       },
     };
   });
@@ -62,13 +58,6 @@ export const getAllAuthorSlugs = (): { params: { id: string } }[] => {
  * @param id the ID of the author
  * @returns the author data
  */
-export const getAuthorData = async (id: string): Promise<IAuthor> => {
-  const fullPath = path.join(dataDirectory, `${id}.json`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const author = JSON.parse(fileContents);
-
-  return {
-    id,
-    ...author,
-  };
+export const getAuthorData = (id: string): IAuthor => {
+  return authors.find((author: IAuthor) => author.id === id) as IAuthor;
 };
