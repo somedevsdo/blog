@@ -7,14 +7,14 @@ type Props = Omit<ImageProps, "blurDataURL" | "placeholder" | "src"> & {
 };
 
 const ImageWithPlaceholder = (props: Props): JSX.Element => {
-  const { src } = props;
+  const { alt, src } = props;
   const placeholder = getPlaceholder(src);
 
   return (
-    // @ts-expect-error - this is valid but keeps failing the type-checking
     <Image
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
+      alt={alt}
       blurDataURL={placeholder}
       placeholder="blur"
     />
