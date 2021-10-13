@@ -24,7 +24,7 @@ const Home = (props: IHomeProps): JSX.Element => {
   const postData = allPostsData[0];
 
   return (
-    <Layout home>
+    <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>

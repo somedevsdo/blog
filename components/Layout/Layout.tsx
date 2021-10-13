@@ -8,11 +8,7 @@ import SocialLink from "../SocialLink/SocialLink";
 
 export const siteTitle = "This could be the start of something new";
 
-interface ILayoutProps {
-  home?: boolean;
-}
-
-type Props = React.PropsWithChildren<ILayoutProps>;
+type Props = React.PropsWithChildren<Record<never, never>>;
 
 /**
  * The standard Layout for the web app.
