@@ -23,11 +23,15 @@
     "test:mutate-file": "npx stryker run --concurrency 1 --reporters clear-text,progress-append-only,html --mutate \"**/$FILE_NAME*.tsx,!**/*@(.data|.test|.spec|Spec|.stories).ts?(x)\""
   },
   "dependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/plugin-syntax-flow": "^7.16.7",
+    "@babel/plugin-transform-react-jsx": "^7.17.3",
     "@mapbox/rehype-prism": "^0.8.0",
     "canvas": "2.9.0",
     "gray-matter": "^4.0.3",
     "next": "12.1.0",
     "next-themes": "^0.1.1",
+    "postcss": "^8.4.12",
     "preact": "^10.6.6",
     "prismjs": "^1.27.0",
     "react": "17.0.2",
