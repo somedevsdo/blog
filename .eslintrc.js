@@ -10,12 +10,7 @@ module.exports = {
       parserOptions: {
         project: "./tsconfig.json",
       },
-      extends: [
-        "airbnb-typescript",
-        "react-app",
-        "plugin:prettier/recommended",
-        "plugin:jsdoc/recommended",
-      ],
+      extends: ["airbnb-typescript", "plugin:prettier/recommended", "plugin:jsdoc/recommended"],
       rules: {
         "sort-destructure-keys/sort-destructure-keys": 2,
         "prefer-arrow-functions/prefer-arrow-functions": "error",

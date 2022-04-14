@@ -2,6 +2,67 @@ import { registerFont, createCanvas, loadImage } from "canvas";
 import { writeFileSync, existsSync, mkdirSync } from "fs";
 import path from "path";
 
+const wrapText = (context, text, x, y, maxWidth, lineHeight): void => {
+  context.font = "63px 'Poppins Black'";
+  context.fillStyle = "#E8EDF2";
+
+  const words = text.split(" ");
+  let line = "";
+  let lineCount = 1;
+  let newY = y;
+
+  // need to run a loop so we know the number of lines before we assign the spacing...
+  for (let i = 0; i < words.length; i++) {
+    const fakeLine = `${line + words[i]} `;
+    if (context.measureText(fakeLine).width > maxWidth && i > 0) {
+      line = `${words[i]} `;
+      lineCount += 1;
+    } else {
+      line = fakeLine;
+    }
+  }
+
+  // reset the line
+  line = "";
+
+  let startingTopSpace = 0;
+
+  // depending on the number of lines, we need to adjust the spacing
+  if (lineCount === 1) {
+    startingTopSpace = 245;
+  } else if (lineCount === 2) {
+    startingTopSpace = 210;
+  } else if (lineCount === 3) {
+    startingTopSpace = 165;
+  } else if (lineCount === 4) {
+    startingTopSpace = 110;
+  }
+
+  // loop through words and determine when new lines need to be added and add them with appropriate spacing
+  for (let n = 0; n < words.length; n++) {
+    const testLine = `${line + words[n]} `;
+    // if the current width is greater than maxWidth, then we know we can show the line and move on
+    if (context.measureText(testLine).width > maxWidth && n > 0) {
+      // need to add extra space here for the line stuff I think
+      context.fillText(line, x, newY + startingTopSpace);
+      // reset the words
+      line = `${words[n]} `;
+      newY += lineHeight + startingTopSpace;
+      startingTopSpace = 0;
+    } else {
+      // else we just add the word to the current line
+      line = testLine;
+    }
+  }
+
+  // if it's one line, we never hit the above functionality, so add the extra space here
+  if (lineCount === 1) {
+    newY += startingTopSpace;
+  }
+
+  context.fillText(line, x, newY);
+};
+
 // our function will receive, in this case, the title of the blog post
 // as a parameter
 export const createImage = async ({ author, avatar, title }): Promise<Buffer> => {
@@ -64,67 +125,6 @@ export const createImage = async ({ author, avatar, title }): Promise<Buffer> =>
   context.fillText(" / somedevsdo.com", nameWidth + 182, height - 80);
 
   return canvas.toBuffer("image/png");
-};
-
-const wrapText = (context, text, x, y, maxWidth, lineHeight): void => {
-  context.font = "63px 'Poppins Black'";
-  context.fillStyle = "#E8EDF2";
-
-  const words = text.split(" ");
-  let line = "";
-  let lineCount = 1;
-  let newY = y;
-
-  // need to run a loop so we know the number of lines before we assign the spacing...
-  for (let i = 0; i < words.length; i++) {
-    const fakeLine = `${line + words[i]} `;
-    if (context.measureText(fakeLine).width > maxWidth && i > 0) {
-      line = `${words[i]} `;
-      lineCount += 1;
-    } else {
-      line = fakeLine;
-    }
-  }
-
-  // reset the line
-  line = "";
-
-  let startingTopSpace = 0;
-
-  // depending on the number of lines, we need to adjust the spacing
-  if (lineCount === 1) {
-    startingTopSpace = 245;
-  } else if (lineCount === 2) {
-    startingTopSpace = 210;
-  } else if (lineCount === 3) {
-    startingTopSpace = 165;
-  } else if (lineCount === 4) {
-    startingTopSpace = 110;
-  }
-
-  // loop through words and determine when new lines need to be added and add them with appropriate spacing
-  for (let n = 0; n < words.length; n++) {
-    const testLine = `${line + words[n]} `;
-    // if the current width is greater than maxWidth, then we know we can show the line and move on
-    if (context.measureText(testLine).width > maxWidth && n > 0) {
-      // need to add extra space here for the line stuff I think
-      context.fillText(line, x, newY + startingTopSpace);
-      // reset the words
-      line = `${words[n]} `;
-      newY += lineHeight + startingTopSpace;
-      startingTopSpace = 0;
-    } else {
-      // else we just add the word to the current line
-      line = testLine;
-    }
-  }
-
-  // if it's one line, we never hit the above functionality, so add the extra space here
-  if (lineCount === 1) {
-    newY += startingTopSpace;
-  }
-
-  context.fillText(line, x, newY);
 };
 
 export const generateOgImage = async ({ author, avatar, slug, title }): Promise<void> => {
