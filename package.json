@@ -102,5 +102,10 @@
     ],
     "*.scss": "stylelint --fix",
     "*.{ts,tsx,scss,md}": "prettier --write"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "17.0.43"
+    }
   }
 }
