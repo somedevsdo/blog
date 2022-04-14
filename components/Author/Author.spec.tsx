@@ -4,17 +4,17 @@ import Author from "./Author";
 
 describe("Author", () => {
   const author: IAuthor = {
-    id: "ben",
+    id: "andy",
     role: "Superman",
-    name: "Ben Selby",
-    profilePicture: "/authors/benmatselby.jpg",
+    name: "Andy Barnes",
+    profilePicture: "/authors/andy.png",
     social: [],
-    summary: "Clark Kent's mate",
+    summary: "Shh, it's a secret",
   };
 
   it("should render correctly", () => {
     render(<Author author={author} avatarSize="medium" />);
-    expect(screen.getByTitle("Author profile for Ben Selby")).toBeInTheDocument();
+    expect(screen.getByTitle("Author profile for Andy Barnes")).toBeInTheDocument();
   });
 
   it("should add the vertical modifier class if we want the vertical layout", () => {
