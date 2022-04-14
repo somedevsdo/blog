@@ -10,18 +10,19 @@ describe("getAllAuthorSlugs", () => {
 });
 
 describe("getAuthorData", () => {
-  it("should return the author data", async () => {
-    const author = await getAuthorData("ben");
+  it("should return the author data", () => {
+    const author = getAuthorData("andy");
 
     expect(author).toBeDefined();
-    expect(author.id).toBe("ben");
-    expect(author.name).toBe("Ben Selby");
-    expect(author.profilePicture).toBe("/authors/benmatselby.jpg");
+    expect(author.id).toBe("andy");
+    expect(author.name).toBe("Andy Barnes");
+    expect(author.profilePicture).toBe("/authors/andy.png");
     expect(author.social).toStrictEqual([
-      "https://benmatselby.dev",
-      "https://github.com/benmatselby",
-      "https://twitter.com/benmatselby",
-      "https://dev.to/benmatselby",
+      "https://andrewbarnes.info",
+      "https://github.com/andrewbarnesweb",
+      "https://twitter.com/AndrewBarnesWeb",
+      "https://andrew-barnes.medium.com/",
+      "https://www.polywork.com/andrewbarnes",
     ]);
   });
 });

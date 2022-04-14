@@ -8,17 +8,17 @@ describe("SocialLink", () => {
   });
 
   it("should render a GitHub link correctly", () => {
-    render(<SocialLink link="https://github.com/benmatselby" />);
+    render(<SocialLink link="https://github.com/somedevsdo" />);
     expect(screen.getByTitle("Visit GitHub page")).toBeInTheDocument();
   });
 
   it("should render a Twitter link correctly", () => {
-    render(<SocialLink link="https://twitter.com/benmatselby" />);
+    render(<SocialLink link="https://twitter.com/somedevsdo" />);
     expect(screen.getByTitle("Visit Twitter page")).toBeInTheDocument();
   });
 
   it("should render a Dev.tp link correctly", () => {
-    render(<SocialLink link="https://dev.to/benmatselby" />);
+    render(<SocialLink link="https://dev.to/somedevsdo" />);
     expect(screen.getByTitle("Visit Dev.to page")).toBeInTheDocument();
   });
 });
