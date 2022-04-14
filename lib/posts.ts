@@ -51,6 +51,38 @@ export interface IPost {
 }
 
 /**
+ * Get post data
+ *
+ * @param id the ID of the post to get
+ * @returns the post data
+ */
+export const getPostData = async (id: string): Promise<IPost> => {
+  const fullPath = path.join(postsDirectory, `${id}.md`);
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+
+  // Use gray-matter to parse the post metadata section
+  const matterResult = matter(fileContents);
+
+  const authorProfile = getAuthorData(matterResult.data.author);
+  const { content } = matterResult;
+  const subtitle = content.split(" ").slice(0, 20).join(" ").trimEnd();
+
+  // Combine the data with the id and contentHtml
+  return {
+    id,
+    fileContents: content,
+    subtitle,
+    authorProfile,
+    ...(matterResult.data as {
+      category: string;
+      date: string;
+      featuredImage: string;
+      title: string;
+    }),
+  };
+};
+
+/**
  * Get sorted posts
  *
  * @returns all posts sorted by date
@@ -90,36 +122,4 @@ export const getAllPostIds = (): { params: { id: string } }[] => {
       },
     };
   });
-};
-
-/**
- * Get post data
- *
- * @param id the ID of the post to get
- * @returns the post data
- */
-export const getPostData = async (id: string): Promise<IPost> => {
-  const fullPath = path.join(postsDirectory, `${id}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-
-  // Use gray-matter to parse the post metadata section
-  const matterResult = matter(fileContents);
-
-  const authorProfile = getAuthorData(matterResult.data.author);
-  const { content } = matterResult;
-  const subtitle = content.split(" ").slice(0, 20).join(" ").trimEnd();
-
-  // Combine the data with the id and contentHtml
-  return {
-    id,
-    fileContents: content,
-    subtitle,
-    authorProfile,
-    ...(matterResult.data as {
-      category: string;
-      date: string;
-      featuredImage: string;
-      title: string;
-    }),
-  };
 };
