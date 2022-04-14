@@ -17,7 +17,6 @@ import Layout from "../../components/Layout/Layout";
 import Img from "../../components/Img/Img";
 import ImageWithPlaceholder from "../../components/ImageWithPlaceholder/ImageWithPlaceholder";
 import getDateFormatted from "../../lib/date";
-import { generateOgImage } from "../../lib/generateOgImage";
 
 /**
  * The definition of what a post contains.
@@ -196,14 +195,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const processor = unified().use(markdown).use(remark2rehype).use(rehypePrism).use(html, {});
 
   const article = await processor.process(postData.fileContents);
-
-  // this function will create the open graph image
-  await generateOgImage({
-    slug: postData.id,
-    title: postData.title,
-    avatar: postData.authorProfile.profilePicture,
-    author: postData.authorProfile.name,
-  });
 
   return {
     props: {
