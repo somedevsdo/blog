@@ -30,7 +30,7 @@ jobs:
 
       - name: Install
         run: |
-          pnpm ci
+          pnpm i
           pnpx cypress install
 
       - name: Build site
