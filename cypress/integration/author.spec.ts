@@ -2,7 +2,7 @@ import { terminalLog } from "../support";
 
 describe("Author", () => {
   beforeEach(() => {
-    cy.visit("/author/dave");
+    cy.visit("/author/david");
     cy.injectAxe();
   });
 
