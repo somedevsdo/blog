@@ -34,7 +34,7 @@ const Author = (props: IAuthorProps): JSX.Element => {
   return (
     <Layout>
       <Head>
-        <title>{author.name} | Some Devs Do</title>
+        <title>{author.name} | somedevsdo</title>
       </Head>
       <div className={styles.hero} />
       <main>
