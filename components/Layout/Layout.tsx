@@ -121,7 +121,7 @@ const Layout = (props: Props): JSX.Element => {
               </li>
             </ul>
           </nav>
-          <span className={styles.copyright}>&copy; {new Date().getFullYear()} Some Devs Do</span>
+          <span className={styles.copyright}>&copy; {new Date().getFullYear()} somedevsdo</span>
         </div>
       </footer>
     </div>
