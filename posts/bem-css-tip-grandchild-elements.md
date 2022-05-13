@@ -53,7 +53,7 @@ A common wrong approach to this, is to keep adding double underscores the deeper
 
 BEM gets a lot of bad press for looking messy. I think you’ll agree that this approach chucks a fair bit of fuel on those flames! Things start to get messy quicker than usual with this approach, and readability drops significantly.
 
-I want to be quickly identifying the block I’m in (**navigation\*\***list), and the element I’m looking at (navigation\***\*list**). This approach slows down identification and adds bloat to your code.
+I want to be quickly identifying the block I’m in (**navigation**`__`list), and the element I’m looking at (navigation`__`**list**). This approach slows down identification and adds bloat to your code.
 
 It’s also inflexible. Say we wanted to add a new element in the tree, you’d need to rewrite all its child selector names to accommodate for the new namespace.
 
@@ -91,7 +91,7 @@ If you code long enough, at some point you will run into a situation where you w
 Ideally, there will be some sort of unique factor that you could use to add to one of the elements. So in the example below, we are treating the second list as a “secondary” list. Which allows us to prefix the element name with the word "secondary" and then cascade that through the child elements.
 
 ```html
-<div class="example">
+<div class="navigation">
   <ul class="navigation__list">
     <li class="navigation__item">
       <a class="navigation__link" href="">One</a>
