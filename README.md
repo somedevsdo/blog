@@ -1,4 +1,4 @@
-# SomeDevsDo blog
+# somedevsdo blog
 
 [![Build](https://github.com/somedevsdo/blog/actions/workflows/build.yml/badge.svg)](https://github.com/somedevsdo/blog/actions/workflows/build.yml)
 
