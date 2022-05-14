@@ -41,6 +41,10 @@ jobs:
         run: |
           pnpm run test
 
+      - name: Lint
+        run: |
+          pnpm run lint
+
       - name: Cypress (UI + Axe)
         uses: cypress-io/github-action@v2
         with:

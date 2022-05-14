@@ -11,7 +11,7 @@
     "dev": "npm run create-placeholders && next dev",
     "format": "prettier --loglevel warn --write \"**/*.{ts,tsx,scss,md}\"",
     "lint:scss": "stylelint '**/*.scss'",
-    "lint": "eslint . --cache --fix --ext .ts,.tsx",
+    "lint": "eslint . --cache --ext .ts,.tsx && prettier --check \"**/*.{ts,tsx,scss,md}\" && stylelint \"**/*.scss\"",
     "majestic": "EDITOR=code majestic",
     "posttest": "npm run format",
     "prepare": "husky install",
