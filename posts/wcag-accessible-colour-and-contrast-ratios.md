@@ -7,7 +7,7 @@ featuredImage: "wcag-accessible-colour.jpg"
 author: "andy"
 ---
 
-Before we start, I’d like to apologise in advance… I’m based in the UK, so the the flipping between colour/color in this article is real!
+_Before we start, I’d like to apologise in advance… I’m based in the UK, so the the flipping between colour/color in this article is real!_
 
 When asking if something is accessible, common feedback will be around contrast ratios. This article aims to outline what contrast ratios are - in context to accessibility, what the requirements are, and how you can check you are meeting those requirements.
 

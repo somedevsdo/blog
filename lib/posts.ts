@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import removeMd from "remove-markdown";
 import { getAuthorData, IAuthor } from "./authors";
 
 const postsDirectory = path.join(process.cwd(), "posts");
@@ -65,7 +66,8 @@ export const getPostData = async (id: string): Promise<IPost> => {
 
   const authorProfile = getAuthorData(matterResult.data.author);
   const { content } = matterResult;
-  const subtitle = content.split(" ").slice(0, 20).join(" ").trimEnd();
+  const contentWithoutMd = removeMd(matterResult.content);
+  const subtitle = contentWithoutMd.split(" ").slice(0, 20).join(" ").trimEnd();
 
   // Combine the data with the id and contentHtml
   return {
