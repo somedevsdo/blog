@@ -53,7 +53,7 @@ const Home = (props: IHomeProps): JSX.Element => {
                   <Link href={`/author/${postData.authorProfile.id}`}>
                     <a className={styles.name}>{postData.authorProfile.name}</a>
                   </Link>
-                  <div>UI Developer</div>
+                  <div>{postData.authorProfile.role}</div>
                 </div>
               </div>
             </div>

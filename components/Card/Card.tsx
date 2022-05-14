@@ -36,7 +36,7 @@ const Card = (props: ICardProps): JSX.Element => {
                 <Avatar size="x-small" src={authorProfile.profilePicture} />
                 <div>
                   <div className={styles.name}>{authorProfile.name}</div>
-                  <div className={styles.role}>UI Developer</div>
+                  <div className={styles.role}>{authorProfile.role}</div>
                 </div>
               </div>
             </div>
