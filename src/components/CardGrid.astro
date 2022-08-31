@@ -1,0 +1,32 @@
+<ul class="cards">
+  <slot />
+</ul>
+
+<style lang="scss">
+  .cards {
+    display: grid;
+    list-style-type: none;
+    margin: var(--size-margin-x-large) var(--size-margin-large) 5rem;
+    padding: 0;
+    row-gap: var(--size-margin-x-large);
+  }
+
+  @media (min-width: 768px) {
+    .cards {
+      column-gap: var(--size-margin-large);
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 6rem;
+      margin-top: 3rem;
+      row-gap: 3rem;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .cards {
+      grid-template-columns: 1fr 1fr 1fr;
+      margin: 5rem auto 10rem;
+      max-width: 1200px;
+      padding: 0 2rem;
+    }
+  }
+</style>

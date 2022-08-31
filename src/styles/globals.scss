@@ -1,0 +1,131 @@
+:root {
+  // padding
+  --size-padding-x-small: 0.25rem;
+  --size-padding-small: 0.5rem;
+  --size-padding-medium: 0.75rem;
+  --size-padding-large: 1rem;
+  --size-padding-x-large: 1.25rem;
+
+  // margin
+  --size-margin-x-small: 0.5rem;
+  --size-margin-small: 1rem;
+  --size-margin-medium: 1.5rem;
+  --size-margin-large: 2rem;
+  --size-margin-x-large: 2.5rem;
+
+  // line heights
+  --line-height-header: 1.3;
+  --line-height-text: 1.6;
+
+  // font family
+  --font-family-default: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --font-family-header: Poppins, var(--font-family-default);
+  --font-family-text: "Noto Sans", var(--font-family-default);
+
+  // heading font
+  --font-heading-x-small: 700 1.125rem / var(--line-height-header) var(--font-family-header);
+  --font-heading-small: 700 1.375rem / var(--line-height-header) var(--font-family-header);
+  --font-heading-medium: 700 1.75rem / var(--line-height-header) var(--font-family-header);
+  --font-heading-large: 700 2.25rem / var(--line-height-header) var(--font-family-header);
+  --font-heading-x-large: 700 2.75rem / var(--line-height-header) var(--font-family-header);
+
+  // text font
+  --font-text-x-small: 0.75rem / var(--line-height-text) var(--font-family-text);
+  --font-text-small: 0.875rem / var(--line-height-text) var(--font-family-text);
+  --font-text-medium: 1rem / var(--line-height-text) var(--font-family-text);
+  --font-text-large: 1.125rem / var(--line-height-text) var(--font-family-text);
+
+  // old stuff, factor out when we can
+  --cod-gray: #151515;
+  --mine-shaft: #151515;
+  --dove-gray: #666;
+  --alto: #ddd;
+  --white: #fff;
+  --background: var(--white);
+  --foreground: var(--cod-gray);
+  --shadow: rgba(0, 0, 0, 0.05);
+  --secondary-text: var(--dove-gray);
+
+  // color palette
+  --clr-palette-ebony: #090d18;
+  --clr-palette-ebony-clay: #1f2132;
+  --clr-palette-emporer: #555;
+  --clr-palette-silver: #c6c6c6;
+  --clr-palette-seance: #7621ab;
+  --clr-palette-perfume: #d5a4f5;
+  --clr-palette-mystic: #e8edf2;
+  --clr-palette-white: #fff;
+
+  // default theme
+  --clr-background: var(--clr-palette-mystic);
+  --clr-content-background: var(--clr-palette-white);
+  --clr-header: var(--clr-palette-ebony);
+  --clr-text: var(--clr-palette-emporer);
+  --clr-link: var(--clr-palette-seance);
+}
+
+[data-theme="dark"] {
+  // old stuff, factor out when we can
+  --background: var(--cod-gray);
+  --foreground: var(--white);
+  --shadow: rgba(255, 255, 255, 0.05);
+  --secondary-text: var(--alto);
+
+  // dark theme
+  --clr-background: var(--clr-palette-ebony);
+  --clr-content-background: var(--clr-palette-ebony-clay);
+  --clr-header: var(--clr-palette-mystic);
+  --clr-text: var(--clr-palette-silver);
+  --clr-link: var(--clr-palette-perfume);
+}
+
+html,
+body {
+  background-color: var(--clr-palette-ebony-clay);
+  color: var(--foreground);
+  font-family: var(--font-family-text);
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  transition: background 0.2s ease-out;
+}
+
+a {
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--clr-background);
+}
+
+img {
+  max-width: 100%;
+}
+
+[data-theme="dark"] .image {
+  position: relative;
+
+  &::after {
+    background: rgba(0, 0, 0, 0.4);
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: background 0.3s linear;
+    z-index: 1;
+  }
+}
+
+// Override some code styles
+
+.astro-code {
+  padding: 0.75rem;
+}

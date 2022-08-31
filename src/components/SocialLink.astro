@@ -1,0 +1,69 @@
+---
+import DevTo from "../images/devto.svg?raw";
+import GitHub from "../images/github.svg?raw";
+import Medium from "../images/medium.svg?raw";
+import Polywork from "../images/polywork.svg?raw";
+import Twitter from "../images/twitter.svg?raw";
+import Web from "../images/web.svg?raw";
+
+export type Props = {
+  circled?: boolean;
+  link: string;
+};
+
+const { circled, link } = Astro.props as Props;
+
+const linkMap = [
+  {
+    link: "twitter.com",
+    title: "Twitter",
+    icon: Twitter,
+  },
+  {
+    link: "github.com",
+    title: "GitHub",
+    icon: GitHub,
+  },
+  {
+    link: "dev.to",
+    title: "Dev.to",
+    icon: DevTo,
+  },
+  {
+    link: "medium.com",
+    title: "Medium",
+    icon: Medium,
+  },
+  {
+    link: "polywork.com",
+    title: "Polywork",
+    icon: Polywork,
+  },
+];
+
+const title = linkMap.find((item) => link.includes(item.link))?.title || "Web";
+const icon = linkMap.find((item) => link.includes(item.link))?.icon || Web;
+---
+
+<a class={`link ${circled && "circle"}`} href={link} title={`Visit ${title} page`}>
+  <Fragment set:html={icon} />
+</a>
+
+<style lang="scss">
+  .link {
+    display: inline-block;
+    font-size: 0;
+  }
+
+  .circle {
+    background-color: var(--clr-palette-perfume);
+    border-radius: 50%;
+    color: var(--clr-palette-ebony-clay);
+    padding: var(--size-padding-small);
+
+    img {
+      height: 1.125rem;
+      width: 1.125rem;
+    }
+  }
+</style>
