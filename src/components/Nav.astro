@@ -1,0 +1,50 @@
+---
+import ThemeButton from "./ThemeButton.astro";
+---
+
+<nav>
+  <div class="content">
+    <a href="/" title="View home page">
+      <img alt="SOME DEVS DO" height={45} src="/logo/logo.svg" width={89} />
+    </a>
+    <ThemeButton />
+  </div>
+</nav>
+
+<style lang="scss">
+  .content {
+    align-items: center;
+    color: var(--clr-palette-white);
+    display: flex;
+    height: 5.625rem;
+    justify-content: space-between;
+    padding-left: var(--size-padding-x-large);
+    padding-right: var(--size-padding-x-large);
+  }
+
+  nav {
+    background-color: var(--clr-palette-ebony-clay);
+  }
+
+  @media (min-width: 768px) {
+    .content {
+      height: 6.5rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    nav {
+      display: flex;
+      justify-content: center;
+    }
+
+    .content {
+      max-width: 1200px;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,127 @@
+---
+import { getAuthorData } from "../lib/author";
+import getDateFormatted from "../lib/date";
+import Avatar from "./Avatar.astro";
+
+const { post } = Astro.props;
+
+const { title, featuredImage, category, date, author, slug } = post.frontmatter;
+const subtitle = post.rawContent().split(" ").slice(0, 20).join(" ").trimEnd();
+const authorProfile = getAuthorData(author);
+---
+
+<a href={`/post/${slug}`} class="link" title={title}>
+  <div class="container">
+    <div class="image">
+      <img alt={title} src={`/posts/featured/${featuredImage}`} />
+    </div>
+    <div class="content">
+      <span class="meta">
+        <span class="category">{category}</span>
+        {" - "}
+        <span>{getDateFormatted(date)}</span>
+      </span>
+      <h2 class="title">{title}</h2>
+      <p class="subtitle">{subtitle}...</p>
+      <div class="author">
+        <Avatar size="x-small" src={authorProfile.profilePicture} />
+        <div>
+          <div class="name">{authorProfile.name}</div>
+          <div class="role">{authorProfile.role}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>
+
+<style lang="scss">
+  .link {
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      .title {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .container {
+    background-color: var(--clr-content-background);
+    border-radius: 0.75rem;
+    box-shadow: 0 1.25rem 1.875rem rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .image {
+    height: 10rem;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  :global([data-theme="dark"]) {
+    .container {
+      box-shadow: 0 1.25rem 1.875rem rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 1.5rem var(--size-padding-large) var(--size-padding-x-large);
+  }
+
+  .title {
+    color: var(--clr-link);
+    font: var(--font-heading-small);
+    margin-bottom: var(--size-margin-small);
+    margin-top: var(--size-margin-x-small);
+  }
+
+  .meta {
+    font-size: 0.75rem;
+  }
+
+  .category {
+    font-family: var(--font-family-header);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .subtitle {
+    border-bottom: 1px solid var(--clr-background);
+    color: var(--clr-text);
+    flex: 1;
+    font: var(--font-text-small);
+    margin: 0;
+    margin-bottom: var(--size-margin-small);
+    padding-bottom: var(--size-padding-x-large);
+  }
+
+  .author {
+    display: flex;
+    gap: var(--size-margin-x-small);
+  }
+
+  .name {
+    color: var(--clr-header);
+    font: var(--font-text-small);
+    font-weight: 700;
+  }
+
+  .role {
+    color: var(--clr-text);
+    font: var(--font-text-x-small);
+  }
+</style>

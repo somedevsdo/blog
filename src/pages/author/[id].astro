@@ -1,0 +1,186 @@
+---
+import Avatar from "../../components/Avatar.astro";
+import Card from "../../components/Card.astro";
+import CardGrid from "../../components/CardGrid.astro";
+import SocialLink from "../../components/SocialLink.astro";
+import authors from "../../data/authors.json";
+import Layout from "../../layouts/Layout.astro";
+import { getAuthorData } from "../../lib/author";
+import { getSortedPosts } from "../../lib/posts";
+
+const posts = getSortedPosts(await Astro.glob("../../posts/*.md"));
+
+export async function getStaticPaths() {
+  return authors.map((a) => ({
+    params: {
+      id: a.id,
+    },
+  }));
+}
+
+const author = getAuthorData(Astro.params.id as string);
+
+const filteredPosts = () => {
+  return posts.filter((p) => p.frontmatter.author === author.id).slice(0, 3);
+};
+---
+
+<Layout title={`${author.name} | somedevsdo`}>
+  <div class="hero"></div>
+  <main>
+    <article>
+      <div class="header">
+        <div class="avatar">
+          {author.profilePicture ? <Avatar src={author.profilePicture} /> : ""}
+        </div>
+        <h1 class="name">{author.name}</h1>
+        <h2 class="role">{author.role}</h2>
+        {
+          author.social && (
+            <ul class="socials">
+              {author.social.map((link) => (
+                <li>
+                  <SocialLink link={link} />
+                </li>
+              ))}
+            </ul>
+          )
+        }
+        <div class="summary">{author.summary}</div>
+      </div>
+      <h2 class="latestTitle">Latest posts</h2>
+      <div class="posts">
+        {
+          filteredPosts().length ? (
+            <CardGrid>
+              {filteredPosts().map((p) => (
+                <li>
+                  <Card post={p} />
+                </li>
+              ))}
+            </CardGrid>
+          ) : (
+            <div class="emptyState">No posts yet</div>
+          )
+        }
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style lang="scss">
+  .hero {
+    background: linear-gradient(278.59deg, #c291e1 1.21%, #5b0a91 92.25%);
+    clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+    height: 400px;
+    position: absolute;
+    width: 100%;
+  }
+
+  :global([data-theme="dark"]) {
+    .hero {
+      background: linear-gradient(278.59deg, #520483 1.21%, #12001e 92.25%);
+    }
+  }
+
+  .header {
+    background-color: var(--clr-content-background);
+    border-radius: 1rem;
+    margin: 116px var(--size-margin-large) 80px;
+    padding: 84px 32px 40px;
+    position: relative;
+    text-align: center;
+  }
+
+  .avatar {
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: -60px;
+    width: 100%;
+  }
+
+  .name {
+    color: var(--clr-header);
+    font: var(--font-heading-medium);
+    margin: 0;
+  }
+
+  .role {
+    color: var(--clr-header);
+    font: var(--font-text-large);
+    margin-bottom: var(--size-margin-large);
+    margin-top: var(--size-margin-small);
+  }
+
+  .socials {
+    display: flex;
+    gap: var(--size-margin-small);
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    margin-bottom: 48px;
+    padding: 0;
+  }
+
+  .summary {
+    color: var(--clr-text);
+    font: var(--font-text-medium);
+  }
+
+  .posts {
+    margin-bottom: 80px;
+  }
+
+  .latestTitle {
+    color: var(--clr-header);
+    font: var(--font-heading-small);
+    margin-bottom: var(--size-margin-large);
+    margin-top: 80px;
+    text-align: center;
+  }
+
+  .emptyState {
+    color: var(--clr-text);
+    font: var(--font-text-medium);
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .header {
+      margin-left: 64px;
+      margin-right: 64px;
+      margin-top: 180px;
+      padding-bottom: 56px;
+      padding-left: 56px;
+      padding-right: 56px;
+    }
+
+    .name {
+      font: var(--font-heading-x-large);
+    }
+
+    .role {
+      margin-bottom: 48px;
+    }
+
+    .summary {
+      font: var(--font-text-large);
+    }
+
+    .latestTitle {
+      font: var(--font-heading-large);
+      margin-top: 94px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .header {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 884px;
+    }
+  }
+</style>

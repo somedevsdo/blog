@@ -1,0 +1,52 @@
+---
+export type Props = {
+  size?: string;
+  src: string;
+};
+
+const { size = "large", src } = Astro.props as Props;
+let avatarSize: string;
+
+switch (size) {
+  case "x-small":
+    avatarSize = "40px";
+    break;
+  case "small":
+    avatarSize = "52px";
+    break;
+  case "medium":
+    avatarSize = "77px";
+    break;
+  case "x-large":
+    avatarSize = "180px";
+    break;
+  case "large":
+  default:
+    avatarSize = "120px";
+    break;
+}
+---
+
+<span class="avatar" style={`height: ${avatarSize}; width: ${avatarSize};`}>
+  <img alt="" src={src} />
+</span>
+
+<style lang="scss">
+  $background: var(--background);
+
+  .avatar {
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+
+    // Adding here, otherwise in Safari the `ImageWithPlaceholder.img.transition`
+    // transition a square image for 0.5 seconds into a circle.
+    img {
+      border-radius: 50%;
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+</style>

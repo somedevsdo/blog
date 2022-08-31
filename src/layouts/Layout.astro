@@ -1,0 +1,34 @@
+---
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import "../styles/globals.scss";
+
+export type Props = {
+  title?: string;
+};
+
+const { title = "somedevsdo" } = Astro.props as Props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta content={title} name="description" />
+    <meta content={title} name="og:title" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <title>{title}</title>
+    <script is:inline>
+      const theme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", theme);
+      document.documentElement.style.setProperty("color-scheme", theme);
+    </script>
+  </head>
+  <body>
+    <Nav />
+    <slot />
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,194 @@
+---
+import { getAuthorData } from "../lib/author";
+import getDateFormatted from "../lib/date";
+import { Frontmatter, getSortedPosts } from "../lib/posts";
+import Avatar from "./Avatar.astro";
+
+const posts = await Astro.glob<Frontmatter>("../posts/*.md");
+const { frontmatter, rawContent } = getSortedPosts(posts)[0];
+
+const post = {
+  ...frontmatter,
+  subtitle: rawContent().split(" ").slice(0, 20).join(" ").trimEnd(),
+};
+
+const author = getAuthorData(post.author);
+---
+
+<header>
+  <div class="hero">
+    <div class="content">
+      <div class="container">
+        <div class="meta">
+          <span class="category">{post.category}</span>
+          <span class="date">{getDateFormatted(post.date)}</span>
+        </div>
+        <h1 class="title">
+          <a href={`/post/${post.slug}`}>
+            {post.title}
+          </a>
+        </h1>
+        <p class="subtitle">
+          {post.subtitle}...{" "}
+          <a href={`/post/${post.slug}`} title={post.title}>read full post</a>
+        </p>
+        <div class="author">
+          <Avatar size="small" src={author.profilePicture} />
+          <div>
+            <a href={`/author/${author.id}`}> {author.name}</a>
+            <div>{author.role}</div>
+          </div>
+        </div>
+      </div>
+      <div class="image">
+        <a href={`/post/${post.slug}`}>
+          <img alt="Featured image" src={`/posts/featured/${post.featuredImage}`} />
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .hero {
+    background: linear-gradient(278.59deg, #c291e1 1.21%, #5b0a91 92.25%);
+    clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+    padding: 2rem;
+  }
+
+  .container {
+    width: 85%;
+  }
+
+  .image {
+    display: none;
+  }
+
+  .meta {
+    border-bottom: 1px solid #b676dd;
+    color: var(--clr-palette-white);
+    padding-bottom: var(--size-padding-small);
+  }
+
+  .category {
+    font-family: var(--font-family-header);
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: capitalize;
+
+    &::after {
+      content: "\00b7";
+      padding: 0 1rem;
+    }
+  }
+
+  .date {
+    font: var(--font-text-medium);
+  }
+
+  .title {
+    color: var(--clr-palette-white);
+    font: var(--font-heading-large);
+    font-weight: 900;
+    margin: 0;
+    margin-top: var(--size-margin-medium);
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .subtitle {
+    color: var(--clr-palette-white);
+    font: var(--font-text-small);
+    margin: var(--size-margin-medium) 0;
+  }
+
+  .author {
+    align-items: center;
+    color: var(--clr-palette-white);
+    display: flex;
+    font: var(--font-text-small);
+    gap: var(--size-margin-x-small);
+  }
+
+  .name {
+    font-weight: 700;
+  }
+
+  :global([data-theme="dark"]) {
+    .hero {
+      background: linear-gradient(278.59deg, #520483 1.21%, #12001e 92.25%);
+    }
+
+    .meta {
+      border-bottom-color: #500480;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      padding: 56px;
+    }
+
+    .title {
+      font: var(--font-heading-x-large);
+    }
+
+    .subtitle {
+      margin-top: var(--size-margin-large);
+    }
+  }
+
+  @media (min-width: 992px) {
+    .content {
+      align-items: stretch;
+      display: flex;
+      gap: var(--size-margin-large);
+    }
+
+    .meta {
+      border-bottom-color: #903ec4;
+    }
+
+    .title,
+    .subtitle {
+      width: 80%;
+    }
+
+    .image {
+      border-radius: 0.375rem;
+      display: block;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .hero {
+      display: flex;
+      justify-content: center;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .content {
+      max-width: 1200px;
+      padding-left: var(--size-margin-large);
+      padding-right: var(--size-margin-large);
+      width: 100%;
+    }
+  }
+</style>

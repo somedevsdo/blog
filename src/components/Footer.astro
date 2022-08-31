@@ -1,0 +1,54 @@
+---
+import SocialLink from "./SocialLink.astro";
+---
+
+<footer>
+  <div>
+    <img alt="SOME DEVS DO" height={45} src="/logo/logo.svg" width={89} />
+    <nav aria-label="Social links">
+      <ul class="social">
+        <li>
+          <SocialLink circled={true} link="https://twitter.com/somedevsdo" />
+        </li>
+        <li>
+          <SocialLink circled={true} link="https://github.com/somedevsdo" />
+        </li>
+      </ul>
+    </nav>
+    <span class="copyright">&copy; {new Date().getFullYear()} somedevsdo</span>
+  </div>
+</footer>
+
+<style lang="scss">
+  footer {
+    background-color: var(--clr-palette-ebony-clay);
+    color: var(--clr-palette-silver);
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2.5rem;
+    padding-top: 2.5rem;
+    text-align: center;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo {
+    align-self: center;
+  }
+
+  .social {
+    display: flex;
+    gap: var(--size-margin-small);
+    justify-content: center;
+    list-style-type: none;
+    margin: var(--size-margin-large) 0;
+    padding: 0;
+  }
+
+  .copyright {
+    font: var(--font-text-x-small);
+  }
+</style>
