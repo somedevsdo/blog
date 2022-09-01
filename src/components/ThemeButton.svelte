@@ -1,4 +1,12 @@
-<button id="theme-button">
+<script>
+  import { theme } from "../lib/theme";
+
+  const onClick = () => {
+    theme.toggle();
+  };
+</script>
+
+<button id="theme-button" on:click={onClick}>
   <svg
     aria-labelledby="theme-light"
     height="24"
@@ -19,7 +27,7 @@
   1.414 1.414 2.88-2.88c-.528-.411-1.003-.885-1.414-1.414zm2.312-4.897c0 2.206
   1.794 4 4 4s4-1.794 4-4-1.794-4-4-4-4 1.794-4 4zm10 0c0 3.314-2.686
   6-6 6s-6-2.686-6-6 2.686-6 6-6 6 2.686 6 6z"
-    ></path>
+    />
   </svg>
   <svg
     aria-labelledby="theme-dark"
@@ -39,26 +47,9 @@
             22c-6.617 0-12-5.383-12-12s5.383-12 12-12c1.894 0 3.63.497
             5.37 1.179-2.948.504-9.37 3.266-9.37 10.821 0 7.454 5.917 10.208
             9.37 10.821-1.5.846-3.476 1.179-5.37 1.179z"
-    ></path>
+    />
   </svg>
 </button>
-
-<script>
-  const themeButton = document.getElementById("theme-button");
-  const html = document.documentElement;
-
-  themeButton?.addEventListener("click", () => {
-    if (html.getAttribute("data-theme") === "dark") {
-      html.setAttribute("data-theme", "light");
-      html.style.setProperty("color-scheme", "light");
-      localStorage.setItem("theme", "light");
-    } else {
-      html.setAttribute("data-theme", "dark");
-      html.style.setProperty("color-scheme", "dark");
-      localStorage.setItem("theme", "dark");
-    }
-  });
-</script>
 
 <style lang="scss">
   button {

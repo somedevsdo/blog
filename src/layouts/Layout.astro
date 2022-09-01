@@ -21,7 +21,8 @@ const { title = "somedevsdo" } = Astro.props as Props;
     <meta content="summary_large_image" name="twitter:card" />
     <title>{title}</title>
     <script is:inline>
-      const theme = localStorage.getItem("theme") || "light";
+      const defaultTheme = window.matchMedia("(prefers-color-scheme: dark)") ? "dark" : "light";
+      const theme = localStorage.getItem("theme") || defaultTheme;
       document.documentElement.setAttribute("data-theme", theme);
       document.documentElement.style.setProperty("color-scheme", theme);
     </script>
