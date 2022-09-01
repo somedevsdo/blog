@@ -7,29 +7,29 @@ export type Props = {
 };
 
 const { size = "large", src } = Astro.props as Props;
-let avatarSize: string;
+let avatarSize: number;
 
 switch (size) {
   case "x-small":
-    avatarSize = "40px";
+    avatarSize = 40;
     break;
   case "small":
-    avatarSize = "52px";
+    avatarSize = 52;
     break;
   case "medium":
-    avatarSize = "77px";
+    avatarSize = 77;
     break;
   case "x-large":
-    avatarSize = "180px";
+    avatarSize = 180;
     break;
   case "large":
   default:
-    avatarSize = "120px";
+    avatarSize = 120;
     break;
 }
 ---
 
-<span class="avatar" style={`height: ${avatarSize}; width: ${avatarSize};`}>
+<span class="avatar" style={`height: ${avatarSize}px; width: ${avatarSize}px;`}>
   <Image alt="" src={src} height={avatarSize} width={avatarSize} />
 </span>
 

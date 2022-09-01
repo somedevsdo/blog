@@ -7,7 +7,7 @@ export type Author = {
   profilePicture: string;
   social?: string[];
   summary?: string;
-}
+};
 
 export const getAuthorData = (id: string): Author => {
   return authors.find((author: Author) => author.id === id) as Author;

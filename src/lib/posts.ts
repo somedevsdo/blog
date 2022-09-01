@@ -8,6 +8,7 @@ export type Frontmatter = {
   canonical: string;
   featuredImage: string;
   author: string;
+  subtitle: string;
 };
 
 export const getSortedPosts = (

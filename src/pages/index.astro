@@ -6,7 +6,7 @@ import Layout from "../layouts/Layout.astro";
 import type { Frontmatter } from "../lib/posts";
 import { getSortedPosts } from "../lib/posts";
 
-const posts = getSortedPosts(await Astro.glob<Frontmatter>("../posts/*.md"));
+const posts = getSortedPosts(await Astro.glob<Frontmatter>("../posts/*.mdx"));
 ---
 
 <Layout>

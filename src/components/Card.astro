@@ -6,8 +6,8 @@ import Avatar from "./Avatar.astro";
 
 const { post } = Astro.props;
 
-const { title, featuredImage, category, date, author, slug } = post.frontmatter;
-const subtitle = post.rawContent().split(" ").slice(0, 20).join(" ").trimEnd();
+const { title, featuredImage, category, date, author, slug, subtitle } = post.frontmatter;
+const subtitleTrimmed = subtitle.split(" ").slice(0, 20).join(" ").trimEnd();
 const authorProfile = getAuthorData(author);
 ---
 
@@ -16,9 +16,9 @@ const authorProfile = getAuthorData(author);
     <div class="image">
       <Image
         alt={title}
-        src={`/posts/featured/${featuredImage}`}
-        height="160px"
-        width="680px"
+        src={import(`../images/posts/featured/${featuredImage.replace(".jpg", "")}.jpg`)}
+        height={160}
+        width={680}
         aspectRatio="1:1"
       />
     </div>
@@ -29,7 +29,7 @@ const authorProfile = getAuthorData(author);
         <span>{getDateFormatted(date)}</span>
       </span>
       <h2 class="title">{title}</h2>
-      <p class="subtitle">{subtitle}...</p>
+      <p class="subtitle">{subtitleTrimmed}...</p>
       <div class="author">
         <Avatar size="x-small" src={authorProfile.profilePicture} />
         <div>

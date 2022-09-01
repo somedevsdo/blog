@@ -1,10 +1,5 @@
 {
-  "extends": [
-    "stylelint-config-sass-guidelines",
-    "stylelint-config-prettier"
-  ],
-  "plugins": [
-    "stylelint-order"
-  ],
+  "extends": ["stylelint-config-sass-guidelines", "stylelint-config-prettier"],
+  "plugins": ["stylelint-order"],
   "rules": {}
 }
