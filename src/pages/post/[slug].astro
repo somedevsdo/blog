@@ -6,7 +6,7 @@ import getDateFormatted from "../../lib/date";
 import type { Frontmatter } from "../../lib/posts";
 
 export const getStaticPaths = async () => {
-  const posts = await Astro.glob<Frontmatter>("../../posts/*.md");
+  const posts = await Astro.glob<Frontmatter>("../../posts/*.mdx");
 
   return posts.map((post) => ({
     params: {
@@ -31,8 +31,11 @@ const externalEncodedPath: string = `https://somedevsdo.com${Astro.url.pathname}
       <div class="image">
         <Image
           alt="Featured image"
-          src={`/posts/featured/${postData.featuredImage}`}
-          height="640px"
+          src={import(
+            `../../images/posts/featured/${postData.featuredImage.replace(".jpg", "")}.jpg`
+          )}
+          height={640}
+          width={860}
           aspectRatio="1:1"
         />
       </div>

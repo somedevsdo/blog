@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@astrojs/image": "^0.4.0",
+    "@astrojs/mdx": "^0.11.0",
     "@typescript-eslint/parser": "^5.36.1",
     "astro": "^1.1.2",
     "axe-core": "^4.4.3",

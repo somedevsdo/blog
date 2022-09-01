@@ -5,12 +5,12 @@ import getDateFormatted from "../lib/date";
 import { Frontmatter, getSortedPosts } from "../lib/posts";
 import Avatar from "./Avatar.astro";
 
-const posts = await Astro.glob<Frontmatter>("../posts/*.md");
-const { frontmatter, rawContent } = getSortedPosts(posts)[0];
+const posts = await Astro.glob<Frontmatter>("../posts/*.mdx");
+const { frontmatter } = getSortedPosts(posts)[0];
 
 const post = {
   ...frontmatter,
-  subtitle: rawContent().split(" ").slice(0, 20).join(" ").trimEnd(),
+  subtitle: frontmatter.subtitle.split(" ").slice(0, 20).join(" ").trimEnd(),
 };
 
 const author = getAuthorData(post.author);
@@ -45,9 +45,9 @@ const author = getAuthorData(post.author);
         <a href={`/post/${post.slug}`}>
           <Image
             alt="Featured image"
-            src={`/posts/featured/${post.featuredImage}`}
-            height="500px"
-            aspectRatio="1:1"
+            src={import(`../images/posts/featured/${post.featuredImage.replace(".jpg", "")}.jpg`)}
+            height={500}
+            aspectRatio="1"
           />
         </a>
       </div>

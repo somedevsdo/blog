@@ -6,6 +6,7 @@ canonical: "https://andrew-barnes.medium.com/bem-css-tip-dealing-with-grandchild
 featuredImage: "bem-css-tip.jpg"
 author: "andy"
 slug: "bem-css-tip-grandchild-elements"
+subtitle: "If you asked most grandparents how to deal with grandchildren, they would probably suggest letting them do whatever they want, and then filling them with sugar about 20 minutes before bedtime. Whilst as their child, you sit there thinking how unjust this is, since all they offered you as a child was vegetables and discipline."
 ---
 
 If you asked most grandparents how to deal with grandchildren, they would probably suggest letting them do whatever they want, and then filling them with sugar about 20 minutes before bedtime. Whilst as their child, you sit there thinking how unjust this is, since all they offered you as a child was vegetables and discipline.
@@ -14,7 +15,7 @@ In contrast, when looking at [**B**lock **E**lement **M**odifier](https://en.bem
 
 ## The problem
 
-Easily the most common question I’m asked with BEM, is how to name deeply nested (2+ levels) elements in the blocks. So taking the example block below, once we get to the `<li>` and the `<a>` elements, how do we assign selectors to those?
+Easily the most common question I'm asked with BEM, is how to name deeply nested (2+ levels) elements in the blocks. So taking the example block below, once we get to the `<li>` and the `<a>` elements, how do we assign selectors to those?
 
 ```html
 <nav class="navigation">
@@ -52,17 +53,17 @@ A common wrong approach to this, is to keep adding double underscores the deeper
 </nav>
 ```
 
-BEM gets a lot of bad press for looking messy. I think you’ll agree that this approach chucks a fair bit of fuel on those flames! Things start to get messy quicker than usual with this approach, and readability drops significantly.
+BEM gets a lot of bad press for looking messy. I think you'll agree that this approach chucks a fair bit of fuel on those flames! Things start to get messy quicker than usual with this approach, and readability drops significantly.
 
-I want to be quickly identifying the block I’m in (**navigation**`__`list), and the element I’m looking at (navigation`__`**list**). This approach slows down identification and adds bloat to your code.
+I want to be quickly identifying the block I'm in (**navigation**`__`list), and the element I'm looking at (navigation`__`**list**). This approach slows down identification and adds bloat to your code.
 
-It’s also inflexible. Say we wanted to add a new element in the tree, you’d need to rewrite all its child selector names to accommodate for the new namespace.
+It's also inflexible. Say we wanted to add a new element in the tree, you'd need to rewrite all its child selector names to accommodate for the new namespace.
 
 ## The right way
 
-The common misconception - that we need to chain our element names like this - is probably born from how we would traditionally think about their relationships to the elements directly above them. However, to get on the right track we need to start making sure that our elements only ever have two underscores in them (`__`), and that the naming shouldn’t care about how deeply nested you are in a block.
+The common misconception - that we need to chain our element names like this - is probably born from how we would traditionally think about their relationships to the elements directly above them. However, to get on the right track we need to start making sure that our elements only ever have two underscores in them (`__`), and that the naming shouldn't care about how deeply nested you are in a block.
 
-Let’s take a look at what the navigation block will look like with the correct approach:
+Let's take a look at what the navigation block will look like with the correct approach:
 
 ```html
 <nav class="navigation">
@@ -118,7 +119,7 @@ Ideally, there will be some sort of unique factor that you could use to add to o
 </div>
 ```
 
-At some point, you will need to determine whether it actually makes sense to split deeply nested elements out in to their own blocks. This very much depends on context and whether it will be reused. And as such, means that there’s no blanket rule to go by.
+At some point, you will need to determine whether it actually makes sense to split deeply nested elements out in to their own blocks. This very much depends on context and whether it will be reused. And as such, means that there's no blanket rule to go by.
 
 ## Summary
 

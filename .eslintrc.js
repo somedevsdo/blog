@@ -1,7 +1,5 @@
 module.exports = {
-  extends: [
-    "plugin:astro/recommended",
-  ],
+  extends: ["plugin:astro/recommended"],
   overrides: [
     {
       files: ["*.astro"],
@@ -9,12 +7,12 @@ module.exports = {
       parserOptions: {
         parser: "@typescript-eslint/parser",
         extraFileExtensions: [".astro"],
-        ecmaVersion: "es6"
+        ecmaVersion: "es6",
       },
       rules: {
         // override/add rules settings here, such as:
         // "astro/no-set-html-directive": "error"
-      }
+      },
     },
   ],
-}
+};
