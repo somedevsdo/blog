@@ -1,4 +1,6 @@
 ---
+import { Image } from "@astrojs/image/components";
+
 export type Props = {
   size?: string;
   src: string;
@@ -28,7 +30,7 @@ switch (size) {
 ---
 
 <span class="avatar" style={`height: ${avatarSize}; width: ${avatarSize};`}>
-  <img alt="" src={src} />
+  <Image alt="" src={src} height={avatarSize} width={avatarSize} />
 </span>
 
 <style lang="scss">
