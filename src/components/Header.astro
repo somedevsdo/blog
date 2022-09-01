@@ -1,4 +1,5 @@
 ---
+import { Image } from "@astrojs/image/components";
 import { getAuthorData } from "../lib/author";
 import getDateFormatted from "../lib/date";
 import { Frontmatter, getSortedPosts } from "../lib/posts";
@@ -42,7 +43,12 @@ const author = getAuthorData(post.author);
       </div>
       <div class="image">
         <a href={`/post/${post.slug}`}>
-          <img alt="Featured image" src={`/posts/featured/${post.featuredImage}`} />
+          <Image
+            alt="Featured image"
+            src={`/posts/featured/${post.featuredImage}`}
+            height="500px"
+            aspectRatio="1:1"
+          />
         </a>
       </div>
     </div>

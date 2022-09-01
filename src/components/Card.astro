@@ -1,4 +1,5 @@
 ---
+import { Image } from "@astrojs/image/components";
 import { getAuthorData } from "../lib/author";
 import getDateFormatted from "../lib/date";
 import Avatar from "./Avatar.astro";
@@ -13,7 +14,13 @@ const authorProfile = getAuthorData(author);
 <a href={`/post/${slug}`} class="link" title={title}>
   <div class="container">
     <div class="image">
-      <img alt={title} src={`/posts/featured/${featuredImage}`} />
+      <Image
+        alt={title}
+        src={`/posts/featured/${featuredImage}`}
+        height="160px"
+        width="680px"
+        aspectRatio="1:1"
+      />
     </div>
     <div class="content">
       <span class="meta">
