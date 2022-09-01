@@ -1,5 +1,5 @@
 ---
-import ThemeButton from "./ThemeButton.astro";
+import ThemeButton from "./ThemeButton.svelte";
 ---
 
 <nav>
@@ -7,7 +7,7 @@ import ThemeButton from "./ThemeButton.astro";
     <a href="/" title="View home page">
       <img alt="SOME DEVS DO" height={45} src="/logo/logo.svg" width={89} />
     </a>
-    <ThemeButton />
+    <ThemeButton client:only="svelte" />
   </div>
 </nav>
 
