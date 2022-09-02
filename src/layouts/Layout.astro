@@ -25,7 +25,6 @@ const { title = "somedevsdo" } = Astro.props as Props;
         ? "dark"
         : "light";
       const theme = localStorage.getItem("theme") || defaultTheme;
-      console.log("Layout", theme);
       document.documentElement.setAttribute("data-theme", theme);
       document.documentElement.style.setProperty("color-scheme", theme);
     </script>
