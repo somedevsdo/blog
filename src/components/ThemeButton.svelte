@@ -6,7 +6,11 @@
   };
 </script>
 
-<button id="theme-button" on:click={onClick}>
+<button
+  id="theme-button"
+  title={$theme === "dark" ? "Toggle light mode" : "Toggle dark mode"}
+  on:click={onClick}
+>
   <div class="i-bi:moon-stars-fill" />
   <div class="i-bi:sun" />
 </button>

@@ -16,9 +16,4 @@ export default defineConfig({
       presets: [presetIcons(), presetUno()],
     }),
   ],
-  vite: {
-    build: {
-      cssCodeSplit: true,
-    },
-  },
 });
