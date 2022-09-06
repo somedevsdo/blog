@@ -1,11 +1,4 @@
 ---
-import DevTo from "../images/devto.svg?raw";
-import GitHub from "../images/github.svg?raw";
-import Medium from "../images/medium.svg?raw";
-import Polywork from "../images/polywork.svg?raw";
-import Twitter from "../images/twitter.svg?raw";
-import Web from "../images/web.svg?raw";
-
 export type Props = {
   circled?: boolean;
   link: string;
@@ -17,42 +10,48 @@ const linkMap = [
   {
     link: "twitter.com",
     title: "Twitter",
-    icon: Twitter,
+    icon: "i-simple-icons-twitter",
   },
   {
     link: "github.com",
     title: "GitHub",
-    icon: GitHub,
+    icon: "i-simple-icons-github",
   },
   {
     link: "dev.to",
     title: "Dev.to",
-    icon: DevTo,
+    icon: "i-simple-icons-dev-to",
   },
   {
     link: "medium.com",
     title: "Medium",
-    icon: Medium,
+    icon: "i-simple-icons-medium",
   },
   {
     link: "polywork.com",
     title: "Polywork",
-    icon: Polywork,
+    icon: "i-simple-icons-polywork",
   },
 ];
 
 const title = linkMap.find((item) => link.includes(item.link))?.title || "Web";
-const icon = linkMap.find((item) => link.includes(item.link))?.icon || Web;
+const icon =
+  linkMap.find((item) => link.includes(item.link))?.icon || "i-teenyicons-globe-africa-solid";
 ---
 
 <a class={`link ${circled && "circle"}`} href={link} title={`Visit ${title} page`}>
-  <Fragment set:html={icon} />
+  <div class={icon}></div>
 </a>
 
 <style lang="scss">
   .link {
     display: inline-block;
     font-size: 0;
+
+    div {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
   }
 
   .circle {
@@ -61,7 +60,7 @@ const icon = linkMap.find((item) => link.includes(item.link))?.icon || Web;
     color: var(--clr-palette-ebony-clay);
     padding: var(--size-padding-small);
 
-    img {
+    div {
       height: 1.125rem;
       width: 1.125rem;
     }
