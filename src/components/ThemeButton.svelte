@@ -12,7 +12,7 @@
   on:click={onClick}
 >
   <div class="i-bi:moon-stars-fill" />
-  <div class="i-bi:sun" />
+  <div class="i-bi:sun-fill" />
 </button>
 
 <style lang="scss">
@@ -28,6 +28,7 @@
     padding: var(--size-padding-x-small);
 
     div {
+      color: var(--clr-palette-white);
       height: 1.5rem;
       width: 1.5rem;
     }
