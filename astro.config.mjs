@@ -14,6 +14,7 @@ export default defineConfig({
     svelte(),
     unocss({
       presets: [presetIcons(), presetUno()],
+      injectReset: false,
     }),
   ],
 });
