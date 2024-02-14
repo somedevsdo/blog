@@ -9,11 +9,11 @@ jobs:
       CI: true
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v2.0.1
+      - uses: pnpm/action-setup@v3
         with:
-          version: 6
+          version: 8
 
       - name: Cache pnpm modules
         uses: actions/cache@v2
@@ -24,7 +24,7 @@ jobs:
             ${{ runner.os }}-
 
       - name: Use Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: 21.x
 
@@ -46,10 +46,10 @@ jobs:
           pnpm run lint
 
       - name: Cypress (UI + Axe)
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v6
         with:
           start: pnpm start
-          wait-on: "http://localhost:3000"
+          wait-on: "http://localhost:4321"
           wait-on-timeout: 180
           # command-prefix: "percy exec --"
           install: false

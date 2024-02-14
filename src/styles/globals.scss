@@ -107,22 +107,23 @@ img {
   max-width: 100%;
 }
 
-[data-theme="dark"] .image {
-  position: relative;
+// FIXME: This dims the images on both light and dark mode, which imo we should not do
+// [data-theme="dark"] .image {
+//   position: relative;
 
-  &::after {
-    background: rgba(0, 0, 0, 0.4);
-    bottom: 0;
-    content: "";
-    display: block;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: background 0.3s linear;
-    z-index: 1;
-  }
-}
+//   &::after {
+//     background: rgba(0, 0, 0, 0.4);
+//     bottom: 0;
+//     content: "";
+//     display: block;
+//     left: 0;
+//     position: absolute;
+//     right: 0;
+//     top: 0;
+//     transition: background 0.3s linear;
+//     z-index: 1;
+//   }
+// }
 
 // Override some code styles
 

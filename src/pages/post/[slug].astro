@@ -45,23 +45,16 @@ const externalEncodedPath: string = `https://somedevsdo.com${Astro.url.pathname}
           <li class="share-item">
             <a
               class="share-action"
-              href={`https://twitter.com/intent/tweet?url=${externalEncodedPath}&text=${encodeURIComponent(
+              href={`https://x.com/intent/post?url=${externalEncodedPath}&text=${encodeURIComponent(
                 postData.title
               )}&via=somedevsdo`}
-              title="Share post to Twitter"
+              title="Share post on X"
             >
-              <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609
-                1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127
-                1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797
-                6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108
-                1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581
-                4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07
-                1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0
-                14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
-                  fill="currentColor"></path>
-              </svg>
+              <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                ><title>X</title><path
+                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+                  fill="currentColor"></path></svg
+              >
             </a>
           </li>
           <li>
@@ -128,7 +121,7 @@ const externalEncodedPath: string = `https://somedevsdo.com${Astro.url.pathname}
     ?.addEventListener("click", () => navigator.clipboard.writeText(externalEncodedPath));
 </script>
 
-<style lang="scss">
+<style>
   .hero {
     background: linear-gradient(278.59deg, #c291e1 1.21%, #5b0a91 92.25%);
     clip-path: polygon(0 0, 100% 0, 100% 56%, 0 100%);
@@ -142,12 +135,30 @@ const externalEncodedPath: string = `https://somedevsdo.com${Astro.url.pathname}
     .hero {
       background: linear-gradient(278.59deg, #520483 1.21%, #12001e 92.25%);
     }
+
+    .image {
+      position: relative;
+
+      &::after {
+        background: rgba(0, 0, 0, 0.4);
+        bottom: 0;
+        content: "";
+        display: block;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: background 0.3s linear;
+        z-index: 1;
+      }
+    }
   }
 
   .container {
     margin: 0 16px;
     position: relative;
     word-break: break-word;
+    width: unset;
   }
 
   .home-link {
@@ -248,40 +259,6 @@ const externalEncodedPath: string = `https://somedevsdo.com${Astro.url.pathname}
     color: var(--clr-text);
     font: var(--font-text-medium);
 
-    blockquote {
-      border-left: 0.4rem solid var(--foreground);
-      font-style: italic;
-      margin: 0 0 2.5rem;
-      padding: 0.75rem 1rem;
-
-      p {
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    p {
-      margin: 0;
-      margin-bottom: 2.5rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-
-    ul {
-      margin-bottom: 2.5rem;
-
-      ul {
-        margin-bottom: 0;
-      }
-    }
-
     h2,
     h3,
     h4 {
@@ -300,6 +277,40 @@ const externalEncodedPath: string = `https://somedevsdo.com${Astro.url.pathname}
 
     h4 {
       font: var(--font-heading-x-small);
+    }
+
+    blockquote {
+      border-left: 0.4rem solid var(--foreground);
+      font-style: italic;
+      margin: 0 0 2.5rem;
+      padding: 0.75rem 1rem;
+
+      p {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+
+    p {
+      margin: 0;
+      margin-bottom: 2.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    ul {
+      margin-bottom: 2.5rem;
+
+      ul {
+        margin-bottom: 0;
+      }
     }
 
     pre {

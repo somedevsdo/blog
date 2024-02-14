@@ -7,7 +7,7 @@
     "social": [
       "https://andrewbarnes.info",
       "https://github.com/andrewbarnesweb",
-      "https://twitter.com/AndrewBarnesWeb",
+      "https://x.com/AndrewBarnesWeb",
       "https://andrew-barnes.medium.com/",
       "https://www.polywork.com/andrewbarnes"
     ],
@@ -16,8 +16,14 @@
   {
     "id": "david",
     "name": "David Norman",
-    "role": "UX Engineer",
-    "profilePicture": "/authors/david.png"
+    "role": "Front End Developer",
+    "profilePicture": "/authors/david.png",
+    "social": [
+      "https://davidnorman.uk",
+      "https://github.com/davidn0rman",
+      "https://x.com/davidn0rman"
+    ],
+    "summary": "Just a boy who likes to push pixels around the screen with code."
   },
   {
     "id": "mark",
