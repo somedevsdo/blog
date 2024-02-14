@@ -6,9 +6,8 @@ import SocialLink from "../../components/SocialLink.astro";
 import authors from "../../data/authors.json";
 import Layout from "../../layouts/Layout.astro";
 import { getAuthorData } from "../../lib/author";
-import { getSortedPosts } from "../../lib/posts";
 
-const posts = getSortedPosts(await Astro.glob("../../posts/*.mdx"));
+const posts = await Astro.glob("../../posts/*.mdx");
 
 export async function getStaticPaths() {
   return authors.map((a) => ({

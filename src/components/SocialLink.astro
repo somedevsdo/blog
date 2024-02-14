@@ -39,7 +39,12 @@ const icon =
   linkMap.find((item) => link.includes(item.link))?.icon || "i-teenyicons-globe-africa-solid";
 ---
 
-<a class={`link ${circled && "circle"}`} href={link} title={`Visit ${title} page`}>
+<a
+  class={`link ${circled && "circle"}`}
+  href={link}
+  aria-label={`Visit ${title} page`}
+  title={`Visit ${title} page`}
+>
   <div class={icon}></div>
 </a>
 

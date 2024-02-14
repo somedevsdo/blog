@@ -1,11 +1,12 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import { getAuthorData } from "../lib/author";
 import getDateFormatted from "../lib/date";
-import { Frontmatter, getSortedPosts } from "../lib/posts";
+import { getSortedPosts, type Frontmatter } from "../lib/posts";
 import Avatar from "./Avatar.astro";
 
-const posts = await Astro.glob<Frontmatter>("../posts/*.mdx");
+// the any[] needs fixing, but it's a bug in the astro glob function (I think...)
+const posts: any[] = await Astro.glob<Frontmatter>("../posts/*.mdx");
 const { frontmatter } = getSortedPosts(posts)[0];
 
 const post = {
@@ -42,12 +43,11 @@ const author = getAuthorData(post.author);
         </div>
       </div>
       <div class="image">
-        <a href={`/post/${post.slug}`}>
+        <a href={`/post/${post.slug}`} aria-label="Featured image" title="Featured image">
           <Image
-            alt="Featured image"
+            alt=""
             src={import(`../images/posts/featured/${post.featuredImage.replace(".jpg", "")}.jpg`)}
             height={500}
-            aspectRatio="1"
           />
         </a>
       </div>

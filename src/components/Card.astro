@@ -1,5 +1,5 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import { getAuthorData } from "../lib/author";
 import getDateFormatted from "../lib/date";
 import Avatar from "./Avatar.astro";
@@ -19,7 +19,6 @@ const authorProfile = getAuthorData(author);
         src={import(`../images/posts/featured/${featuredImage.replace(".jpg", "")}.jpg`)}
         height={160}
         width={680}
-        aspectRatio="1:1"
       />
     </div>
     <div class="content">
