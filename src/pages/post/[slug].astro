@@ -1,11 +1,11 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import { getAuthorData } from "../../lib/author";
 import getDateFormatted from "../../lib/date";
 import type { Frontmatter } from "../../lib/posts";
 
-export const getStaticPaths = async () => {
+export const getStaticPaths = async (): Promise<any> => {
   const posts = await Astro.glob<Frontmatter>("../../posts/*.mdx");
 
   return posts.map((post) => ({
@@ -36,7 +36,6 @@ const externalEncodedPath: string = `https://somedevsdo.com${Astro.url.pathname}
           )}
           height={640}
           width={860}
-          aspectRatio="1:1"
         />
       </div>
     </header>

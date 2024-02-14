@@ -1,11 +1,11 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 
 const props = Astro.props;
 ---
 
 <div class="image">
-  <Image alt="" src="" {...props} />
+  <Image alt={props.alt} src={props.src} />
 </div>
 
 <style lang="scss">
