@@ -37,7 +37,7 @@ const author = getAuthorData(post.author);
         <div class="author">
           <Avatar size="small" src={author.profilePicture} />
           <div>
-            <a href={`/author/${author.id}`}> {author.name}</a>
+            <a class="name" href={`/author/${author.id}`}> {author.name}</a>
             <div>{author.role}</div>
           </div>
         </div>
@@ -55,11 +55,30 @@ const author = getAuthorData(post.author);
   </div>
 </header>
 
-<style lang="scss">
+<style>
   img {
     height: 100%;
     object-fit: cover;
     width: 100%;
+  }
+
+  :global([data-theme="dark"]) {
+    .image {
+      position: relative;
+
+      &::after {
+        background: rgba(0, 0, 0, 0.4);
+        bottom: 0;
+        content: "";
+        display: block;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: background 0.3s linear;
+        z-index: 1;
+      }
+    }
   }
 
   .hero {
