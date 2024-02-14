@@ -8,8 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --plugin-search-dir=. --write .",
-    "lint": "eslint --ext .astro src && prettier --plugin-search-dir=. --check \"**/*.{ts,tsx,scss,md,astro}\"",
+    "format": "prettier --plugin=prettier-plugin-astro --write .",
+    "lint": "eslint --ext .astro src && prettier --plugin=prettier-plugin-astro --check \"**/*.{ts,tsx,scss,md,astro}\"",
     "prepare": "husky install",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
@@ -49,7 +49,7 @@
       "eslint --cache --fix"
     ],
     "*.scss": "stylelint --fix",
-    "*.{ts,tsx,scss,md,astro}": "prettier --plugin-search-dir=. --write"
+    "*.{ts,tsx,scss,md,astro}": "prettier --plugin=prettier-plugin-astro --write"
   },
   "packageManager": "pnpm@7.5.1"
 }
