@@ -51,5 +51,5 @@
     "*.scss": "stylelint --fix",
     "*.{ts,tsx,scss,md,astro}": "prettier --plugin=prettier-plugin-astro --write"
   },
-  "packageManager": "pnpm@7.5.1"
+  "packageManager": "pnpm@8.15.0"
 }
