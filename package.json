@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro preview --host",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --plugin=prettier-plugin-astro --write .",
@@ -16,6 +16,7 @@
     "test": "echo \"No tests at this time\" && exit 0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.5.10",
     "@astrojs/mdx": "^2.1.1",
     "@astrojs/svelte": "^5.0.3",
     "@iconify/json": "^2.2.182",

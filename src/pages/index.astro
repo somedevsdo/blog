@@ -1,4 +1,5 @@
 ---
+import type { MarkdownInstance } from "astro";
 import Card from "../components/Card.astro";
 import CardGrid from "../components/CardGrid.astro";
 import Header from "../components/Header.astro";
@@ -6,7 +7,8 @@ import Layout from "../layouts/Layout.astro";
 import type { Frontmatter } from "../lib/posts";
 import { getSortedPosts } from "../lib/posts";
 
-const posts = getSortedPosts(await Astro.glob<Frontmatter>("../posts/*.mdx"));
+const posts = (await Astro.glob("../posts/*.mdx")) as MarkdownInstance<Frontmatter>[];
+const sortedPosts = getSortedPosts(posts);
 ---
 
 <Layout>
@@ -15,7 +17,7 @@ const posts = getSortedPosts(await Astro.glob<Frontmatter>("../posts/*.mdx"));
     <section>
       <CardGrid data-testid="posts">
         {
-          posts.slice(1).map((p) => (
+          sortedPosts.slice(1).map((p) => (
             <li>
               <Card post={p} />
             </li>

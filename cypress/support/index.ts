@@ -14,6 +14,7 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
+import * as axe from "axe-core";
 import "cypress-axe";
 import "./commands";
 
@@ -23,7 +24,7 @@ import "./commands";
 /**
  * @param violations
  */
-export function terminalLog(violations: { description: any; id: any; impact: any; nodes: any }[]) {
+export function terminalLog(violations: axe.Result[]) {
   cy.task(
     "log",
     `${violations.length} accessibility violation${violations.length === 1 ? "" : "s"} ${

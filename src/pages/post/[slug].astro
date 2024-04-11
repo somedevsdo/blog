@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import { getAuthorData } from "../../lib/author";
 import getDateFormatted from "../../lib/date";
 import type { Frontmatter } from "../../lib/posts";
+import type { MDXInstance } from "astro";
 
 export const getStaticPaths = async (): Promise<any> => {
   const posts = await Astro.glob<Frontmatter>("../../posts/*.mdx");
@@ -16,6 +17,10 @@ export const getStaticPaths = async (): Promise<any> => {
       post,
     },
   }));
+};
+
+type Props = {
+  post: MDXInstance<Frontmatter>;
 };
 
 const { Content, frontmatter: postData } = Astro.props.post;
@@ -115,7 +120,7 @@ const externalEncodedPath: string = `https://somedevsdo.com${Astro.url.pathname}
   </div>
 </Layout>
 
-<script define:vars={{ externalEncodedPath }}>
+<script is:inline define:vars={{ externalEncodedPath }}>
   document
     .getElementById("copy-button")
     ?.addEventListener("click", () => navigator.clipboard.writeText(externalEncodedPath));
