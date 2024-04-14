@@ -5,11 +5,11 @@ category: "accessibility"
 canonical: "https://bootcamp.uxdesign.cc/wcag-accessible-colour-and-contrast-ratios-5e94ea3f81f4"
 featuredImage: "wcag-accessible-colour.jpg"
 author: "andy"
-slug: "wcag-accessible-colour-and-contrast-ratios"
+slugPath: "wcag-accessible-colour-and-contrast-ratios"
 subtitle: "Before we start, I'd like to apologise in advance… I'm based in the UK, so the the flipping between colour/color in this article is real!"
 ---
 
-import ThemeableImage from "../components/ThemeableImage.astro";
+import ThemeableImage from "../../components/ThemeableImage.astro";
 
 _Before we start, I'd like to apologise in advance… I'm based in the UK, so the the flipping between colour/color in this article is real!_
 
@@ -23,7 +23,7 @@ The actual WCAG technical documents are created by the [**Accessibility Guidelin
 
 <ThemeableImage
   alt="Photo by Nathan Dumlao on Unsplash"
-  src={import("../images/posts/wcag-colour1.jpg")}
+  src={import("../../images/posts/wcag-colour1.jpg")}
 />
 
 ## A, AA and, AAA
@@ -74,7 +74,7 @@ The large text part is interesting. 14pt and 18pt are equivalent to approximatel
 
 <ThemeableImage
   alt="Three boxes giving examples of 1.4.3 Contrast (Minimum)"
-  src={import("../images/posts/wcag-colour2.png")}
+  src={import("../../images/posts/wcag-colour2.png")}
 />
 
 Large text can have a lower contrast ratio, since it is already easier to read. From the image above, you can see a basic example of what that means in reality, a failing ratio for normal text, passes at the larger size.
@@ -95,7 +95,7 @@ This essentially just means to get to level AAA, the bar is set higher.
 
 <ThemeableImage
   alt="Three boxes giving examples of 1.4.6 Contrast (Enhanced)"
-  src={import("../images/posts/wcag-colour3.png")}
+  src={import("../../images/posts/wcag-colour3.png")}
 />
 
 The enhanced contrast requirement can cause headaches for designers, when trying to balance aesthetics with belts and braces accessibility. As scary as this seems, it shouldn't be totally disregarded. Where possible, level AAA should be targeted. If it feels too much of a compromise, one option is to have a high contrast mode that can be enabled.
@@ -104,7 +104,7 @@ The enhanced contrast requirement can cause headaches for designers, when trying
 
 <ThemeableImage
   alt="Microsoft Teams three themes: Default, Dark, and High Contrast"
-  src={import("../images/posts/wcag-colour4.png")}
+  src={import("../../images/posts/wcag-colour4.png")}
 />
 
 ### 1.4.11 Non-text Contrast — Level AA
@@ -125,7 +125,7 @@ The contrast ratio is lower in general for non-text. Set at 3:1.
 
 <ThemeableImage
   alt="Two examples showing non-text contrast"
-  src={import("../images/posts/wcag-colour5.png")}
+  src={import("../../images/posts/wcag-colour5.png")}
 />
 
 ### 1.4.1 Use of Color — Level A
@@ -141,7 +141,7 @@ Meeting this criteria can become a real balancing act, to get the contrast level
 
 <ThemeableImage
   alt="Examples of links being differentiated only by colour, and by colour and an underline"
-  src={import("../images/posts/wcag-colour6.png")}
+  src={import("../../images/posts/wcag-colour6.png")}
 />
 
 ## Incidental content
@@ -154,7 +154,7 @@ In my experience this can be open to a lot of differing of opinions. A good exam
 
 <ThemeableImage
   alt="Disabled submit button with very low contrast"
-  src={import("../images/posts/wcag-colour7.png")}
+  src={import("../../images/posts/wcag-colour7.png")}
 />
 
 Users with no visual impairments will be able to see the button is there, and immediately benefit from knowing that they need to do something to enable that button. Users with visual impairments will not.
@@ -178,9 +178,9 @@ There are a number (great number) of websites online that allow you to punch in 
 Sometimes the ship has already left the harbour. Or you want to check all the colours in context of their usage in a full page. There are a number of browser plugins and tools that can be used to achieve this. These tools check more than just contrast ratios, so they really do add value when checking pages.
 
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse): Perhaps the most well known check, Google's own open-source tool can be run in developer tools (right click -> Inspect -> etc). Running the accessibility segment will give you any errors it can detect, and highlight those in the page.
-  <ThemeableImage alt="Lighthouse report" src={import("../images/posts/wcag-colour8.png")} />
+  <ThemeableImage alt="Lighthouse report" src={import("../../images/posts/wcag-colour8.png")} />
 - [WAVE](https://wave.webaim.org/extension/): This browser plugin does a similar thing to Lighthouse. It will immediately highlight any contrast ratio errors it discovers (to AA level).
-  <ThemeableImage alt="WAVE report" src={import("../images/posts/wcag-colour9.png")} />
+  <ThemeableImage alt="WAVE report" src={import("../../images/posts/wcag-colour9.png")} />
 
 ### Continuous integration (CI) checks
 
@@ -190,7 +190,7 @@ At this stage, we really want to be checking the whole application/website befor
 
 - [Pa11y CI](https://github.com/pa11y/pa11y-ci): Pa11y publishes a number of free and open source tools to check for accessibility. Pa11y CI is great to run against a sitemap and highlight any non conformances. If it finds any contrast issues, it will even suggest a colour to use that will pass the checks.
 - [Axe and Cypress](https://www.npmjs.com/package/cypress-axe): If you are using Cypress to run end to end tests, it makes sense to add cypress-axe. This allows you run accessibility checks given certain scenarios - like expanding a section on the page - and not just on initial load.
-  <ThemeableImage alt="cypress-axe report" src={import("../images/posts/wcag-colour10.png")} />
+  <ThemeableImage alt="cypress-axe report" src={import("../../images/posts/wcag-colour10.png")} />
 
 ## Summary
 
