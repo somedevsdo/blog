@@ -4,30 +4,28 @@ import { getAuthorData } from "../lib/author";
 import getDateFormatted from "../lib/date";
 import Avatar from "./Avatar.astro";
 
-const { post } = Astro.props;
-
-const { title, featuredImage, category, date, author, slug, subtitle } = post.frontmatter;
-const subtitleTrimmed = subtitle.split(" ").slice(0, 20).join(" ").trimEnd();
-const authorProfile = getAuthorData(author);
+const { data, slug } = Astro.props.post;
+const subtitleTrimmed = data.subtitle.split(" ").slice(0, 20).join(" ").trimEnd();
+const authorProfile = getAuthorData(data.author);
 ---
 
-<a href={`/post/${slug}`} class="link" title={title}>
+<a href={`/posts/${slug}`} class="link" title={data.title}>
   <div class="container">
     <div class="image">
       <Image
-        alt={title}
-        src={import(`../images/posts/featured/${featuredImage.replace(".jpg", "")}.jpg`)}
+        alt={data.title}
+        src={import(`../images/posts/featured/${data.featuredImage.replace(".jpg", "")}.jpg`)}
         height={160}
         width={680}
       />
     </div>
     <div class="content">
       <span class="meta">
-        <span class="category">{category}</span>
+        <span class="category">{data.category}</span>
         {" - "}
-        <span>{getDateFormatted(date)}</span>
+        <span>{getDateFormatted(data.date.toString())}</span>
       </span>
-      <h2 class="title">{title}</h2>
+      <h2 class="title">{data.title}</h2>
       <p class="subtitle">{subtitleTrimmed}...</p>
       <div class="author">
         <Avatar size="x-small" src={authorProfile.profilePicture} />

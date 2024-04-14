@@ -1,34 +1,27 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { getAuthorData } from "../../lib/author";
 import getDateFormatted from "../../lib/date";
-import type { Frontmatter } from "../../lib/posts";
-import type { MDXInstance } from "astro";
 
-export const getStaticPaths = async (): Promise<any> => {
-  const posts = await Astro.glob<Frontmatter>("../../posts/*.mdx");
-
-  return posts.map((post) => ({
-    params: {
-      slug: post.frontmatter.slug,
-    },
-    props: {
-      post,
-    },
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("posts");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
   }));
-};
+}
 
-type Props = {
-  post: MDXInstance<Frontmatter>;
-};
-
-const { Content, frontmatter: postData } = Astro.props.post;
-const author = getAuthorData(postData.author);
 const externalEncodedPath: string = `https://somedevsdo.com${Astro.url.pathname}`;
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const author = getAuthorData(entry.data.author);
 ---
 
-<Layout title={postData.title}>
+<Layout title={entry.data.title}>
   <div class="hero"></div>
   <div class="container">
     <header>
@@ -37,7 +30,7 @@ const externalEncodedPath: string = `https://somedevsdo.com${Astro.url.pathname}
         <Image
           alt="Featured image"
           src={import(
-            `../../images/posts/featured/${postData.featuredImage.replace(".jpg", "")}.jpg`
+            `../../images/posts/featured/${entry.data.featuredImage.replace(".jpg", "")}.jpg`
           )}
           height={640}
           width={860}
@@ -51,7 +44,7 @@ const externalEncodedPath: string = `https://somedevsdo.com${Astro.url.pathname}
             <a
               class="share-action"
               href={`https://x.com/intent/post?url=${externalEncodedPath}&text=${encodeURIComponent(
-                postData.title
+                entry.data.title
               )}&via=somedevsdo`}
               title="Share post on X"
             >
@@ -89,12 +82,12 @@ const externalEncodedPath: string = `https://somedevsdo.com${Astro.url.pathname}
         </ul>
 
         <div class="meta">
-          <span class="category">{postData.category}</span>
-          <span class="date">{getDateFormatted(postData.date)}</span>
+          <span class="category">{entry.data.category}</span>
+          <span class="date">{getDateFormatted(entry.data.date.toString())}</span>
         </div>
       </div>
 
-      <h1 class="title">{postData.title}</h1>
+      <h1 class="title">{entry.data.title}</h1>
       <div class="author-link">
         By{" "}
         <a href={`/author/${author.id}`}>
@@ -106,11 +99,11 @@ const externalEncodedPath: string = `https://somedevsdo.com${Astro.url.pathname}
       </article>
       <div>
         {
-          postData.canonical && (
+          entry.data.canonical && (
             <p>
               <em>
                 Originally published at{" "}
-                <a href={postData.canonical}>{new URL(postData.canonical).hostname}</a>
+                <a href={entry.data.canonical}>{new URL(entry.data.canonical).hostname}</a>
               </em>
             </p>
           )
@@ -119,12 +112,6 @@ const externalEncodedPath: string = `https://somedevsdo.com${Astro.url.pathname}
     </main>
   </div>
 </Layout>
-
-<script is:inline define:vars={{ externalEncodedPath }}>
-  document
-    .getElementById("copy-button")
-    ?.addEventListener("click", () => navigator.clipboard.writeText(externalEncodedPath));
-</script>
 
 <style>
   .hero {
