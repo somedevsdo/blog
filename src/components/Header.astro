@@ -20,13 +20,13 @@ const author = getAuthorData(post.data.author);
           <span class="date">{getDateFormatted(post.data.date.toString())}</span>
         </div>
         <h1 class="title">
-          <a href={`/post/${post.data.slugPath}`}>
+          <a href={`/posts/${post.slug}`}>
             {post.data.title}
           </a>
         </h1>
         <p class="subtitle">
           {post.data.subtitle}...{" "}
-          <a href={`/post/${post.data.slugPath}`} title={post.data.title}>read full post</a>
+          <a href={`/posts/${post.slug}`} title={post.data.title}>read full post</a>
         </p>
         <div class="author">
           <Avatar size="small" src={author.profilePicture} />
@@ -37,7 +37,7 @@ const author = getAuthorData(post.data.author);
         </div>
       </div>
       <div class="image">
-        <a href={`/post/${post.data.slugPath}`} aria-label="Featured image" title="Featured image">
+        <a href={`/posts/${post.slug}`} aria-label="Featured image" title="Featured image">
           <Image
             alt=""
             src={import(
