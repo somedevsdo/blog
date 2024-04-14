@@ -10,7 +10,6 @@ const postsCollection = defineCollection({
     canonical: z.string(),
     featuredImage: z.string(),
     author: z.string(),
-    slugPath: z.string(),
     subtitle: z.string(),
   }),
 });
