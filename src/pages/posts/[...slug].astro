@@ -113,6 +113,12 @@ const author = getAuthorData(entry.data.author);
   </div>
 </Layout>
 
+<script is:inline define:vars={{ externalEncodedPath }}>
+  document
+    .getElementById("copy-button")
+    ?.addEventListener("click", () => navigator.clipboard.writeText(externalEncodedPath));
+</script>
+
 <style>
   .hero {
     background: linear-gradient(278.59deg, #c291e1 1.21%, #5b0a91 92.25%);
