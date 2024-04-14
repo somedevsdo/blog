@@ -1,20 +1,14 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 import { getAuthorData } from "../lib/author";
 import getDateFormatted from "../lib/date";
-import { getSortedPosts, type Frontmatter } from "../lib/posts";
 import Avatar from "./Avatar.astro";
 
-// the any[] needs fixing, but it's a bug in the astro glob function (I think...)
-const posts: any[] = await Astro.glob<Frontmatter>("../posts/*.mdx");
-const { frontmatter } = getSortedPosts(posts)[0];
+const allPosts = await getCollection("posts");
+const post = allPosts[allPosts.length - 1];
 
-const post = {
-  ...frontmatter,
-  subtitle: frontmatter.subtitle.split(" ").slice(0, 20).join(" ").trimEnd(),
-};
-
-const author = getAuthorData(post.author);
+const author = getAuthorData(post.data.author);
 ---
 
 <header>
@@ -22,17 +16,17 @@ const author = getAuthorData(post.author);
     <div class="content">
       <div class="container">
         <div class="meta">
-          <span class="category">{post.category}</span>
-          <span class="date">{getDateFormatted(post.date)}</span>
+          <span class="category">{post.data.category}</span>
+          <span class="date">{getDateFormatted(post.data.date.toString())}</span>
         </div>
         <h1 class="title">
-          <a href={`/post/${post.slug}`}>
-            {post.title}
+          <a href={`/post/${post.data.slugPath}`}>
+            {post.data.title}
           </a>
         </h1>
         <p class="subtitle">
-          {post.subtitle}...{" "}
-          <a href={`/post/${post.slug}`} title={post.title}>read full post</a>
+          {post.data.subtitle}...{" "}
+          <a href={`/post/${post.data.slugPath}`} title={post.data.title}>read full post</a>
         </p>
         <div class="author">
           <Avatar size="small" src={author.profilePicture} />
@@ -43,10 +37,12 @@ const author = getAuthorData(post.author);
         </div>
       </div>
       <div class="image">
-        <a href={`/post/${post.slug}`} aria-label="Featured image" title="Featured image">
+        <a href={`/post/${post.data.slugPath}`} aria-label="Featured image" title="Featured image">
           <Image
             alt=""
-            src={import(`../images/posts/featured/${post.featuredImage.replace(".jpg", "")}.jpg`)}
+            src={import(
+              `../images/posts/featured/${post.data.featuredImage.replace(".jpg", "")}.jpg`
+            )}
             height={500}
           />
         </a>

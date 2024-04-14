@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import Avatar from "../../components/Avatar.astro";
 import Card from "../../components/Card.astro";
 import CardGrid from "../../components/CardGrid.astro";
@@ -7,7 +8,7 @@ import authors from "../../data/authors.json";
 import Layout from "../../layouts/Layout.astro";
 import { getAuthorData } from "../../lib/author";
 
-const posts = await Astro.glob("../../posts/*.mdx");
+const allPosts = await getCollection("posts");
 
 export async function getStaticPaths() {
   return authors.map((a) => ({
@@ -20,7 +21,7 @@ export async function getStaticPaths() {
 const author = getAuthorData(Astro.params.id as string);
 
 const filteredPosts = () => {
-  return posts.filter((p) => p.frontmatter.author === author.id).slice(0, 3);
+  return allPosts.filter((p) => p.data.author === author.id).slice(0, 3);
 };
 ---
 
