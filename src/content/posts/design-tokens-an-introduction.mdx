@@ -5,11 +5,11 @@ category: "design systems"
 canonical: "https://frontend-digest.com/design-tokens-an-introduction-db0b3c999322"
 featuredImage: "cards.jpg"
 author: "andy"
-slug: "design-tokens-an-introduction"
+slugPath: "design-tokens-an-introduction"
 subtitle: "Have you ever got back from IKEA, full of anticipation and excitement at the thought of constructing a cupboard yourself? Only to be left questioning your life choices two hours later, when you realise you've put two of the panels on upside down."
 ---
 
-import ThemeableImage from "../components/ThemeableImage.astro";
+import ThemeableImage from "../../components/ThemeableImage.astro";
 
 Have you ever got back from IKEA, full of anticipation and excitement at the thought of constructing a cupboard yourself? Only to be left questioning your life choices two hours later, when you realise you've put two of the panels on upside down.
 
@@ -41,7 +41,7 @@ The workflow will look something like this, and we'll go into slightly more deta
 
 <ThemeableImage
   alt="Image representing XD colours moving through Style Dictionary as JSON and then being used in a web application"
-  src={import("../images/posts/tokens1.png")}
+  src={import("../../images/posts/tokens1.png")}
 />
 
 ### Adobe XD
@@ -50,7 +50,7 @@ Behind every token, there is a design decision. Once these decisions start to be
 
 <ThemeableImage
   alt="Adobe XD showing its inspector, including colour token name"
-  src={import("../images/posts/tokens2.png")}
+  src={import("../../images/posts/tokens2.png")}
 />
 
 Once the tokens have been validated they can start to be created.
