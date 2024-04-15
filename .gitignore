@@ -20,4 +20,4 @@ pnpm-debug.log*
 
 .eslintcache
 
-.vercel
+.astro
