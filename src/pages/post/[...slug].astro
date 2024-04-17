@@ -6,7 +6,7 @@ import { getAuthorData } from "../../lib/author";
 import getDateFormatted from "../../lib/date";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("posts");
+  const blogEntries = await getCollection("post");
   return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },

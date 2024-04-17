@@ -9,7 +9,7 @@ const subtitleTrimmed = data.subtitle.split(" ").slice(0, 20).join(" ").trimEnd(
 const authorProfile = getAuthorData(data.author);
 ---
 
-<a href={`/posts/${slug}`} class="link" title={data.title}>
+<a href={`/post/${slug}`} class="link" title={data.title}>
   <div class="container">
     <div class="image">
       <Image

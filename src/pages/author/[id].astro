@@ -8,7 +8,7 @@ import authors from "../../data/authors.json";
 import Layout from "../../layouts/Layout.astro";
 import { getAuthorData } from "../../lib/author";
 
-const allPosts = await getCollection("posts");
+const allPosts = await getCollection("post");
 
 export async function getStaticPaths() {
   return authors.map((a) => ({
