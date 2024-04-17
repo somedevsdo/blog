@@ -2,7 +2,7 @@ import { terminalLog } from "../support";
 
 describe("Post", () => {
   beforeEach(() => {
-    cy.visit("/posts/accessible-custom-focus-indicators");
+    cy.visit("/post/accessible-custom-focus-indicators");
     cy.injectAxe();
   });
 

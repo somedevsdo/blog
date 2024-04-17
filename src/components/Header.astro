@@ -5,7 +5,7 @@ import { getAuthorData } from "../lib/author";
 import getDateFormatted from "../lib/date";
 import Avatar from "./Avatar.astro";
 
-const allPosts = await getCollection("posts");
+const allPosts = await getCollection("post");
 const post = allPosts[allPosts.length - 1];
 
 const author = getAuthorData(post.data.author);
@@ -20,13 +20,13 @@ const author = getAuthorData(post.data.author);
           <span class="date">{getDateFormatted(post.data.date.toString())}</span>
         </div>
         <h1 class="title">
-          <a href={`/posts/${post.slug}`}>
+          <a href={`/post/${post.slug}`}>
             {post.data.title}
           </a>
         </h1>
         <p class="subtitle">
           {post.data.subtitle}...{" "}
-          <a href={`/posts/${post.slug}`} title={post.data.title}>read full post</a>
+          <a href={`/post/${post.slug}`} title={post.data.title}>read full post</a>
         </p>
         <div class="author">
           <Avatar size="small" src={author.profilePicture} />
@@ -37,7 +37,7 @@ const author = getAuthorData(post.data.author);
         </div>
       </div>
       <div class="image">
-        <a href={`/posts/${post.slug}`} aria-label="Featured image" title="Featured image">
+        <a href={`/post/${post.slug}`} aria-label="Featured image" title="Featured image">
           <Image
             alt=""
             src={import(
