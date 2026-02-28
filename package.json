@@ -9,7 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --plugin=prettier-plugin-astro --write .",
-    "lint": "eslint --ext .astro src && prettier --plugin=prettier-plugin-astro --check \"**/*.{ts,tsx,scss,md,astro}\"",
+    "lint": "eslint . src && prettier --plugin=prettier-plugin-astro --check \"**/*.{ts,tsx,scss,md,astro}\"",
     "prepare": "husky",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
@@ -51,5 +51,8 @@
     "*.scss": "stylelint --fix",
     "*.{ts,tsx,scss,md,astro}": "prettier --plugin=prettier-plugin-astro --write"
   },
-  "packageManager": "pnpm@8.15.0"
+  "packageManager": "pnpm@8.15.0",
+  "dependencies": {
+    "typescript-eslint": "^8.56.1"
+  }
 }
