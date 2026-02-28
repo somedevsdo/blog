@@ -10,7 +10,7 @@
     "astro": "astro",
     "format": "prettier --plugin=prettier-plugin-astro --write .",
     "lint": "eslint --ext .astro src && prettier --plugin=prettier-plugin-astro --check \"**/*.{ts,tsx,scss,md,astro}\"",
-    "prepare": "husky install",
+    "prepare": "husky",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "test": "echo \"No tests at this time\" && exit 0"
