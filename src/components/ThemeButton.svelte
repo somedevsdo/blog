@@ -11,8 +11,8 @@
   title={$theme === "dark" ? "Toggle light mode" : "Toggle dark mode"}
   on:click={onClick}
 >
-  <div class="i-bi:moon-stars-fill" />
-  <div class="i-bi:sun-fill" />
+  <div class="i-bi:moon-stars-fill"></div>
+  <div class="i-bi:sun-fill"></div>
 </button>
 
 <style lang="scss">
