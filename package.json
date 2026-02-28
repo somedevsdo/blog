@@ -16,15 +16,15 @@
     "test": "echo \"No tests at this time\" && exit 0"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.5.10",
-    "@astrojs/mdx": "^2.3.1",
-    "@astrojs/svelte": "^5.7.3",
+    "@astrojs/check": "^0.9.6",
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/svelte": "^7.2.5",
     "@iconify/json": "^2.2.444",
     "@typescript-eslint/parser": "^7.18.0",
     "@unocss/astro": "^0.58.9",
     "@unocss/preset-icons": "^0.58.9",
     "@unocss/preset-uno": "^0.58.9",
-    "astro": "^4.16.19",
+    "astro": "^5.18.0",
     "axe-core": "^4.11.1",
     "cypress": "^13.17.0",
     "cypress-axe": "^1.7.0",
@@ -41,9 +41,9 @@
     "stylelint": "^16.26.1",
     "stylelint-config-sass-guidelines": "^11.1.0",
     "stylelint-order": "^6.0.4",
-    "svelte": "^4.2.20",
+    "svelte": "^5.53.6",
     "typescript": "^5.9.3",
-    "vite": "^5.4.21"
+    "vite": "^7.3.1"
   },
   "lint-staged": {
     "*.astro": [
