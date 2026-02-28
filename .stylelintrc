@@ -1,5 +1,7 @@
 {
   "extends": ["stylelint-config-sass-guidelines"],
   "plugins": ["stylelint-order"],
-  "rules": {}
+  "rules": {
+    "@stylistic/string-quotes": "double"
+  }
 }

@@ -46,10 +46,16 @@
   },
   "lint-staged": {
     "*.astro": [
-      "eslint --cache --fix"
+      "eslint --cache --fix",
+      "prettier --plugin=prettier-plugin-astro --write"
     ],
-    "*.scss": "stylelint --fix",
-    "*.{ts,tsx,scss,md,astro}": "prettier --plugin=prettier-plugin-astro --write"
+    "*.scss": [
+      "stylelint --fix",
+      "prettier --plugin=prettier-plugin-astro --write"
+    ],
+    "*.{ts,tsx,md}": [
+      "prettier --plugin=prettier-plugin-astro --write"
+    ]
   },
   "packageManager": "pnpm@8.15.0",
   "dependencies": {
