@@ -23,7 +23,6 @@
     "@typescript-eslint/parser": "^8.56.1",
     "@unocss/astro": "^66.6.2",
     "@unocss/preset-icons": "^66.6.2",
-    "@unocss/preset-uno": "^66.6.2",
     "astro": "^5.18.0",
     "axe-core": "^4.11.1",
     "cypress": "^15.11.0",

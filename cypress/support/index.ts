@@ -14,7 +14,7 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import * as axe from "axe-core";
+import axe from "axe-core";
 import "cypress-axe";
 import "./commands";
 
