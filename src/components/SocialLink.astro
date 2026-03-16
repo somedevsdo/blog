@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+
 export type Props = {
   circled?: boolean;
   link: string;
@@ -10,33 +12,33 @@ const linkMap = [
   {
     link: "x.com",
     title: "X",
-    icon: "i-simple-icons-x",
+    icon: "simple-icons:x",
   },
   {
     link: "github.com",
     title: "GitHub",
-    icon: "i-simple-icons-github",
+    icon: "simple-icons:github",
   },
   {
     link: "dev.to",
     title: "Dev.to",
-    icon: "i-simple-icons-dev-to",
+    icon: "simple-icons:devdotto",
   },
   {
     link: "medium.com",
     title: "Medium",
-    icon: "i-simple-icons-medium",
+    icon: "simple-icons:medium",
   },
   {
     link: "polywork.com",
     title: "Polywork",
-    icon: "i-simple-icons-polywork",
+    icon: "simple-icons:polywork",
   },
 ];
 
 const title = linkMap.find((item) => link.includes(item.link))?.title || "Web";
 const icon =
-  linkMap.find((item) => link.includes(item.link))?.icon || "i-teenyicons-globe-africa-solid";
+  linkMap.find((item) => link.includes(item.link))?.icon || "teenyicons:globe-africa-solid";
 ---
 
 <a
@@ -45,18 +47,18 @@ const icon =
   aria-label={`Visit ${title} page`}
   title={`Visit ${title} page`}
 >
-  <div class={icon}></div>
+  <Icon class="icon" name={icon} aria-hidden="true" />
 </a>
 
 <style>
   .link {
     display: inline-block;
     font-size: 0;
+  }
 
-    div {
-      height: 1.5rem;
-      width: 1.5rem;
-    }
+  .icon {
+    height: 1.5rem;
+    width: 1.5rem;
   }
 
   .circle {
@@ -64,10 +66,10 @@ const icon =
     border-radius: 50%;
     color: var(--clr-palette-ebony-clay);
     padding: var(--size-padding-small);
+  }
 
-    div {
-      height: 1.125rem;
-      width: 1.125rem;
-    }
+  .circle .icon {
+    height: 1.125rem;
+    width: 1.125rem;
   }
 </style>

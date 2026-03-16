@@ -1,16 +1,11 @@
 import mdx from "@astrojs/mdx";
-import svelte from "@astrojs/svelte";
-import unocss from "@unocss/astro";
-import presetIcons from "@unocss/preset-icons";
+import tailwindcss from "@tailwindcss/vite";
+import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  integrations: [
-    mdx(),
-    svelte(),
-    unocss({
-      presets: [presetIcons()],
-      injectReset: false,
-    }),
-  ],
+  integrations: [mdx(), icon()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
