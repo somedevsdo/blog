@@ -64,8 +64,8 @@ import { Icon } from "astro-icon/components";
     width: 1.5rem;
   }
 
-  [data-theme="dark"] .sun,
-  [data-theme="light"] .moon {
+  :global([data-theme="dark"]) .sun,
+  :global([data-theme="light"]) .moon {
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
     height: 1px;
