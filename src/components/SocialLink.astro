@@ -45,15 +45,11 @@ const icon =
   class:list={[
     "inline-block text-[0]",
     circled &&
-      "rounded-full bg-clr-palette-perfume p-[var(--size-padding-small)] text-clr-palette-ebony-clay",
+      "rounded-full bg-clr-palette-perfume p-(--size-padding-small) text-clr-palette-ebony-clay",
   ]}
   href={link}
   aria-label={`Visit ${title} page`}
   title={`Visit ${title} page`}
 >
-  <Icon
-    class:list={["h-6 w-6", circled && "h-[1.125rem] w-[1.125rem]"]}
-    name={icon}
-    aria-hidden="true"
-  />
+  <Icon class:list={["h-6 w-6", circled && "h-4.5 w-4.5"]} name={icon} aria-hidden="true" />
 </a>

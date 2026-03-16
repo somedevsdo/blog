@@ -18,37 +18,35 @@ const author = getAuthorData(post.data.author);
   <div
     class="bg-[linear-gradient(278.59deg,#c291e1_1.21%,#5b0a91_92.25%)] px-8 py-8 [clip-path:polygon(0_0,100%_0,100%_96%,0_100%)] dark:bg-[linear-gradient(278.59deg,#520483_1.21%,#12001e_92.25%)] md:px-14 lg:flex lg:justify-center lg:px-0"
   >
-    <div class="w-full lg:max-w-[1200px] lg:px-[var(--size-margin-large)]">
-      <div class="items-stretch gap-[var(--size-margin-large)] lg:flex">
+    <div class="w-full lg:max-w-300 lg:px-(--size-margin-large)">
+      <div class="items-stretch gap-(--size-margin-large) lg:flex">
         <div class="w-[85%]">
           <div
-            class="border-b border-[#b676dd] pb-[var(--size-padding-small)] text-clr-palette-white dark:border-[#500480] lg:border-[#903ec4]"
+            class="border-b border-[#b676dd] pb-(--size-padding-small) text-clr-palette-white dark:border-[#500480] lg:border-[#903ec4]"
           >
             <span class="font-header text-base font-black capitalize"
               >{post.data.category}<span class="px-4">&middot;</span></span
             >
-            <span class="text-base leading-[var(--line-height-text)]"
+            <span class="text-base leading-(--line-height-text)"
               >{getDateFormatted(post.data.date.toString())}</span
             >
           </div>
           <h1
-            class="font-header mt-[var(--size-margin-medium)] text-[2.25rem] leading-[var(--line-height-header)] font-bold text-clr-palette-white md:text-[2.75rem] lg:w-4/5"
+            class="font-header mt-(--size-margin-medium) text-[2.25rem] leading-(--line-height-header) font-bold text-clr-palette-white md:text-[2.75rem] lg:w-4/5"
           >
             <a class="no-underline hover:underline" href={`/post/${post.slug}`}>
               {post.data.title}
             </a>
           </h1>
           <p
-            class="my-[var(--size-margin-medium)] text-sm leading-[var(--line-height-text)] text-clr-palette-white md:mt-[var(--size-margin-large)] lg:w-4/5"
+            class="my-(--size-margin-medium) text-sm leading-(--line-height-text) text-clr-palette-white md:mt-(--size-margin-large) lg:w-4/5"
           >
             {post.data.subtitle}...{" "}
             <a class="underline" href={`/post/${post.slug}`} title={post.data.title}
               >read full post</a
             >
           </p>
-          <div
-            class="flex items-center gap-[var(--size-margin-x-small)] text-sm text-clr-palette-white"
-          >
+          <div class="flex items-center gap-(--size-margin-x-small) text-sm text-clr-palette-white">
             <Avatar size="small" src={author.profilePicture} />
             <div>
               <a class="font-bold" href={`/author/${author.id}`}> {author.name}</a>
