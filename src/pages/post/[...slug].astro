@@ -47,7 +47,9 @@ const author = getAuthorData(entry.data.author);
           height={640}
           width={860}
         />
-        <div class="pointer-events-none absolute inset-0 hidden bg-black/40 transition dark:block">
+        <div
+          class="pointer-events-none absolute inset-0 bg-transparent transition dark:bg-black/40"
+        >
         </div>
       </div>
     </header>
@@ -91,18 +93,18 @@ const author = getAuthorData(entry.data.author);
       </div>
 
       <h1
-        class="font-header mb-4 text-[2.25rem] leading-[var(--line-height-header)] font-bold text-clr-header md:mb-6 md:text-[2.75rem]"
+        class="font-header mt-6 mb-4 text-[2.25rem] leading-[var(--line-height-header)] font-bold text-clr-header md:mb-6 md:mt-8 md:text-[2.75rem]"
       >
         {entry.data.title}
       </h1>
       <div class="mb-10 text-base leading-[var(--line-height-text)]">
         By{" "}
-        <a href={`/author/${author.id}`}>
+        <a class="underline" href={`/author/${author.id}`}>
           {author.name}
         </a>
       </div>
       <article
-        class="text-base leading-[var(--line-height-text)] text-clr-text [&_blockquote]:mb-10 [&_blockquote]:border-l-[0.4rem] [&_blockquote]:border-l-foreground [&_blockquote]:px-4 [&_blockquote]:py-3 [&_blockquote]:italic [&_h2]:mb-2 [&_h2]:font-header [&_h2]:text-[1.75rem] [&_h2]:leading-[var(--line-height-header)] [&_h2]:font-bold [&_h2]:text-clr-header [&_h3]:mb-2 [&_h3]:font-header [&_h3]:text-[1.375rem] [&_h3]:leading-[var(--line-height-header)] [&_h3]:font-bold [&_h3]:text-clr-header [&_h4]:mb-2 [&_h4]:font-header [&_h4]:text-[1.125rem] [&_h4]:leading-[var(--line-height-header)] [&_h4]:font-bold [&_h4]:text-clr-header [&_img]:w-full [&_li]:mb-2 [&_p:last-child]:mb-0 [&_p]:mb-10 [&_pre]:mt-0 [&_pre]:mb-10 [&_pre]:rounded [&_pre]:text-base [&_ul_ul]:mb-0 [&_ul]:mb-10"
+        class="text-base leading-[var(--line-height-text)] text-clr-text [&_a]:underline [&_blockquote]:mb-10 [&_blockquote]:border-l-[0.4rem] [&_blockquote]:border-l-foreground [&_blockquote]:px-4 [&_blockquote]:py-3 [&_blockquote]:italic [&_h2]:mb-2 [&_h2]:font-header [&_h2]:text-[1.75rem] [&_h2]:leading-[var(--line-height-header)] [&_h2]:font-bold [&_h2]:text-clr-header [&_h3]:mb-2 [&_h3]:font-header [&_h3]:text-[1.375rem] [&_h3]:leading-[var(--line-height-header)] [&_h3]:font-bold [&_h3]:text-clr-header [&_h4]:mb-2 [&_h4]:font-header [&_h4]:text-[1.125rem] [&_h4]:leading-[var(--line-height-header)] [&_h4]:font-bold [&_h4]:text-clr-header [&_img]:w-full [&_img]:transition [&_img]:dark:brightness-75 [&_li]:mb-2 [&_p:last-child]:mb-0 [&_p]:mb-10 [&_pre]:mt-0 [&_pre]:mb-10 [&_pre]:rounded [&_pre]:text-base [&_ul_ul]:mb-0 [&_ul]:mb-10"
       >
         <Content />
       </article>
@@ -112,7 +114,9 @@ const author = getAuthorData(entry.data.author);
             <p>
               <em>
                 Originally published at{" "}
-                <a href={entry.data.canonical}>{new URL(entry.data.canonical).hostname}</a>
+                <a class="underline" href={entry.data.canonical}>
+                  {new URL(entry.data.canonical).hostname}
+                </a>
               </em>
             </p>
           )
