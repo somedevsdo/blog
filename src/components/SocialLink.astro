@@ -42,34 +42,18 @@ const icon =
 ---
 
 <a
-  class={`link ${circled && "circle"}`}
+  class:list={[
+    "inline-block text-[0]",
+    circled &&
+      "rounded-full bg-clr-palette-perfume p-[var(--size-padding-small)] text-clr-palette-ebony-clay",
+  ]}
   href={link}
   aria-label={`Visit ${title} page`}
   title={`Visit ${title} page`}
 >
-  <Icon class="icon" name={icon} aria-hidden="true" />
+  <Icon
+    class:list={["h-6 w-6", circled && "h-[1.125rem] w-[1.125rem]"]}
+    name={icon}
+    aria-hidden="true"
+  />
 </a>
-
-<style>
-  .link {
-    display: inline-block;
-    font-size: 0;
-  }
-
-  .icon {
-    height: 1.5rem;
-    width: 1.5rem;
-  }
-
-  .circle {
-    background-color: var(--clr-palette-perfume);
-    border-radius: 50%;
-    color: var(--clr-palette-ebony-clay);
-    padding: var(--size-padding-small);
-  }
-
-  .circle .icon {
-    height: 1.125rem;
-    width: 1.125rem;
-  }
-</style>

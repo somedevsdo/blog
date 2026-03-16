@@ -2,9 +2,15 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<button id="theme-button" title="Toggle dark mode" aria-label="Toggle dark mode" type="button">
-  <Icon class="icon moon" name="bi:moon-stars-fill" aria-hidden="true" />
-  <Icon class="icon sun" name="bi:sun-fill" aria-hidden="true" />
+<button
+  id="theme-button"
+  class="cursor-pointer rounded bg-transparent p-[var(--size-padding-x-small)] text-white"
+  title="Toggle dark mode"
+  aria-label="Toggle dark mode"
+  type="button"
+>
+  <Icon class="h-6 w-6 dark:hidden" name="bi:moon-stars-fill" aria-hidden="true" />
+  <Icon class="hidden h-6 w-6 dark:block" name="bi:sun-fill" aria-hidden="true" />
 </button>
 
 <script>
@@ -45,33 +51,3 @@ import { Icon } from "astro-icon/components";
   const button = document.getElementById("theme-button");
   button?.addEventListener("click", toggleTheme);
 </script>
-
-<style lang="scss">
-  button {
-    background-color: transparent;
-    border: 0;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    fill: var(--clr-palette-white);
-    font-size: 0;
-    margin: 0;
-    padding: var(--size-padding-x-small);
-  }
-
-  .icon {
-    color: var(--clr-palette-white);
-    height: 1.5rem;
-    width: 1.5rem;
-  }
-
-  :global([data-theme="dark"]) .sun,
-  :global([data-theme="light"]) .moon {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-  }
-</style>
