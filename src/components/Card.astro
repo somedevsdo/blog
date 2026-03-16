@@ -21,17 +21,19 @@ const authorProfile = getAuthorData(data.author);
         height={160}
         width={680}
       />
+      <div class="pointer-events-none absolute inset-0 hidden bg-black/40 transition dark:block">
+      </div>
     </div>
     <div
       class="flex flex-1 flex-col px-[var(--size-padding-large)] pb-[var(--size-padding-x-large)] pt-6"
     >
       <span class="text-xs">
-        <span class="font-[var(--font-family-header)] font-bold uppercase">{data.category}</span>
+        <span class="font-header font-bold uppercase">{data.category}</span>
         {" - "}
         <span>{getDateFormatted(data.date.toString())}</span>
       </span>
       <h2
-        class="my-[var(--size-margin-x-small)] mb-[var(--size-margin-small)] font-[var(--font-family-header)] text-[1.375rem] font-bold leading-[var(--line-height-header)] text-clr-link group-hover:underline"
+        class="font-header my-[var(--size-margin-x-small)] mb-[var(--size-margin-small)] text-[1.375rem] font-bold leading-[var(--line-height-header)] text-clr-link group-hover:underline"
       >
         {data.title}
       </h2>

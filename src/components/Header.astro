@@ -24,7 +24,7 @@ const author = getAuthorData(post.data.author);
           <div
             class="border-b border-[#b676dd] pb-[var(--size-padding-small)] text-clr-palette-white dark:border-[#500480] lg:border-[#903ec4]"
           >
-            <span class="font-[var(--font-family-header)] text-base font-black capitalize"
+            <span class="font-header text-base font-black capitalize"
               >{post.data.category}<span class="px-4">&middot;</span></span
             >
             <span class="text-base leading-[var(--line-height-text)]"
@@ -32,7 +32,7 @@ const author = getAuthorData(post.data.author);
             >
           </div>
           <h1
-            class="mt-[var(--size-margin-medium)] font-[var(--font-family-header)] text-[2.25rem] leading-[var(--line-height-header)] font-black text-clr-palette-white md:text-[2.75rem] lg:w-4/5"
+            class="font-header mt-[var(--size-margin-medium)] text-[2.25rem] leading-[var(--line-height-header)] font-black text-clr-palette-white md:text-[2.75rem] lg:w-4/5"
           >
             <a class="no-underline hover:underline" href={`/post/${post.slug}`}>
               {post.data.title}

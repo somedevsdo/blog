@@ -3,7 +3,19 @@
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
+@theme inline {
+  --color-clr-link: var(--clr-link);
+}
+
 @layer base {
+  :root {
+    --clr-link: var(--clr-palette-seance);
+  }
+
+  [data-theme="dark"] {
+    --clr-link: var(--clr-palette-perfume);
+  }
+
   * {
     box-sizing: border-box;
   }
@@ -28,5 +40,11 @@
 
   .astro-code {
     padding: 0.75rem;
+  }
+}
+
+@layer utilities {
+  .font-header {
+    font-family: var(--font-family-header);
   }
 }
