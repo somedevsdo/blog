@@ -9,7 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --plugin=prettier-plugin-astro --write .",
-    "lint": "eslint . src && prettier --plugin=prettier-plugin-astro --check \"**/*.{ts,tsx,scss,md,astro}\"",
+    "lint": "eslint . src && stylelint \"src/**/*.{astro,css,scss}\" && prettier --plugin=prettier-plugin-astro --check \"**/*.{ts,tsx,css,scss,md,astro}\"",
     "prepare": "husky",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
@@ -37,10 +37,12 @@
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
     "rollup": "^4.59.0",
-    "sass": "^1.97.3",
-    "stylelint": "^17.4.0",
-    "stylelint-config-sass-guidelines": "^13.0.0",
+    "stylelint": "^16.24.0",
+    "stylelint-config-astro": "^1.0.0",
+    "stylelint-config-standard-scss": "^16.0.0",
+    "stylelint-config-tailwindcss": "^1.0.0",
     "stylelint-order": "^7.0.1",
+    "stylelint-scss": "^6.12.1",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.1",
@@ -51,7 +53,7 @@
       "eslint --cache --fix",
       "prettier --plugin=prettier-plugin-astro --write"
     ],
-    "*.scss": [
+    "*.{css,scss}": [
       "stylelint --fix",
       "prettier --plugin=prettier-plugin-astro --write"
     ],

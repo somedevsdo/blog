@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "@somedevsdo/tailwind";
-
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @theme inline {
@@ -21,12 +20,12 @@
   }
 
   body {
-    margin: 0;
-    padding: 0;
-    -webkit-font-smoothing: antialiased;
     background-color: var(--clr-background);
     color: var(--foreground);
     font-family: var(--font-family-text);
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
     transition: background 0.2s ease-out;
   }
 
