@@ -27,3 +27,11 @@ Run the following command to run the site for development:
 ```bash
 pnpm dev
 ```
+
+## Running tests
+
+Run end-to-end tests with Playwright:
+
+```bash
+pnpm test
+```

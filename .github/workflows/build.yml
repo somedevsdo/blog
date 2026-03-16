@@ -31,7 +31,7 @@ jobs:
       - name: Install
         run: |
           pnpm i
-          pnpx cypress install
+          pnpm exec playwright install --with-deps chromium
 
       - name: Build site
         run: |
@@ -44,17 +44,6 @@ jobs:
       - name: Lint
         run: |
           pnpm run lint
-
-      - name: Cypress (UI + Axe)
-        uses: cypress-io/github-action@v6
-        with:
-          start: pnpm start
-          wait-on: "http://localhost:4321"
-          wait-on-timeout: 180
-          # command-prefix: "percy exec --"
-          install: false
-        # env:
-        #   PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 
       - name: Create Slack message - Success
         run: |

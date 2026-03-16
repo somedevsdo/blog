@@ -21,3 +21,6 @@ pnpm-debug.log*
 .eslintcache
 
 .astro
+
+playwright-report/
+test-results/

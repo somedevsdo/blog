@@ -9,7 +9,7 @@
 
 ## Project overview
 
-- Astro-powered blog with MDX content, Svelte support, UnoCSS icons, and custom components. Config in [astro.config.mjs](astro.config.mjs).
+- Astro-powered blog with MDX content, Tailwind CSS v4 (via Vite plugin), Astro Icon, and custom components. Config in [astro.config.mjs](astro.config.mjs).
 - Package manager: pnpm (see [package.json](package.json)). Node version: v20 ([.nvmrc](.nvmrc)).
 - Typescript strict mode via [tsconfig.json](tsconfig.json); `.astro` files rely on Astro JSX types.
 
@@ -23,8 +23,8 @@
 ## Testing and QA
 
 - Lint and formatting check: `pnpm lint` (ESLint flat config + Prettier check). Auto-format: `pnpm format`.
-- Cypress E2E: `pnpm cypress:run` (headless) or `pnpm cypress:open`; base URL set to http://localhost:4321 in [cypress.config.ts](cypress.config.ts).
-- No unit test suite yet; `pnpm test` is a placeholder.
+- Playwright E2E: `pnpm test` (headless), `pnpm test:ui`, or `pnpm test:headed`; base URL and web server are configured in [playwright.config.ts](playwright.config.ts).
+- No unit test suite yet; `pnpm test` runs end-to-end browser tests.
 
 ## Code style guidelines
 
@@ -37,15 +37,15 @@
 
 - No backend; avoid introducing secrets or API keys. Do not commit env files.
 - External assets/scripts should be vetted; keep content local when possible.
-- Dependencies: watch for peer warnings when upgrading (Svelte/Vite versions, ESLint plugin ranges). Prefer minimal changes unless required.
-- For Cypress, avoid hitting real services; tests assume local site at 4321.
+- Dependencies: watch for peer warnings when upgrading (Tailwind/Vite versions, ESLint plugin ranges). Prefer minimal changes unless required.
+- For Playwright, avoid hitting real services; tests assume local site at 4321.
 
 ## Before PR checklist
 
 - `pnpm lint` (ESLint + Prettier check)
 - `pnpm format` (if needed)
 - `pnpm build`
-- `pnpm cypress:run` (headless E2E)
+- `pnpm test` (headless Playwright E2E)
 
 ## General agentic rules
 
