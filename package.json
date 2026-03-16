@@ -61,5 +61,8 @@
       "prettier --plugin=prettier-plugin-astro --write"
     ]
   },
-  "packageManager": "pnpm@8.15.0"
+  "packageManager": "pnpm@10.32.1",
+  "dependencies": {
+    "typescript-eslint": "^8.56.1"
+  }
 }
