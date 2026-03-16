@@ -30,7 +30,7 @@
 
 - ESLint flat config in [eslint.config.mjs](eslint.config.mjs) using `eslint-plugin-astro` + TypeScript parser; apply to `.astro` and TS.
 - Prettier config in [.prettierrc.mjs](.prettierrc.mjs): width 100, semi-colons on, double quotes, trailing commas `es5`.
-- SCSS stylelint rules from `stylelint-config-sass-guidelines` in [.stylelintrc](.stylelintrc).
+- Stylelint config in [.stylelintrc.mjs](.stylelintrc.mjs) using `stylelint-config-standard-scss`, `stylelint-config-astro`, and `stylelint-config-tailwindcss`.
 - Prefer pnpm scripts over ad-hoc commands; keep imports ordered by usage clarity, not necessarily alphabetic.
 
 ## Security considerations
