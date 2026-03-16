@@ -27,8 +27,8 @@ devDependencies:
     specifier: ^1.55.1
     version: 1.58.2
   '@somedevsdo/tailwind':
-    specifier: latest
-    version: 0.1.0
+    specifier: github:somedevsdo/tailwind#v1.0.0-beta.0
+    version: github.com/somedevsdo/tailwind/a761b2cc1a438cd1537ef5c98b19666d94e0097b
   '@tailwindcss/vite':
     specifier: ^4.1.13
     version: 4.2.1(vite@7.3.1)
@@ -1626,11 +1626,6 @@ packages:
 
   /@shikijs/vscode-textmate@10.0.2:
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
-    dev: true
-
-  /@somedevsdo/tailwind@0.1.0:
-    resolution: {integrity: sha512-ckOYlI7tx8tbjVtz8n8scNwJTldtrzOkOTYFg8cPxF6AQOxmsoqi2MKlFngrVXB99sFakC67qbKudiyvnkcIbw==, tarball: https://npm.pkg.github.com/download/@somedevsdo/tailwind/0.1.0/c403d67ef45e5ae9eacfa13cbb1e03804590e40e}
-    engines: {node: '>=20.0.0'}
     dev: true
 
   /@tailwindcss/node@4.2.1:
@@ -7572,4 +7567,11 @@ packages:
 
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
+    dev: true
+
+  github.com/somedevsdo/tailwind/a761b2cc1a438cd1537ef5c98b19666d94e0097b:
+    resolution: {tarball: https://codeload.github.com/somedevsdo/tailwind/tar.gz/a761b2cc1a438cd1537ef5c98b19666d94e0097b}
+    name: '@somedevsdo/tailwind'
+    version: 1.0.0-beta.0
+    engines: {node: '>=20.0.0'}
     dev: true
