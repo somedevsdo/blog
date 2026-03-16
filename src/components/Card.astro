@@ -11,7 +11,7 @@ const authorProfile = getAuthorData(data.author);
 
 <a href={`/post/${slug}`} class="group cursor-pointer no-underline" title={data.title}>
   <div
-    class="flex h-full w-full flex-col overflow-hidden rounded-xl bg-clr-content-background shadow-[0_1.25rem_1.875rem_rgba(0,0,0,0.15)]"
+    class="flex h-full w-full flex-col overflow-hidden rounded-xl bg-content-background shadow-[0_1.25rem_1.875rem_rgba(0,0,0,0.15)]"
   >
     <div class="relative h-40 overflow-hidden">
       <Image
@@ -24,29 +24,29 @@ const authorProfile = getAuthorData(data.author);
       <div class="pointer-events-none absolute inset-0 hidden bg-black/40 transition dark:block">
       </div>
     </div>
-    <div class="flex flex-1 flex-col px-(--size-padding-large) pb-(--size-padding-x-large) pt-6">
+    <div class="flex flex-1 flex-col px-4 pb-5 pt-6">
       <span class="text-xs">
         <span class="font-header font-bold uppercase">{data.category}</span>
         {" - "}
         <span>{getDateFormatted(data.date.toString())}</span>
       </span>
       <h2
-        class="font-header my-(--size-margin-x-small) mb-(--size-margin-small) text-[1.375rem] font-bold leading-(--line-height-header) text-clr-link group-hover:underline"
+        class="font-header my-2 mb-4 text-[1.375rem] font-bold leading-(--line-height-header) text-link group-hover:underline"
       >
         {data.title}
       </h2>
       <p
-        class="mb-(--size-margin-small) flex-1 border-b border-clr-background pb-(--size-padding-x-large) text-sm leading-(--line-height-text) text-clr-text"
+        class="mb-4 flex-1 border-b border-primary-background pb-5 text-sm leading-(--line-height-text) text-primary-text"
       >
         {subtitleTrimmed}...
       </p>
-      <div class="flex gap-(--size-margin-x-small)">
+      <div class="flex gap-2">
         <Avatar size="x-small" src={authorProfile.profilePicture} />
         <div>
-          <div class="text-sm leading-(--line-height-text) font-bold text-clr-header">
+          <div class="text-sm leading-(--line-height-text) font-bold text-header">
             {authorProfile.name}
           </div>
-          <div class="text-xs leading-(--line-height-text) text-clr-text">
+          <div class="text-xs leading-(--line-height-text) text-primary-text">
             {authorProfile.role}
           </div>
         </div>

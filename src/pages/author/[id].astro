@@ -36,24 +36,22 @@ const filteredPosts = () => {
   <main>
     <article>
       <div
-        class="relative mx-(--size-margin-large) mb-20 mt-29 rounded-2xl bg-clr-content-background px-8 pb-10 pt-21 text-center md:mx-16 md:mt-45 md:px-14 md:pb-14 lg:mx-auto lg:max-w-221"
+        class="relative mx-8 mb-20 mt-29 rounded-2xl bg-content-background px-8 pb-10 pt-21 text-center md:mx-16 md:mt-45 md:px-14 md:pb-14 lg:mx-auto lg:max-w-221"
       >
         <div class="absolute -top-15 left-0 flex w-full justify-center">
           {author.profilePicture ? <Avatar src={author.profilePicture} /> : ""}
         </div>
         <h1
-          class="font-header m-0 text-[1.75rem] leading-(--line-height-header) font-bold text-clr-header md:text-[2.75rem]"
+          class="font-header m-0 text-[1.75rem] leading-(--line-height-header) font-bold text-header md:text-[2.75rem]"
         >
           {author.name}
         </h1>
-        <h2
-          class="mb-(--size-margin-large) mt-(--size-margin-small) text-[1.125rem] leading-(--line-height-text) text-clr-header md:mb-12"
-        >
+        <h2 class="mb-8 mt-4 text-[1.125rem] leading-(--line-height-text) text-header md:mb-12">
           {author.role}
         </h2>
         {
           author.social && (
-            <ul class="mb-12 flex list-none justify-center gap-(--size-margin-small) p-0">
+            <ul class="mb-12 flex list-none justify-center gap-4 p-0">
               {author.social.map((link) => (
                 <li>
                   <SocialLink link={link} />
@@ -62,12 +60,12 @@ const filteredPosts = () => {
             </ul>
           )
         }
-        <div class="text-base leading-(--line-height-text) text-clr-text md:text-[1.125rem]">
+        <div class="text-base leading-(--line-height-text) text-primary-text md:text-[1.125rem]">
           {author.summary}
         </div>
       </div>
       <h2
-        class="font-header mb-(--size-margin-large) mt-20 text-center text-[1.375rem] leading-(--line-height-header) font-bold text-clr-header md:mt-23.5 md:text-[2.25rem]"
+        class="font-header mb-8 mt-20 text-center text-[1.375rem] leading-(--line-height-header) font-bold text-header md:mt-23.5 md:text-[2.25rem]"
       >
         Latest posts
       </h2>
@@ -82,7 +80,7 @@ const filteredPosts = () => {
               ))}
             </CardGrid>
           ) : (
-            <div class="text-center text-base leading-(--line-height-text) text-clr-text">
+            <div class="text-center text-base leading-(--line-height-text) text-primary-text">
               No posts yet
             </div>
           )

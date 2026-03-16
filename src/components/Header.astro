@@ -18,11 +18,11 @@ const author = getAuthorData(post.data.author);
   <div
     class="bg-[linear-gradient(278.59deg,#c291e1_1.21%,#5b0a91_92.25%)] px-8 py-8 [clip-path:polygon(0_0,100%_0,100%_96%,0_100%)] dark:bg-[linear-gradient(278.59deg,#520483_1.21%,#12001e_92.25%)] md:px-14 lg:flex lg:justify-center lg:px-0"
   >
-    <div class="w-full lg:max-w-300 lg:px-(--size-margin-large)">
-      <div class="items-stretch gap-(--size-margin-large) lg:flex">
+    <div class="w-full lg:max-w-300 lg:px-8">
+      <div class="items-stretch gap-8 lg:flex">
         <div class="w-[85%]">
           <div
-            class="border-b border-[#b676dd] pb-(--size-padding-small) text-clr-palette-white dark:border-[#500480] lg:border-[#903ec4]"
+            class="border-b border-[#b676dd] pb-2 text-white dark:border-[#500480] lg:border-[#903ec4]"
           >
             <span class="font-header text-base font-black capitalize"
               >{post.data.category}<span class="px-4">&middot;</span></span
@@ -32,21 +32,19 @@ const author = getAuthorData(post.data.author);
             >
           </div>
           <h1
-            class="font-header mt-(--size-margin-medium) text-[2.25rem] leading-(--line-height-header) font-black text-clr-palette-white md:text-[2.75rem] lg:w-4/5"
+            class="font-header mt-6 text-[2.25rem] leading-(--line-height-header) font-black text-white md:text-[2.75rem] lg:w-4/5"
           >
             <a class="no-underline hover:underline" href={`/post/${post.slug}`}>
               {post.data.title}
             </a>
           </h1>
-          <p
-            class="my-(--size-margin-medium) text-sm leading-(--line-height-text) text-clr-palette-white md:mt-(--size-margin-large) lg:w-4/5"
-          >
+          <p class="my-6 text-sm leading-(--line-height-text) text-white md:mt-8 lg:w-4/5">
             {post.data.subtitle}...{" "}
             <a class="underline" href={`/post/${post.slug}`} title={post.data.title}
               >read full post</a
             >
           </p>
-          <div class="flex items-center gap-(--size-margin-x-small) text-sm text-clr-palette-white">
+          <div class="flex items-center gap-2 text-sm text-white">
             <Avatar size="small" src={author.profilePicture} />
             <div>
               <a class="font-bold" href={`/author/${author.id}`}> {author.name}</a>
