@@ -1,0 +1,77 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<button id="theme-button" title="Toggle dark mode" aria-label="Toggle dark mode" type="button">
+  <Icon class="icon moon" name="bi:moon-stars-fill" aria-hidden="true" />
+  <Icon class="icon sun" name="bi:sun-fill" aria-hidden="true" />
+</button>
+
+<script>
+  const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const getTheme = () => {
+    const defaultTheme = darkModeQuery.matches ? "dark" : "light";
+    const localTheme = localStorage.getItem("theme");
+    return localTheme === "dark" || localTheme === "light" ? localTheme : defaultTheme;
+  };
+
+  const applyTheme = () => {
+    const theme = getTheme();
+    document.documentElement.setAttribute("data-theme", theme);
+    document.documentElement.style.setProperty("color-scheme", theme);
+
+    const button = document.getElementById("theme-button");
+    if (button) {
+      const title = theme === "dark" ? "Toggle light mode" : "Toggle dark mode";
+      button.setAttribute("title", title);
+      button.setAttribute("aria-label", title);
+    }
+  };
+
+  const toggleTheme = () => {
+    const nextTheme = getTheme() === "light" ? "dark" : "light";
+    localStorage.setItem("theme", nextTheme);
+    applyTheme();
+  };
+
+  applyTheme();
+  darkModeQuery.addEventListener("change", (event) => {
+    const nextTheme = event.matches ? "dark" : "light";
+    localStorage.setItem("theme", nextTheme);
+    applyTheme();
+  });
+
+  const button = document.getElementById("theme-button");
+  button?.addEventListener("click", toggleTheme);
+</script>
+
+<style lang="scss">
+  button {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    fill: var(--clr-palette-white);
+    font-size: 0;
+    margin: 0;
+    padding: var(--size-padding-x-small);
+  }
+
+  .icon {
+    color: var(--clr-palette-white);
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  [data-theme="dark"] .sun,
+  [data-theme="light"] .moon {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+</style>
