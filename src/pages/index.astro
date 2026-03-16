@@ -6,6 +6,10 @@ import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 
 const allPosts = await getCollection("post");
+const sortedPosts = [...allPosts].sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+const postsForGrid = sortedPosts.slice(1);
 ---
 
 <Layout>
@@ -14,7 +18,7 @@ const allPosts = await getCollection("post");
     <section>
       <CardGrid data-testid="posts">
         {
-          allPosts.map((p) => (
+          postsForGrid.map((p) => (
             <li>
               <Card post={p} />
             </li>

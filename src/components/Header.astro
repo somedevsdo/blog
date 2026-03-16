@@ -6,7 +6,10 @@ import getDateFormatted from "../lib/date";
 import Avatar from "./Avatar.astro";
 
 const allPosts = await getCollection("post");
-const post = allPosts[allPosts.length - 1];
+const sortedPosts = [...allPosts].sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+const post = sortedPosts[0];
 
 const author = getAuthorData(post.data.author);
 ---
