@@ -1,2 +1,32 @@
 @import "tailwindcss";
 @import "@somedevsdo/tailwind";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--clr-background);
+    color: var(--foreground);
+    font-family: var(--font-family-text);
+    transition: background 0.2s ease-out;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .astro-code {
+    padding: 0.75rem;
+  }
+}

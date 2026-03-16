@@ -4,18 +4,6 @@ import { Image } from "astro:assets";
 const props = Astro.props;
 ---
 
-<div class="image">
-  <Image alt={props.alt} src={props.src} />
+<div class="w-full pb-10">
+  <Image class="block h-auto" alt={props.alt} src={props.src} />
 </div>
-
-<style>
-  .image {
-    width: 100%;
-    padding-bottom: 2.5rem;
-  }
-
-  img {
-    height: auto;
-    display: block;
-  }
-</style>

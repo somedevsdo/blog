@@ -1,32 +1,5 @@
-<ul class="cards">
+<ul
+  class="mx-[var(--size-margin-large)] my-[var(--size-margin-x-large)] mb-20 grid list-none gap-y-[var(--size-margin-x-large)] p-0 md:mb-24 md:mt-12 md:grid-cols-2 md:gap-x-[var(--size-margin-large)] md:gap-y-12 lg:mx-auto lg:mb-40 lg:mt-20 lg:max-w-[1200px] lg:grid-cols-3 lg:px-8"
+>
   <slot />
 </ul>
-
-<style>
-  .cards {
-    display: grid;
-    list-style-type: none;
-    margin: var(--size-margin-x-large) var(--size-margin-large) 5rem;
-    padding: 0;
-    row-gap: var(--size-margin-x-large);
-  }
-
-  @media (min-width: 768px) {
-    .cards {
-      column-gap: var(--size-margin-large);
-      grid-template-columns: 1fr 1fr;
-      margin-bottom: 6rem;
-      margin-top: 3rem;
-      row-gap: 3rem;
-    }
-  }
-
-  @media (min-width: 992px) {
-    .cards {
-      grid-template-columns: 1fr 1fr 1fr;
-      margin: 5rem auto 10rem;
-      max-width: 1200px;
-      padding: 0 2rem;
-    }
-  }
-</style>

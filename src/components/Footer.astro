@@ -2,11 +2,13 @@
 import SocialLink from "./SocialLink.astro";
 ---
 
-<footer>
-  <div class="content">
+<footer
+  class="flex justify-center bg-clr-palette-ebony-clay px-4 py-10 text-center text-clr-palette-silver"
+>
+  <div class="flex flex-col items-center">
     <img alt="SOME DEVS DO" height={45} src="/logo/logo.svg" width={89} />
     <nav aria-label="Social links">
-      <ul class="social">
+      <ul class="my-8 flex list-none justify-center gap-[var(--size-margin-small)] p-0">
         <li>
           <SocialLink circled={true} link="https://x.com/somedevsdo" />
         </li>
@@ -15,41 +17,6 @@ import SocialLink from "./SocialLink.astro";
         </li>
       </ul>
     </nav>
-    <span class="copyright">&copy; {new Date().getFullYear()} somedevsdo</span>
+    <span class="text-xs/relaxed">&copy; {new Date().getFullYear()} somedevsdo</span>
   </div>
 </footer>
-
-<style>
-  footer {
-    background-color: var(--clr-palette-ebony-clay);
-    color: var(--clr-palette-silver);
-    display: flex;
-    justify-content: center;
-    padding-bottom: 2.5rem;
-    padding-top: 2.5rem;
-    text-align: center;
-  }
-
-  .content {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .logo {
-    align-self: center;
-  }
-
-  .social {
-    display: flex;
-    gap: var(--size-margin-small);
-    justify-content: center;
-    list-style-type: none;
-    margin: var(--size-margin-large) 0;
-    padding: 0;
-  }
-
-  .copyright {
-    font: var(--font-text-x-small);
-  }
-</style>
