@@ -11,22 +11,23 @@
     "format": "prettier --plugin=prettier-plugin-astro --write .",
     "lint": "eslint . src && prettier --plugin=prettier-plugin-astro --check \"**/*.{ts,tsx,scss,md,astro}\"",
     "prepare": "husky",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
-    "test": "echo \"No tests at this time\" && exit 0"
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
     "@astrojs/mdx": "^4.3.13",
-    "@astrojs/svelte": "^7.2.5",
-    "@iconify/json": "^2.2.444",
+    "@axe-core/playwright": "^4.11.0",
+    "@iconify-json/bi": "^1.2.2",
+    "@iconify-json/simple-icons": "^1.2.40",
+    "@iconify-json/teenyicons": "^1.2.2",
+    "@playwright/test": "^1.55.1",
+    "@somedevsdo/tailwind": "latest",
+    "@tailwindcss/vite": "^4.1.13",
     "@typescript-eslint/parser": "^8.56.1",
-    "@unocss/astro": "^66.6.2",
-    "@unocss/preset-icons": "^66.6.2",
     "astro": "^5.18.0",
-    "axe-core": "^4.11.1",
-    "cypress": "^15.11.0",
-    "cypress-axe": "^1.7.0",
+    "astro-icon": "^1.1.0",
     "eslint": "^10.0.2",
     "eslint-plugin-astro": "^1.6.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -40,8 +41,9 @@
     "stylelint": "^17.4.0",
     "stylelint-config-sass-guidelines": "^13.0.0",
     "stylelint-order": "^7.0.1",
-    "svelte": "^5.53.6",
+    "tailwindcss": "^4.1.13",
     "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.1",
     "vite": "^7.3.1"
   },
   "lint-staged": {
@@ -57,8 +59,5 @@
       "prettier --plugin=prettier-plugin-astro --write"
     ]
   },
-  "packageManager": "pnpm@8.15.0",
-  "dependencies": {
-    "typescript-eslint": "^8.56.1"
-  }
+  "packageManager": "pnpm@8.15.0"
 }
