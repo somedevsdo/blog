@@ -24,31 +24,29 @@ const authorProfile = getAuthorData(data.author);
       <div class="pointer-events-none absolute inset-0 hidden bg-black/40 transition dark:block">
       </div>
     </div>
-    <div
-      class="flex flex-1 flex-col px-[var(--size-padding-large)] pb-[var(--size-padding-x-large)] pt-6"
-    >
+    <div class="flex flex-1 flex-col px-(--size-padding-large) pb-(--size-padding-x-large) pt-6">
       <span class="text-xs">
         <span class="font-header font-bold uppercase">{data.category}</span>
         {" - "}
         <span>{getDateFormatted(data.date.toString())}</span>
       </span>
       <h2
-        class="font-header my-[var(--size-margin-x-small)] mb-[var(--size-margin-small)] text-[1.375rem] font-bold leading-[var(--line-height-header)] text-clr-link group-hover:underline"
+        class="font-header my-(--size-margin-x-small) mb-(--size-margin-small) text-[1.375rem] font-bold leading-(--line-height-header) text-clr-link group-hover:underline"
       >
         {data.title}
       </h2>
       <p
-        class="mb-[var(--size-margin-small)] flex-1 border-b border-clr-background pb-[var(--size-padding-x-large)] text-sm leading-[var(--line-height-text)] text-clr-text"
+        class="mb-(--size-margin-small) flex-1 border-b border-clr-background pb-(--size-padding-x-large) text-sm leading-(--line-height-text) text-clr-text"
       >
         {subtitleTrimmed}...
       </p>
-      <div class="flex gap-[var(--size-margin-x-small)]">
+      <div class="flex gap-(--size-margin-x-small)">
         <Avatar size="x-small" src={authorProfile.profilePicture} />
         <div>
-          <div class="text-sm leading-[var(--line-height-text)] font-bold text-clr-header">
+          <div class="text-sm leading-(--line-height-text) font-bold text-clr-header">
             {authorProfile.name}
           </div>
-          <div class="text-xs leading-[var(--line-height-text)] text-clr-text">
+          <div class="text-xs leading-(--line-height-text) text-clr-text">
             {authorProfile.role}
           </div>
         </div>

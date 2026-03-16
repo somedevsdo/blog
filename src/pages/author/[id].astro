@@ -30,30 +30,30 @@ const filteredPosts = () => {
 
 <Layout title={`${author.name} | somedevsdo`}>
   <div
-    class="absolute h-[400px] w-full bg-[linear-gradient(278.59deg,#c291e1_1.21%,#5b0a91_92.25%)] [clip-path:polygon(0_0,100%_0,100%_96%,0_100%)] dark:bg-[linear-gradient(278.59deg,#520483_1.21%,#12001e_92.25%)]"
+    class="absolute h-100 w-full bg-[linear-gradient(278.59deg,#c291e1_1.21%,#5b0a91_92.25%)] [clip-path:polygon(0_0,100%_0,100%_96%,0_100%)] dark:bg-[linear-gradient(278.59deg,#520483_1.21%,#12001e_92.25%)]"
   >
   </div>
   <main>
     <article>
       <div
-        class="relative mx-[var(--size-margin-large)] mb-20 mt-[116px] rounded-2xl bg-clr-content-background px-8 pb-10 pt-[84px] text-center md:mx-16 md:mt-[180px] md:px-14 md:pb-14 lg:mx-auto lg:max-w-[884px]"
+        class="relative mx-(--size-margin-large) mb-20 mt-29 rounded-2xl bg-clr-content-background px-8 pb-10 pt-21 text-center md:mx-16 md:mt-45 md:px-14 md:pb-14 lg:mx-auto lg:max-w-221"
       >
-        <div class="absolute left-0 top-[-60px] flex w-full justify-center">
+        <div class="absolute -top-15 left-0 flex w-full justify-center">
           {author.profilePicture ? <Avatar src={author.profilePicture} /> : ""}
         </div>
         <h1
-          class="font-header m-0 text-[1.75rem] leading-[var(--line-height-header)] font-bold text-clr-header md:text-[2.75rem]"
+          class="font-header m-0 text-[1.75rem] leading-(--line-height-header) font-bold text-clr-header md:text-[2.75rem]"
         >
           {author.name}
         </h1>
         <h2
-          class="mb-[var(--size-margin-large)] mt-[var(--size-margin-small)] text-[1.125rem] leading-[var(--line-height-text)] text-clr-header md:mb-12"
+          class="mb-(--size-margin-large) mt-(--size-margin-small) text-[1.125rem] leading-(--line-height-text) text-clr-header md:mb-12"
         >
           {author.role}
         </h2>
         {
           author.social && (
-            <ul class="mb-12 flex list-none justify-center gap-[var(--size-margin-small)] p-0">
+            <ul class="mb-12 flex list-none justify-center gap-(--size-margin-small) p-0">
               {author.social.map((link) => (
                 <li>
                   <SocialLink link={link} />
@@ -62,12 +62,12 @@ const filteredPosts = () => {
             </ul>
           )
         }
-        <div class="text-base leading-[var(--line-height-text)] text-clr-text md:text-[1.125rem]">
+        <div class="text-base leading-(--line-height-text) text-clr-text md:text-[1.125rem]">
           {author.summary}
         </div>
       </div>
       <h2
-        class="font-header mb-[var(--size-margin-large)] mt-20 text-center text-[1.375rem] leading-[var(--line-height-header)] font-bold text-clr-header md:mt-[94px] md:text-[2.25rem]"
+        class="font-header mb-(--size-margin-large) mt-20 text-center text-[1.375rem] leading-(--line-height-header) font-bold text-clr-header md:mt-23.5 md:text-[2.25rem]"
       >
         Latest posts
       </h2>
@@ -82,7 +82,7 @@ const filteredPosts = () => {
               ))}
             </CardGrid>
           ) : (
-            <div class="text-center text-base leading-[var(--line-height-text)] text-clr-text">
+            <div class="text-center text-base leading-(--line-height-text) text-clr-text">
               No posts yet
             </div>
           )

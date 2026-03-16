@@ -24,19 +24,19 @@ const author = getAuthorData(entry.data.author);
 
 <Layout title={entry.data.title}>
   <div
-    class="absolute h-[280px] w-full bg-[linear-gradient(278.59deg,#c291e1_1.21%,#5b0a91_92.25%)] [clip-path:polygon(0_0,100%_0,100%_96%,0_100%)] dark:bg-[linear-gradient(278.59deg,#520483_1.21%,#12001e_92.25%)] md:h-[400px] lg:h-[480px]"
+    class="absolute h-70 w-full bg-[linear-gradient(278.59deg,#c291e1_1.21%,#5b0a91_92.25%)] [clip-path:polygon(0_0,100%_0,100%_96%,0_100%)] dark:bg-[linear-gradient(278.59deg,#520483_1.21%,#12001e_92.25%)] md:h-100 lg:h-120"
   >
   </div>
-  <div class="relative mx-4 w-auto break-words md:mx-auto md:max-w-[704px] lg:max-w-[840px]">
+  <div class="relative mx-4 w-auto wrap-break-word md:mx-auto md:max-w-176 lg:max-w-210">
     <header>
       <a
-        class="my-4 mt-8 block text-sm leading-[var(--line-height-text)] font-bold text-clr-palette-white no-underline hover:underline md:mb-8 md:mt-14 lg:mt-16"
+        class="my-4 mt-8 block text-sm leading-(--line-height-text) font-bold text-clr-palette-white no-underline hover:underline md:mb-8 md:mt-14 lg:mt-16"
         href="/"
       >
         ← All posts
       </a>
       <div
-        class="relative mx-auto h-[240px] overflow-hidden rounded-[10px] bg-clr-background md:h-[380px] lg:h-[440px]"
+        class="relative mx-auto h-60 overflow-hidden rounded-2.5 bg-clr-background md:h-95 lg:h-110"
       >
         <Image
           class="h-full w-full object-cover"
@@ -53,10 +53,10 @@ const author = getAuthorData(entry.data.author);
         </div>
       </div>
     </header>
-    <main class="mx-auto my-6 mb-24 rounded-[10px] bg-clr-content-background p-6 md:px-10 md:py-8">
+    <main class="mx-auto my-6 mb-24 rounded-2.5 bg-clr-content-background p-6 md:px-10 md:py-8">
       <div class="md:flex md:items-center md:justify-between">
         <ul
-          class="mb-[var(--size-margin-small)] flex list-none justify-center gap-[var(--size-margin-small)] border-b border-clr-background p-0 pb-[var(--size-padding-small)] md:order-2 md:mb-0 md:border-0 md:pb-0"
+          class="mb-(--size-margin-small) flex list-none justify-center gap-(--size-margin-small) border-b border-clr-background p-0 pb-(--size-padding-small) md:order-2 md:mb-0 md:border-0 md:pb-0"
         >
           <li class="mb-0 md:leading-none">
             <a
@@ -81,30 +81,29 @@ const author = getAuthorData(entry.data.author);
           </li>
         </ul>
 
-        <div class="mb-[var(--size-margin-large)] md:order-1 md:mb-0">
+        <div class="mb-(--size-margin-large) md:order-1 md:mb-0">
           <span class="font-header text-base font-bold capitalize"
-            >{entry.data.category}<span class="px-[var(--size-padding-medium)]">&middot;</span
-            ></span
+            >{entry.data.category}<span class="px-(--size-padding-medium)">&middot;</span></span
           >
-          <span class="text-base leading-[var(--line-height-text)]"
+          <span class="text-base leading-(--line-height-text)"
             >{getDateFormatted(entry.data.date.toString())}</span
           >
         </div>
       </div>
 
       <h1
-        class="font-header mt-6 mb-4 text-[2.25rem] leading-[var(--line-height-header)] font-bold text-clr-header md:mb-6 md:mt-8 md:text-[2.75rem]"
+        class="font-header mt-6 mb-4 text-[2.25rem] leading-(--line-height-header) font-bold text-clr-header md:mb-6 md:mt-8 md:text-[2.75rem]"
       >
         {entry.data.title}
       </h1>
-      <div class="mb-10 text-base leading-[var(--line-height-text)]">
+      <div class="mb-10 text-base leading-(--line-height-text)">
         By{" "}
         <a class="underline" href={`/author/${author.id}`}>
           {author.name}
         </a>
       </div>
       <article
-        class="text-base leading-[var(--line-height-text)] text-clr-text [&_a]:underline [&_blockquote]:mb-10 [&_blockquote]:border-l-[0.4rem] [&_blockquote]:border-l-foreground [&_blockquote]:px-4 [&_blockquote]:py-3 [&_blockquote]:italic [&_h2]:mb-2 [&_h2]:font-header [&_h2]:text-[1.75rem] [&_h2]:leading-[var(--line-height-header)] [&_h2]:font-bold [&_h2]:text-clr-header [&_h3]:mb-2 [&_h3]:font-header [&_h3]:text-[1.375rem] [&_h3]:leading-[var(--line-height-header)] [&_h3]:font-bold [&_h3]:text-clr-header [&_h4]:mb-2 [&_h4]:font-header [&_h4]:text-[1.125rem] [&_h4]:leading-[var(--line-height-header)] [&_h4]:font-bold [&_h4]:text-clr-header [&_img]:w-full [&_img]:transition [&_img]:dark:brightness-75 [&_li]:mb-2 [&_p:last-child]:mb-0 [&_p]:mb-10 [&_pre]:mt-0 [&_pre]:mb-10 [&_pre]:rounded [&_pre]:text-base [&_ul_ul]:mb-0 [&_ul]:mb-10"
+        class="text-base leading-(--line-height-text) text-clr-text [&_a]:underline [&_blockquote]:mb-10 [&_blockquote]:border-l-[0.4rem] [&_blockquote]:border-l-foreground [&_blockquote]:px-4 [&_blockquote]:py-3 [&_blockquote]:italic [&_h2]:mb-2 [&_h2]:font-header [&_h2]:text-[1.75rem] [&_h2]:leading-(--line-height-header) [&_h2]:font-bold [&_h2]:text-clr-header [&_h3]:mb-2 [&_h3]:font-header [&_h3]:text-[1.375rem] [&_h3]:leading-(--line-height-header) [&_h3]:font-bold [&_h3]:text-clr-header [&_h4]:mb-2 [&_h4]:font-header [&_h4]:text-[1.125rem] [&_h4]:leading-(--line-height-header) [&_h4]:font-bold [&_h4]:text-clr-header [&_img]:w-full [&_img]:transition [&_img]:dark:brightness-75 [&_li]:mb-2 [&_p:last-child]:mb-0 [&_p]:mb-10 [&_pre]:mt-0 [&_pre]:mb-10 [&_pre]:rounded [&_pre]:text-base [&_ul_ul]:mb-0 [&_ul]:mb-10"
       >
         <Content />
       </article>
