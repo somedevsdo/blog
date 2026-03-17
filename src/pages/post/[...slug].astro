@@ -20,6 +20,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 const author = getAuthorData(entry.data.author);
+const transitionSlug = entry.slug.replaceAll("/", "-");
 ---
 
 <Layout title={entry.data.title}>
@@ -39,6 +40,7 @@ const author = getAuthorData(entry.data.author);
         class="relative mx-auto h-60 overflow-hidden rounded-2.5 bg-primary-background md:h-95 lg:h-110"
       >
         <Image
+          transition:name={`post-image-${transitionSlug}`}
           class="h-full w-full object-cover"
           alt="Featured image"
           src={import(
@@ -48,6 +50,7 @@ const author = getAuthorData(entry.data.author);
           width={860}
         />
         <div
+          transition:name={`post-image-dim-${transitionSlug}`}
           class="pointer-events-none absolute inset-0 bg-transparent transition dark:bg-black/40"
         >
         </div>
@@ -82,16 +85,21 @@ const author = getAuthorData(entry.data.author);
         </ul>
 
         <div class="mb-8 md:order-1 md:mb-0">
-          <span class="font-header text-base font-bold capitalize"
+          <span
+            transition:name={`post-category-${transitionSlug}`}
+            class="font-header text-base font-bold capitalize"
             >{entry.data.category}<span class="px-3">&middot;</span></span
           >
-          <span class="text-base leading-(--line-height-text)"
+          <span
+            transition:name={`post-date-${transitionSlug}`}
+            class="text-base leading-(--line-height-text)"
             >{getDateFormatted(entry.data.date.toString())}</span
           >
         </div>
       </div>
 
       <h1
+        transition:name={`post-title-${transitionSlug}`}
         class="font-header mt-6 mb-4 text-[2.25rem] leading-(--line-height-header) font-bold text-header md:mb-6 md:mt-8 md:text-[2.75rem]"
       >
         {entry.data.title}
