@@ -36,9 +36,19 @@ const { title = "somedevsdo" } = Astro.props as Props;
         const theme = localStorage.getItem("theme") || defaultTheme;
         document.documentElement.setAttribute("data-theme", theme);
         document.documentElement.style.setProperty("color-scheme", theme);
+        return theme;
+      };
+
+      const applyThemeToDocument = (doc, theme) => {
+        doc.documentElement.setAttribute("data-theme", theme);
+        doc.documentElement.style.setProperty("color-scheme", theme);
       };
 
       applyTheme();
+      document.addEventListener("astro:before-swap", (event) => {
+        const theme = applyTheme();
+        applyThemeToDocument(event.newDocument, theme);
+      });
       document.addEventListener("astro:after-swap", applyTheme);
       document.addEventListener("astro:page-load", applyTheme);
     </script>
