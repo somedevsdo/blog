@@ -1,0 +1,5 @@
+# Expose Astro dependencies for `pnpm` users
+shamefully-hoist=true
+always-auth=true
+@somedevsdo:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GH_TOKEN}
