@@ -30,8 +30,8 @@ importers:
         specifier: ^1.55.1
         version: 1.58.2
       '@somedevsdo/tailwind':
-        specifier: 1.0.0-beta.0
-        version: 1.0.0-beta.0
+        specifier: 1.0.0
+        version: 1.0.0
       '@tailwindcss/vite':
         specifier: ^4.1.13
         version: 4.2.1(vite@7.3.1(@types/node@25.4.0)(jiti@2.6.1)(lightningcss@1.31.1)(yaml@2.8.2))
@@ -999,8 +999,8 @@ packages:
   '@shikijs/vscode-textmate@10.0.2':
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
 
-  '@somedevsdo/tailwind@1.0.0-beta.0':
-    resolution: {integrity: sha512-YRs3CItZUBiglXGYymsBlG2HD+pD1zRSzisMqGGtjvq92mbXgeGXPthMVCm1snvknkL0c0wISFGJhWirctlpAg==, tarball: https://npm.pkg.github.com/download/@somedevsdo/tailwind/1.0.0-beta.0/cf24947b935e8b4b884e6fc5193271a4fe5c806a}
+  '@somedevsdo/tailwind@1.0.0':
+    resolution: {integrity: sha512-weDDSWwPrWHFF4zAv+hL8ZXxP5gKCyhhu8VH9y5WYT/PVTo0Xg//Z9ivtWXd4/9K1d0uSIA2d0VxwgqPVl654Q==, tarball: https://npm.pkg.github.com/download/@somedevsdo/tailwind/1.0.0/76e381d0ef6bcf0e894627392c35393131b2acb4}
     engines: {node: '>=20.0.0'}
 
   '@tailwindcss/node@4.2.1':
@@ -4671,7 +4671,7 @@ snapshots:
 
   '@shikijs/vscode-textmate@10.0.2': {}
 
-  '@somedevsdo/tailwind@1.0.0-beta.0': {}
+  '@somedevsdo/tailwind@1.0.0': {}
 
   '@tailwindcss/node@4.2.1':
     dependencies:
