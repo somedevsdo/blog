@@ -3,3 +3,5 @@ packages:
 
 # 7200 minutes = 5 days
 minimumReleaseAge: 7200
+minimumReleaseAgeExclude:
+  - "@somedevsdo/*"
