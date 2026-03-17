@@ -41,13 +41,26 @@ import { Icon } from "astro-icon/components";
     applyTheme();
   };
 
-  applyTheme();
-  darkModeQuery.addEventListener("change", (event) => {
-    const nextTheme = event.matches ? "dark" : "light";
-    localStorage.setItem("theme", nextTheme);
+  const setupThemeButton = () => {
     applyTheme();
-  });
+    const button = document.getElementById("theme-button");
+    if (button) {
+      button.onclick = toggleTheme;
+    }
+  };
 
-  const button = document.getElementById("theme-button");
-  button?.addEventListener("click", toggleTheme);
+  if (!document.documentElement.dataset.themeMediaListenerBound) {
+    darkModeQuery.addEventListener("change", (event) => {
+      const nextTheme = event.matches ? "dark" : "light";
+      localStorage.setItem("theme", nextTheme);
+      applyTheme();
+    });
+    document.documentElement.dataset.themeMediaListenerBound = "true";
+  }
+
+  setupThemeButton();
+  if (!document.documentElement.dataset.themePageLoadListenerBound) {
+    document.addEventListener("astro:page-load", setupThemeButton);
+    document.documentElement.dataset.themePageLoadListenerBound = "true";
+  }
 </script>
