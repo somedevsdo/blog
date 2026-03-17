@@ -56,7 +56,10 @@ const transitionSlug = entry.slug.replaceAll("/", "-");
         </div>
       </div>
     </header>
-    <main class="mx-auto my-6 mb-24 rounded-2.5 bg-content-background p-6 md:px-10 md:py-8">
+    <main
+      transition:name={`post-surface-${transitionSlug}`}
+      class="mx-auto my-6 mb-24 rounded-2.5 bg-content-background p-6 md:px-10 md:py-8"
+    >
       <div class="md:flex md:items-center md:justify-between">
         <ul
           class="mb-4 flex list-none justify-center gap-4 border-b border-primary-background p-0 pb-2 md:order-2 md:mb-0 md:border-0 md:pb-0"
@@ -85,21 +88,16 @@ const transitionSlug = entry.slug.replaceAll("/", "-");
         </ul>
 
         <div class="mb-8 md:order-1 md:mb-0">
-          <span
-            transition:name={`post-category-${transitionSlug}`}
-            class="font-header text-base font-bold capitalize"
+          <span class="font-header text-base font-bold capitalize"
             >{entry.data.category}<span class="px-3">&middot;</span></span
           >
-          <span
-            transition:name={`post-date-${transitionSlug}`}
-            class="text-base leading-(--line-height-text)"
+          <span class="text-base leading-(--line-height-text)"
             >{getDateFormatted(entry.data.date.toString())}</span
           >
         </div>
       </div>
 
       <h1
-        transition:name={`post-title-${transitionSlug}`}
         class="font-header mt-6 mb-4 text-[2.25rem] leading-(--line-height-header) font-bold text-header md:mb-6 md:mt-8 md:text-[2.75rem]"
       >
         {entry.data.title}

@@ -25,19 +25,14 @@ const transitionSlug = post.slug.replaceAll("/", "-");
           <div
             class="border-b border-[#b676dd] pb-2 text-white dark:border-[#500480] lg:border-[#903ec4]"
           >
-            <span
-              class="font-header text-base font-black capitalize"
-              transition:name={`post-category-${transitionSlug}`}
+            <span class="font-header text-base font-black capitalize"
               >{post.data.category}<span class="px-4">&middot;</span></span
             >
-            <span
-              transition:name={`post-date-${transitionSlug}`}
-              class="text-base leading-(--line-height-text)"
+            <span class="text-base leading-(--line-height-text)"
               >{getDateFormatted(post.data.date.toString())}</span
             >
           </div>
           <h1
-            transition:name={`post-title-${transitionSlug}`}
             class="font-header mt-6 text-[2.25rem] leading-(--line-height-header) font-black text-white md:text-[2.75rem] lg:w-4/5"
           >
             <a class="no-underline hover:underline" href={`/post/${post.slug}`}>
