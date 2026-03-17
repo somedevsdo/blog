@@ -29,6 +29,15 @@
     transition: background 0.2s ease-out;
   }
 
+  html {
+    background-color: var(--primary-background);
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    background-color: var(--primary-background);
+  }
+
   a {
     color: inherit;
   }
